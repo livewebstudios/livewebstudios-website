@@ -21,12 +21,11 @@
       <span class="label hero-headline">Est. 2004 · North Jersey · Nationwide</span>
       <h1 class="hero-headline">We Build Websites That Work.</h1>
       <p class="lead hero-subhead">23 years of web design, development, and SEO — now supercharged with AI. Fast, beautiful, high-ranking websites for businesses that refuse to blend in.</p>
-      <div class="hero-cta" style="display:flex; flex-wrap:wrap; gap:1rem; margin-top: var(--space-md);">
+      <div class="hero-cta">
         <a href="portfolio.html" class="btn-primary">See Our Work <span class="btn-arrow">→</span></a>
         <a href="contact.html" class="btn-secondary">Start a Project</a>
-      
-<img src="images/clutch2.png" alt="Rated on Clutch" class="clutch-badge">
-</div>
+        <img src="images/clutch2.png" alt="Rated on Clutch" class="clutch-badge">
+      </div>
     </div>
     <div class="hero-illustration">
       <video class="home-hero-video" autoplay muted loop playsinline preload="auto" aria-label="Live Web Studios">
@@ -109,9 +108,9 @@
       <h2 class="section-heading">The LWS Family of Companies</h2>
     </div>
     <div class="grid grid-3">
-      <article class="feature-card"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="tag">You're Here</span><h3 style="margin-top:0.75rem;">Live Web Studios</h3><p>Full-service web &amp; AI agency. Design, development, hosting, SEO, and AI business services.</p></article>
-      <article class="feature-card"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="tag">Sister Co.</span><h3 style="margin-top:0.75rem;">Live Web Photos</h3><p>AI bulk image manipulation for real estate, e-commerce, and professionals.</p><a href="ecosystem/live-web-photos.html" class="link-arrow">Visit <span class="arrow">→</span></a></article>
-      <article class="feature-card"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="tag">Sister Co.</span><h3 style="margin-top:0.75rem;">Live AI Studios</h3><p>Enterprise AI consulting, workflow design, and team training.</p><a href="ecosystem/live-ai-studios.html" class="link-arrow">Visit <span class="arrow">→</span></a></article>
+      <article class="feature-card"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="tag">You're Here</span><h3>Live Web Studios</h3><p>Full-service web &amp; AI agency. Design, development, hosting, SEO, and AI business services.</p></article>
+      <article class="feature-card"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="tag">Sister Co.</span><h3>Live Web Photos</h3><p>AI bulk image manipulation for real estate, e-commerce, and professionals.</p><a href="ecosystem/live-web-photos.html" class="link-arrow">Visit <span class="arrow">→</span></a></article>
+      <article class="feature-card"><svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" width="28" height="28" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span class="tag">Sister Co.</span><h3>Live AI Studios</h3><p>Enterprise AI consulting, workflow design, and team training.</p><a href="ecosystem/live-ai-studios.html" class="link-arrow">Visit <span class="arrow">→</span></a></article>
     </div>
   </div>
 </section>
@@ -146,7 +145,7 @@
       <h4>Contact</h4>
       <ul><li><a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a></li><li><a href="tel:7328019611">732.801.9611</a></li><li>Saddle Brook, NJ</li></ul>
       <img src="images/lwsface.png" alt="Jon Wolf – Live Web Studios" class="lws-face" loading="lazy">
-      <p style="margin-top: 1rem;"><a href="about.html">About</a> · <a href="portfolio.html">Portfolio</a> · <a href="blog.html">Blog</a></p>
+      <p class="mt-sm"><a href="about.html">About</a> · <a href="portfolio.html">Portfolio</a> · <a href="blog.html">Blog</a></p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -156,6 +155,18 @@
   </div>
 </div>
 </footer>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
 <script src="js/nav.js"></script>
 <script src="js/animations.js"></script>
 </body></html>
