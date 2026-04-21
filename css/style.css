@@ -1183,6 +1183,11 @@ body[data-page="404"] .page-recovery .section-subhead {
   padding-bottom: 20px;
   padding-top: 2px;
 }
+/* Services + Industries FAQ: answer text off the inset bar and card edge */
+.section--faq .faq-item.is-open .faq-answer {
+  padding-left: clamp(0.85rem, 2.8vw, 1.4rem);
+  padding-right: clamp(0.9rem, 3vw, 1.5rem);
+}
 
 @keyframes faq-answer-line-in {
   from {
@@ -1276,6 +1281,9 @@ body[data-page="404"] .page-recovery .section-subhead {
   border-bottom-color: rgba(0, 153, 204, 0.2);
   background: linear-gradient(90deg, rgba(0, 153, 204, 0.07) 0%, rgba(255, 255, 255, 0) 38%);
   box-shadow: inset 3px 0 0 0 var(--blue);
+}
+.section--faq .faq-item.is-open .faq-question {
+  padding-inline: clamp(0.35rem, 1.2vw, 0.65rem);
 }
 .section--faq .faq-answer p {
   margin: 0;
