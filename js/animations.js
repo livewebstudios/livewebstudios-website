@@ -10,12 +10,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  document.querySelectorAll('.faq-question').forEach((btn) => {
+  /* ---- FAQ: multi-open accordion, ARIA, expand/collapse all ---- */
+  function syncFaqItemState(item, open) {
+    const btn = item.querySelector('.faq-question');
+    if (btn) btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    item.classList.toggle('is-open', open);
+  }
+
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const btn = item.querySelector('.faq-question');
+    const panel = item.querySelector('.faq-answer');
+    if (!btn || !panel) return;
+
+    if (!panel.id) {
+      panel.id = `faq-panel-${Math.random().toString(36).slice(2, 11)}`;
+    }
+    if (!btn.getAttribute('aria-controls')) {
+      btn.setAttribute('aria-controls', panel.id);
+    }
+    if (!btn.id) {
+      btn.id = `faq-q-${Math.random().toString(36).slice(2, 11)}`;
+    }
+    panel.setAttribute('role', 'region');
+    panel.setAttribute('aria-labelledby', btn.id);
+
+    const initiallyOpen = item.classList.contains('is-open');
+    btn.setAttribute('aria-expanded', initiallyOpen ? 'true' : 'false');
+
     btn.addEventListener('click', () => {
-      const item = btn.closest('.faq-item');
-      const isOpen = item.classList.contains('is-open');
-      document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('is-open'));
-      if (!isOpen) item.classList.add('is-open');
+      const willOpen = !item.classList.contains('is-open');
+      syncFaqItemState(item, willOpen);
+    });
+  });
+
+  document.querySelectorAll('.faq-toolbar').forEach((toolbar) => {
+    const stack = toolbar.nextElementSibling;
+    if (!stack || !stack.classList.contains('faq-stack')) return;
+
+    const expandBtn = toolbar.querySelector('[data-faq-expand-all]');
+    const collapseBtn = toolbar.querySelector('[data-faq-collapse-all]');
+
+    expandBtn?.addEventListener('click', () => {
+      stack.querySelectorAll('.faq-item').forEach((item) => syncFaqItemState(item, true));
+    });
+    collapseBtn?.addEventListener('click', () => {
+      stack.querySelectorAll('.faq-item').forEach((item) => syncFaqItemState(item, false));
     });
   });
 
