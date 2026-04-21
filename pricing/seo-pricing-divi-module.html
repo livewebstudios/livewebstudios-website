@@ -1,0 +1,620 @@
+<!--
+  ================================================================
+  LWS SEO & AI-Powered Marketing Services — Pricing Page
+  FOR WORDPRESS / DIVI: Paste into a Divi Code Module
+  Self-contained: all CSS is scoped under .lws-pricing-wrap
+  No JS dependencies. No external font imports needed.
+  Fonts fall back to the site's existing stack.
+  ================================================================
+-->
+
+<style>
+/* ══════════════════════════════════════════════════════
+   SCOPED CSS — all classes prefixed .lws-pricing-
+   Safe to paste into Divi without conflicting
+   ══════════════════════════════════════════════════════ */
+
+.lws-pricing-wrap * { box-sizing: border-box; }
+.lws-pricing-wrap {
+  font-family: inherit;
+  color: #334155;
+  line-height: 1.6;
+}
+
+/* ── Hero ── */
+.lws-hero {
+  background: #F2F4F7;
+  padding: 5rem 2rem 4rem;
+  text-align: center;
+}
+.lws-hero-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5BA4CF;
+  background: rgba(91,164,207,0.1);
+  padding: 0.3rem 0.8rem;
+  border-radius: 100px;
+  margin-bottom: 1rem;
+}
+.lws-hero h1 {
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #1A202C;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+  letter-spacing: -0.02em;
+}
+.lws-hero-tagline {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2D6A9F;
+  margin-bottom: 1rem;
+}
+.lws-hero p {
+  max-width: 65ch;
+  margin: 0 auto 2rem;
+  font-size: 1rem;
+  color: #334155;
+}
+.lws-hero-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* ── Buttons ── */
+.lws-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #5BA4CF;
+  color: #fff !important;
+  text-decoration: none;
+  padding: 0.75rem 1.75rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.15s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+.lws-btn-primary:hover { background: #2D6A9F; transform: translateY(-1px); }
+.lws-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  color: #1A202C !important;
+  text-decoration: none;
+  padding: 0.73rem 1.75rem;
+  border-radius: 100px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1.5px solid #CBD5E1;
+  transition: border-color 0.15s ease, color 0.15s ease;
+  cursor: pointer;
+}
+.lws-btn-outline:hover { border-color: #5BA4CF; color: #5BA4CF !important; }
+
+/* ── Section layout ── */
+.lws-section {
+  padding: 4rem 2rem;
+}
+.lws-section--alt { background: #F2F4F7; }
+.lws-inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.lws-section-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #5BA4CF;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.lws-section h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #1A202C;
+  text-align: center;
+  margin: 0 0 0.75rem;
+  letter-spacing: -0.01em;
+}
+.lws-section-sub {
+  text-align: center;
+  color: #334155;
+  max-width: 55ch;
+  margin: 0 auto 3rem;
+  font-size: 1rem;
+}
+
+/* ── Pricing cards ── */
+.lws-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (max-width: 900px) { .lws-tiers { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; } }
+
+.lws-tier {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.lws-tier:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.10);
+}
+.lws-tier--featured {
+  border-color: #5BA4CF;
+  transform: scale(1.025);
+  box-shadow: 0 8px 24px rgba(91,164,207,0.2);
+}
+.lws-tier--featured:hover { transform: scale(1.025) translateY(-4px); }
+
+.lws-popular {
+  position: absolute;
+  top: -1px; right: 1.25rem;
+  background: #F0A800;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.65rem 0.25rem;
+  border-radius: 0 0 7px 7px;
+}
+
+.lws-tier-head {
+  padding: 1.75rem 1.75rem 1.25rem;
+  color: #fff;
+}
+.lws-tier-head--slate { background: #64748B; }
+.lws-tier-head--blue  { background: #5BA4CF; }
+.lws-tier-head--steel { background: #2D6A9F; }
+
+.lws-tier-name {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.8;
+  margin-bottom: 0.35rem;
+}
+.lws-tier-price {
+  font-size: 2.4rem;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 0.3rem;
+}
+.lws-tier-price sub {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.8;
+  vertical-align: baseline;
+}
+.lws-tier-desc {
+  font-size: 0.82rem;
+  opacity: 0.85;
+  margin: 0;
+  font-style: italic;
+}
+
+.lws-tier-body {
+  padding: 1.25rem 1.75rem;
+  flex: 1;
+}
+.lws-tier-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.lws-tier-list li {
+  position: relative;
+  padding: 0.42rem 0 0.42rem 1.5rem;
+  font-size: 0.88rem;
+  color: #334155;
+  border-bottom: 1px solid #F1F5F9;
+  line-height: 1.45;
+}
+.lws-tier-list li::before {
+  content: '✓';
+  position: absolute; left: 0;
+  color: #4CAF50;
+  font-weight: 700;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+.lws-tier-list li.lws-inherits {
+  font-weight: 600;
+  color: #1A202C;
+  padding-left: 0;
+  font-size: 0.82rem;
+}
+.lws-tier-list li.lws-inherits::before { content: ''; }
+.lws-tier-list li:last-child { border-bottom: none; }
+
+.lws-tier-cta {
+  padding: 0 1.75rem 1.75rem;
+}
+.lws-tier-cta .lws-btn-primary {
+  width: 100%;
+  justify-content: center;
+  border-radius: 8px;
+}
+
+/* ── Add-ons ── */
+.lws-addons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+@media (max-width: 640px) { .lws-addons { grid-template-columns: 1fr; } }
+
+.lws-addon {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 1.25rem 1.25rem;
+  transition: border-color 0.18s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.lws-addon:hover { border-color: #5BA4CF; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.07); }
+
+.lws-addon-top {
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+  margin-bottom: 0.6rem;
+}
+.lws-addon-ico {
+  width: 36px; height: 36px;
+  flex-shrink: 0;
+  background: rgba(91,164,207,0.1);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.lws-addon-ico svg { width: 18px; height: 18px; color: #5BA4CF; }
+.lws-addon-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #1A202C;
+  margin: 0 0 0.2rem;
+  line-height: 1.3;
+}
+.lws-addon-price {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #5BA4CF;
+}
+.lws-addon p { font-size: 0.87rem; color: #334155; margin: 0; line-height: 1.6; }
+
+/* ── AI section ── */
+.lws-ai-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+@media (max-width: 640px) { .lws-ai-grid { grid-template-columns: 1fr; } }
+
+.lws-ai-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.lws-ai-ico {
+  width: 44px; height: 44px;
+  flex-shrink: 0;
+  background: rgba(91,164,207,0.1);
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+}
+.lws-ai-ico svg { width: 20px; height: 20px; color: #5BA4CF; }
+.lws-ai-item h3 { font-size: 0.98rem; font-weight: 700; color: #1A202C; margin: 0 0 0.3rem; }
+.lws-ai-item p { font-size: 0.88rem; color: #334155; margin: 0; line-height: 1.65; }
+
+/* ── CTA band ── */
+.lws-cta-band {
+  background: #fff;
+  border: 1px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 3.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.lws-cta-band h2 {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #1A202C;
+  margin: 0 0 0.75rem;
+}
+.lws-cta-band p { color: #334155; max-width: 50ch; margin: 0 auto 1.5rem; }
+.lws-cta-band-btns { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+.lws-email-link { color: #64748B !important; font-size: 0.9rem; text-decoration: none !important; }
+.lws-email-link:hover { color: #5BA4CF !important; }
+.lws-footnote { font-size: 0.78rem; color: #94A3B8; margin-top: 1.5rem; }
+</style>
+
+<!-- ══════════════════════════════════════════════════════
+     HTML
+     ══════════════════════════════════════════════════════ -->
+<div class="lws-pricing-wrap">
+
+  <!-- HERO -->
+  <div class="lws-hero">
+    <span class="lws-hero-label">Pricing</span>
+    <h1>SEO &amp; AI-Powered Marketing Services</h1>
+    <p class="lws-hero-tagline">Boost Visibility. Drive Traffic. Dominate AI Search. Achieve Results.</p>
+    <p>Live Web Studios delivers expert SEO and AI-optimized marketing services for small businesses across NJ and NY. From local search dominance to AI answer engine visibility, we build strategies that drive real leads — not vanity metrics.</p>
+    <div class="lws-hero-btns">
+      <a href="/contact" class="lws-btn-primary">Get Your Free Audit →</a>
+      <a href="#lws-addons" class="lws-btn-outline">View Add-Ons</a>
+    </div>
+  </div>
+
+  <!-- PRICING TIERS -->
+  <div class="lws-section" id="lws-pricing">
+    <div class="lws-inner">
+      <span class="lws-section-label">Monthly Packages</span>
+      <h2>Choose Your Growth Level</h2>
+      <p class="lws-section-sub">All packages include a 3-month minimum commitment and a free kick-off audit.</p>
+
+      <div class="lws-tiers">
+
+        <!-- STARTER -->
+        <div class="lws-tier">
+          <div class="lws-tier-head lws-tier-head--slate">
+            <span class="lws-tier-name">Starter</span>
+            <div class="lws-tier-price">$750<sub>/mo</sub></div>
+            <p class="lws-tier-desc">Essential Local SEO</p>
+          </div>
+          <div class="lws-tier-body">
+            <ul class="lws-tier-list">
+              <li>Technical SEO audit (speed, mobile, links)</li>
+              <li>5–10 local keyword targeting</li>
+              <li>Title tags &amp; meta description optimization</li>
+              <li>URL structure recommendations</li>
+              <li>Google Business Profile setup/optimization</li>
+              <li>Google Analytics &amp; Search Console setup</li>
+              <li>Basic schema markup implementation</li>
+              <li>Monthly traffic &amp; ranking report</li>
+              <li>NAP consistency audit</li>
+            </ul>
+          </div>
+          <div class="lws-tier-cta">
+            <a href="/contact" class="lws-btn-primary">Get Started →</a>
+          </div>
+        </div>
+
+        <!-- GROWTH (featured) -->
+        <div class="lws-tier lws-tier--featured">
+          <div class="lws-popular">Most Popular</div>
+          <div class="lws-tier-head lws-tier-head--blue">
+            <span class="lws-tier-name">Growth</span>
+            <div class="lws-tier-price">$1,500<sub>/mo</sub></div>
+            <p class="lws-tier-desc">Content + Local Dominance</p>
+          </div>
+          <div class="lws-tier-body">
+            <ul class="lws-tier-list">
+              <li class="lws-inherits">Everything in Starter, plus:</li>
+              <li>15–20 keywords + competitor terms</li>
+              <li>2 SEO-optimized blog posts/month</li>
+              <li>Service page optimization</li>
+              <li>Local directory &amp; citation building</li>
+              <li>Technical SEO fixes (structure, speed)</li>
+              <li>Review monitoring &amp; response strategy</li>
+              <li>Competitor ranking &amp; backlink audit</li>
+              <li>AI-ready content structuring</li>
+              <li>Enhanced monthly reporting</li>
+            </ul>
+          </div>
+          <div class="lws-tier-cta">
+            <a href="/contact" class="lws-btn-primary">Get Started →</a>
+          </div>
+        </div>
+
+        <!-- AUTHORITY -->
+        <div class="lws-tier">
+          <div class="lws-tier-head lws-tier-head--steel">
+            <span class="lws-tier-name">Authority</span>
+            <div class="lws-tier-price">$2,500<sub>/mo</sub></div>
+            <p class="lws-tier-desc">Full SEO + AI Search</p>
+          </div>
+          <div class="lws-tier-body">
+            <ul class="lws-tier-list">
+              <li class="lws-inherits">Everything in Growth, plus:</li>
+              <li>30+ keywords with long-tail targeting</li>
+              <li>4 blogs or resources/month</li>
+              <li>AI Answer Engine Optimization (AEO/GEO)</li>
+              <li>Schema markup for AI search visibility</li>
+              <li>Hyper-local targeting (neighborhoods/cities)</li>
+              <li>Citation management (50+ directories)</li>
+              <li>Quality backlink outreach &amp; acquisition</li>
+              <li>Social media content sharing</li>
+              <li>ROI analysis, conversion tracking, heatmaps</li>
+              <li>AI citation monitoring &amp; reporting</li>
+            </ul>
+          </div>
+          <div class="lws-tier-cta">
+            <a href="/contact" class="lws-btn-primary">Get Started →</a>
+          </div>
+        </div>
+
+      </div><!-- /.lws-tiers -->
+    </div>
+  </div>
+
+  <!-- ADD-ONS -->
+  <div class="lws-section lws-section--alt" id="lws-addons">
+    <div class="lws-inner">
+      <span class="lws-section-label">Add-On Services</span>
+      <h2>Customize Your Package</h2>
+      <p class="lws-section-sub">Available standalone or paired with any monthly package.</p>
+
+      <div class="lws-addons">
+
+        <div class="lws-addon">
+          <div class="lws-addon-top">
+            <div class="lws-addon-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            </div>
+            <div>
+              <p class="lws-addon-name">AI Search Visibility (AEO/GEO)</p>
+              <span class="lws-addon-price">$500–$800/mo</span>
+            </div>
+          </div>
+          <p>Optimize for ChatGPT, Google AI Overviews, Perplexity, and voice search. Schema markup, entity optimization, citation monitoring.</p>
+        </div>
+
+        <div class="lws-addon">
+          <div class="lws-addon-top">
+            <div class="lws-addon-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+            </div>
+            <div>
+              <p class="lws-addon-name">Additional Blog Content</p>
+              <span class="lws-addon-price">$250–$400/post</span>
+            </div>
+          </div>
+          <p>SEO-optimized, AI-assisted blog posts. Research, writing, on-page optimization, and publishing included.</p>
+        </div>
+
+        <div class="lws-addon">
+          <div class="lws-addon-top">
+            <div class="lws-addon-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 4s-2.8 2.2-5 3c-2-.8-4.8-3-4.8-3S9.3 6.2 7 7C4.7 6.2 2 4 2 4v7c0 5 3.8 8.7 10 10 6.2-1.3 10-5 10-10V4z"/></svg>
+            </div>
+            <div>
+              <p class="lws-addon-name">Social Media Management</p>
+              <span class="lws-addon-price">$400–$750/mo</span>
+            </div>
+          </div>
+          <p>Content creation and scheduling for Facebook, Instagram, and LinkedIn. 8–12 posts/month with engagement monitoring.</p>
+        </div>
+
+        <div class="lws-addon">
+          <div class="lws-addon-top">
+            <div class="lws-addon-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            </div>
+            <div>
+              <p class="lws-addon-name">Google Business Profile Management</p>
+              <span class="lws-addon-price">$200/mo</span>
+            </div>
+          </div>
+          <p>Weekly updates, photo uploads, review response strategy, Q&amp;A management, and post publishing.</p>
+        </div>
+
+        <div class="lws-addon">
+          <div class="lws-addon-top">
+            <div class="lws-addon-ico">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div>
+              <p class="lws-addon-name">Email Newsletter Campaign</p>
+              <span class="lws-addon-price">$300–$500/mo</span>
+            </div>
+          </div>
+          <p>Monthly HTML newsletter. Design, copywriting, list management, and performance reporting via Mailchimp.</p>
+        </div>
+
+      </div><!-- /.lws-addons -->
+    </div>
+  </div>
+
+  <!-- WHY AI SEARCH MATTERS -->
+  <div class="lws-section">
+    <div class="lws-inner">
+      <span class="lws-section-label">The New Reality</span>
+      <h2>Why AI Search Matters Now</h2>
+      <p class="lws-section-sub">The rules of search have changed. Here's what your business needs to know.</p>
+
+      <div class="lws-ai-grid">
+
+        <div class="lws-ai-item">
+          <div class="lws-ai-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </div>
+          <div>
+            <h3>AI Search Is No Longer Optional</h3>
+            <p>Over half of all searches now end without a click. Google AI Overviews, ChatGPT, and voice assistants pull answers from structured, authoritative content. If your site isn't optimized for AI, you're invisible to a growing share of customers.</p>
+          </div>
+        </div>
+
+        <div class="lws-ai-item">
+          <div class="lws-ai-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          </div>
+          <div>
+            <h3>AEO &amp; GEO Are the New SEO</h3>
+            <p>Answer Engine Optimization and Generative Engine Optimization structure your content so AI systems cite and recommend your business. Our Authority tier and AI add-on include both.</p>
+          </div>
+        </div>
+
+        <div class="lws-ai-item">
+          <div class="lws-ai-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <h3>Content Quality Over Volume</h3>
+            <p>Google and AI systems reward expertise, depth, and structured data over keyword stuffing. We focus on authoritative content that ranks AND gets cited by AI.</p>
+          </div>
+        </div>
+
+        <div class="lws-ai-item">
+          <div class="lws-ai-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div>
+            <h3>Schema Markup Is the Backbone</h3>
+            <p>Structured data tells search engines and AI exactly what your business does, where you serve, and why you're an authority. Every tier includes schema implementation.</p>
+          </div>
+        </div>
+
+        <div class="lws-ai-item">
+          <div class="lws-ai-ico">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div>
+            <h3>Local SEO Still Delivers Fastest ROI</h3>
+            <p>For NJ/NY service businesses, a fully optimized Google Business Profile drives 30–50% more calls and map clicks. That hasn't changed — it's just more competitive.</p>
+          </div>
+        </div>
+
+      </div><!-- /.lws-ai-grid -->
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="lws-section lws-section--alt">
+    <div class="lws-inner">
+      <div class="lws-cta-band">
+        <span class="lws-section-label">Let's Talk</span>
+        <h2>Ready to grow?</h2>
+        <p>Every engagement starts with a free 30-minute consultation and site audit. Let's talk about where you are and where you want to be.</p>
+        <div class="lws-cta-band-btns">
+          <a href="/contact" class="lws-btn-primary">Get Your Free Audit →</a>
+          <a href="mailto:jonwolf@livewebstudios.com" class="lws-email-link">jonwolf@livewebstudios.com</a>
+        </div>
+        <p class="lws-footnote">All packages require a 3-month minimum commitment. Prices effective April 2026.</p>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /.lws-pricing-wrap -->

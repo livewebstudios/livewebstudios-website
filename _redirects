@@ -1,0 +1,10 @@
+# Netlify 301 redirects — old WordPress URLs to new static slugs
+/web-design    /services/website-design.html    301
+/seo-services  /services/seo.html               301
+/hosting       /services/hosting.html            301
+/branding      /services/branding.html           301
+/portfolio     /portfolio.html                   301
+/contact       /contact.html                     301
+/about         /about.html                       301
+/blog          /blog.html                        301
+# Add more old WP slugs as discovered via CDX API
