@@ -723,6 +723,16 @@ body[data-page="home"] .home-hero-copy .hero-cta .clutch-badge {
 .feature-card h3 { margin-bottom: 0.75rem; }
 .feature-card .tag + h3 { margin-top: 0.75rem; }
 .feature-card p { color: var(--text-muted); margin-bottom: 1rem; }
+.feature-card ul {
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  padding-left: 1.2rem;
+}
+.feature-card li {
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+.feature-card li:last-child { margin-bottom: 0; }
 .feature-card .card-icon,
 .card-icon {
   width: 32px; height: 32px;
@@ -1059,6 +1069,65 @@ body[data-page="contact"] .split-section .split-content {
   transform: translateY(0);
   padding-bottom: 20px;
   padding-top: 2px;
+}
+
+/* FAQ — stronger focal block (services + industries index): brand teal, no generic “AI bold” */
+.section--faq {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-alt);
+}
+.section--faq::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(100% 70% at 50% -20%, rgba(0, 153, 204, 0.12) 0%, transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, transparent 42%);
+  pointer-events: none;
+  z-index: 0;
+}
+.section--faq > .container {
+  position: relative;
+  z-index: 1;
+}
+.section--faq .section-header { margin-bottom: clamp(1.5rem, 4vw, 2.25rem); }
+.section--faq .section-heading {
+  font-size: clamp(1.85rem, 4.2vw, 2.5rem);
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+}
+.section--faq .section-subhead {
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--text-body);
+}
+.section--faq .faq-stack {
+  background: linear-gradient(168deg, #ffffff 0%, #f7fafd 55%, #f0f5fa 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: clamp(1.1rem, 3vw, 1.85rem) clamp(1.25rem, 4vw, 2.25rem);
+}
+.section--faq .faq-item {
+  border-bottom-color: rgba(208, 216, 230, 0.85);
+}
+.section--faq .faq-item:last-child { border-bottom: none; }
+.section--faq .faq-question {
+  font-size: clamp(1.05rem, 2.4vw, 1.22rem);
+  font-weight: 800;
+  padding-top: 1.15rem;
+  padding-bottom: 1.15rem;
+}
+.section--faq .faq-item:first-child .faq-question { padding-top: 0.35rem; }
+.section--faq .faq-item.is-open {
+  border-bottom-color: rgba(0, 153, 204, 0.2);
+}
+.section--faq .faq-answer p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-size: 0.98rem;
 }
 
 /* =========================================================================
