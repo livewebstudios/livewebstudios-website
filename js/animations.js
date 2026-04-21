@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(
       '.feature-card, .section-heading, .section-subhead, .split-section, .blog-card, .portfolio-card'
     ).forEach((el) => el.classList.add('is-visible'));
+    document.querySelectorAll('.section--faq .faq-stack').forEach((el) => el.classList.add('is-visible'));
+    document.querySelectorAll('.section--faq .faq-item').forEach((el) => el.classList.add('is-visible'));
     document.querySelectorAll('[data-target]').forEach((el) => {
       const raw = el.dataset.target;
       if (raw === undefined || raw === '') return;
@@ -56,6 +58,27 @@ document.addEventListener('DOMContentLoaded', () => {
       el.style.transitionDelay = `${idx * 0.08}s`;
     }
     revealObs.observe(el);
+  });
+
+  /* ---- FAQ sections: stack fade-up, then staggered items (services + industries) ---- */
+  document.querySelectorAll('.section--faq .faq-stack').forEach((stack) => {
+    const items = stack.querySelectorAll('.faq-item');
+    const faqObs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          stack.classList.add('is-visible');
+          items.forEach((item, idx) => {
+            window.setTimeout(() => {
+              item.classList.add('is-visible');
+            }, 90 + idx * 78);
+          });
+          faqObs.unobserve(stack);
+        });
+      },
+      { threshold: 0.14, rootMargin: '0px 0px -6% 0px' }
+    );
+    faqObs.observe(stack);
   });
 
   /* ---- COUNT-UP STATS ---- */
