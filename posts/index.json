@@ -1,1 +1,11 @@
-
+[
+  {
+    "slug": "YOUR-POST-FILENAME-WITHOUT-MD",
+    "filename": "_posts/YOUR-POST-FILENAME.md",
+    "title": "Your Post Title",
+    "date": "2026-04-22",
+    "excerpt": "Your post excerpt here.",
+    "thumbnail": "",
+    "category": ""
+  }
+]
