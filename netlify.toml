@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "http://livewebstudios.com/*"
+  to = "https://livewebstudios.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.livewebstudios.com/*"
+  to = "https://livewebstudios.com/:splat"
+  status = 301
+  force = true
