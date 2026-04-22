@@ -1,187 +1,112 @@
-﻿/**
- * LWS Blog Engine
- * Reads posts/index.json for the listing page
- * Reads _posts/*.md for individual post pages
- * Requires marked.js on post.html
- */
-
 (function () {
   'use strict';
 
   const PAGE = document.body.getAttribute('data-page');
+  console.log('[blog.js] PAGE =', PAGE);
 
-  // ΓöÇΓöÇΓöÇ UTILITY ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  function escHtml(str) {
+    if (!str) return '';
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
 
   function formatDate(str) {
     if (!str) return '';
     const d = new Date(str);
-    if (isNaN(d)) return str;
-    return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    return isNaN(d) ? str : d.toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
   }
 
-  function slugFromFilename(filename) {
-    // "_posts/2026-04-22-my-post.md" ΓåÆ "2026-04-22-my-post"
-    return filename.replace(/^_posts\//, '').replace(/\.md$/, '');
+  function renderCard(post) {
+    const href = 'post.html?post=' + encodeURIComponent(post.slug || '');
+    const img  = post.thumbnail ? '<div class="card-image-wrap"><img class="card-image" src="' + post.thumbnail + '" alt="' + escHtml(post.title) + '" width="600" height="338" loading="lazy"></div>' : '';
+    return '<article class="blog-card">' + img + '<div class="body"><div class="meta">' + (post.category ? '<span>'+escHtml(post.category)+'</span>' : '') + (post.date ? '<span>'+formatDate(post.date)+'</span>' : '') + '</div><h3><a href="' + href + '">' + escHtml(post.title) + '</a></h3><p>' + escHtml(post.excerpt||'') + '</p><a class="link-arrow" href="' + href + '">Read Article <span class="arrow">&rarr;</span></a></div></article>';
   }
-
-  // ΓöÇΓöÇΓöÇ FRONTMATTER PARSER ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
 
   function parseFrontmatter(raw) {
     const match = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
     if (!match) return { meta: {}, body: raw };
-
     const meta = {};
     match[1].split('\n').forEach(line => {
       const idx = line.indexOf(':');
       if (idx === -1) return;
       const key = line.slice(0, idx).trim();
-      let val = line.slice(idx + 1).trim();
-      // Strip surrounding quotes
-      val = val.replace(/^["']|["']$/g, '');
+      let val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
       meta[key] = val;
     });
-
     return { meta, body: match[2].trim() };
   }
 
-  // ΓöÇΓöÇΓöÇ BLOG LISTING PAGE ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
-
-  function initBlogListing() {
+  if (PAGE === 'blog') {
+    console.log('[blog.js] Starting blog listing...');
     const loading = document.getElementById('blog-loading');
     const grid    = document.getElementById('blog-grid');
     const empty   = document.getElementById('blog-empty');
     const error   = document.getElementById('blog-error');
 
+    console.log('[blog.js] Elements found:', !!loading, !!grid, !!empty, !!error);
+
     fetch('posts/index.json?v=' + Date.now())
-      .then(r => {
-        if (!r.ok) throw new Error('index not found');
+      .then(function(r) {
+        console.log('[blog.js] Fetch status:', r.status);
+        if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
       })
-      .then(posts => {
+      .then(function(posts) {
+        console.log('[blog.js] Posts count:', posts.length);
+        console.log('[blog.js] Posts data:', JSON.stringify(posts));
         loading.style.display = 'none';
-
-        if (!posts || posts.length === 0) {
+        if (!posts || !posts.length) {
           empty.style.display = 'block';
           return;
         }
-
-        // Sort newest first
-        posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-        posts.forEach(post => {
-          grid.insertAdjacentHTML('beforeend', renderCard(post));
+        posts.forEach(function(p) {
+          var card = renderCard(p);
+          console.log('[blog.js] Card HTML:', card.substring(0, 100));
+          grid.insertAdjacentHTML('beforeend', card);
         });
-
-        grid.style.display = '';
+        grid.removeAttribute('style');
+        console.log('[blog.js] DONE. Grid visible. Children:', grid.children.length);
       })
-      .catch(() => {
+      .catch(function(err) {
+        console.error('[blog.js] FAILED:', err.message);
         loading.style.display = 'none';
         error.style.display = 'block';
-        error.innerHTML = '<p>Could not load posts. If you just published, wait for Netlify to redeploy and refresh.</p>';
+        error.textContent = 'Error: ' + err.message;
       });
-  }
 
-  function renderCard(post) {
-    const slug = post.slug || slugFromFilename(post.filename || '');
-    const href = 'post.html?post=' + encodeURIComponent(slug);
-    const img  = post.thumbnail
-      ? `<div class="card-image-wrap"><img class="card-image" src="${post.thumbnail}" alt="${escHtml(post.title)}" width="600" height="338" loading="lazy"></div>`
-      : '';
-    const cat  = post.category ? `<span>${escHtml(post.category)}</span>` : '';
-    const date = post.date ? `<span>${formatDate(post.date)}</span>` : '';
+  } else if (PAGE === 'post') {
+    var params  = new URLSearchParams(window.location.search);
+    var slug    = params.get('post');
+    var loading = document.getElementById('post-loading');
+    var errorEl = document.getElementById('post-error');
+    var wrapper = document.getElementById('post-wrapper');
 
-    return `
-      <article class="blog-card">
-        ${img}
-        <div class="body">
-          <div class="meta">${cat}${date}</div>
-          <h3><a href="${href}">${escHtml(post.title)}</a></h3>
-          <p>${escHtml(post.excerpt || '')}</p>
-          <a class="link-arrow" href="${href}">Read Article <span class="arrow">&rarr;</span></a>
-        </div>
-      </article>`;
-  }
+    if (!slug) { loading.style.display='none'; errorEl.style.display='block'; return; }
 
-  // ΓöÇΓöÇΓöÇ SINGLE POST PAGE ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
-
-  function initSinglePost() {
-    const params   = new URLSearchParams(window.location.search);
-    const slug     = params.get('post');
-    const loading  = document.getElementById('post-loading');
-    const errorEl  = document.getElementById('post-error');
-    const wrapper  = document.getElementById('post-wrapper');
-
-    if (!slug) {
-      showPostError(loading, errorEl);
-      return;
-    }
-
-    const mdPath = '_posts/' + slug + '.md';
-
-    fetch(mdPath + '?v=' + Date.now())
-      .then(r => {
-        if (!r.ok) throw new Error('post not found');
-        return r.text();
-      })
-      .then(raw => {
-        const { meta, body } = parseFrontmatter(raw);
-
-        // Update <head>
-        document.getElementById('post-title-tag').textContent =
-          (meta.title || 'Post') + ' | Live Web Studios';
-        document.getElementById('post-meta-desc').content = meta.excerpt || '';
-
-        // Populate hero
-        document.getElementById('post-heading').textContent = meta.title || '';
+    fetch('_posts/' + slug + '.md?v=' + Date.now())
+      .then(function(r) { if (!r.ok) throw new Error('not found'); return r.text(); })
+      .then(function(raw) {
+        var result = parseFrontmatter(raw);
+        var meta = result.meta;
+        var body = result.body;
+        document.getElementById('post-title-tag').textContent = (meta.title||'Post') + ' | Live Web Studios';
+        document.getElementById('post-meta-desc').setAttribute('content', meta.excerpt||'');
+        document.getElementById('post-heading').textContent = meta.title||'';
         document.getElementById('post-date-display').textContent = formatDate(meta.date);
-
-        if (meta.category) {
-          document.getElementById('post-category').textContent = meta.category;
-        }
-
+        if (meta.category) document.getElementById('post-category').textContent = meta.category;
         if (meta.thumbnail) {
-          const heroImg = document.getElementById('post-hero-image');
-          heroImg.src   = meta.thumbnail;
-          heroImg.alt   = meta.title || '';
-          heroImg.style.display = 'block';
+          var img = document.getElementById('post-hero-image');
+          img.src = meta.thumbnail; img.alt = meta.title||''; img.style.display='block';
         }
-
-        // Render markdown body
+        var content = document.getElementById('post-content');
         if (typeof marked !== 'undefined') {
-          document.getElementById('post-content').innerHTML = marked.parse(body);
+          content.innerHTML = marked.parse(body);
         } else {
-          // Fallback: plain text
-          document.getElementById('post-content').textContent = body;
+          content.textContent = body;
         }
-
         loading.style.display = 'none';
         wrapper.style.display = 'block';
       })
-      .catch(() => showPostError(loading, errorEl));
-  }
-
-  function showPostError(loading, errorEl) {
-    loading.style.display = 'none';
-    errorEl.style.display = 'block';
-  }
-
-  // ΓöÇΓöÇΓöÇ HTML ESCAPE ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
-
-  function escHtml(str) {
-    if (!str) return '';
-    return str
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
-
-  // ΓöÇΓöÇΓöÇ INIT ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
-
-  if (PAGE === 'blog') {
-    initBlogListing();
-  } else if (PAGE === 'post') {
-    initSinglePost();
+      .catch(function() { loading.style.display='none'; errorEl.style.display='block'; });
   }
 
 })();
