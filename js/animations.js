@@ -76,10 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* ---- SHARED SCROLL REVEAL ---- */
-  const revealEls = document.querySelectorAll(
-    '.feature-card, .section-heading, .section-subhead, .split-section, .blog-card, .portfolio-card'
-  );
-
   const revealObs = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -89,17 +85,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.12 });
 
-  revealEls.forEach((el, i) => {
-    // Stagger cards in the same parent
-    if (el.classList.contains('feature-card') || el.classList.contains('blog-card') || el.classList.contains('portfolio-card')) {
+  function observeReveal(el, idx) {
+    if (
+      el.classList.contains('feature-card') ||
+      el.classList.contains('blog-card') ||
+      el.classList.contains('portfolio-card')
+    ) {
       const siblings = Array.from(el.parentElement.children);
-      const idx = siblings.indexOf(el);
-      el.style.transitionDelay = `${idx * 0.08}s`;
+      const i = idx !== undefined ? idx : siblings.indexOf(el);
+      el.style.transitionDelay = `${i * 0.08}s`;
     }
     revealObs.observe(el);
-  });
+  }
 
-  /* ---- FAQ sections: stack fade-up, then staggered items (services + industries) ---- */
+  const revealEls = document.querySelectorAll(
+    '.feature-card, .section-heading, .section-subhead, .split-section, .blog-card, .portfolio-card'
+  );
+  revealEls.forEach((el, i) => observeReveal(el, i));
+
+  /* ---- FAQ sections ---- */
   document.querySelectorAll('.section--faq .faq-stack').forEach((stack) => {
     const items = stack.querySelectorAll('.faq-item');
     const faqObs = new IntersectionObserver(
@@ -130,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function update(now) {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
-      // easeOutExpo
       const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
       el.textContent = isDecimal
         ? (target * eased).toFixed(2)
@@ -165,5 +168,16 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.2 });
 
   splits.forEach(s => splitObs.observe(s));
+
+  /* ---- GLOBAL HOOK for dynamically inserted elements ----
+     Call window.LWS.observe(el) from any JS renderer
+     (blog.js, portfolio.js, team.js, etc.) after inserting
+     elements into the DOM. Registers them with the shared
+     IntersectionObserver so they animate in correctly.
+  ---- */
+  window.LWS = window.LWS || {};
+  window.LWS.observe = function (el) {
+    observeReveal(el);
+  };
 
 });
