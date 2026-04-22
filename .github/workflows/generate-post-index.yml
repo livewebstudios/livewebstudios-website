@@ -1,0 +1,84 @@
+﻿name: Generate Blog Index
+
+on:
+  push:
+    paths:
+      - '_posts/**'   # Fires whenever Decap saves a post
+
+jobs:
+  build-index:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write   # Needed to commit index.json back to the repo
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate posts/index.json
+        run: |
+          mkdir -p posts
+          node - <<'EOF'
+          const fs   = require('fs');
+          const path = require('path');
+
+          const postsDir = '_posts';
+          const outFile  = 'posts/index.json';
+
+          if (!fs.existsSync(postsDir)) {
+            fs.writeFileSync(outFile, '[]');
+            console.log('No _posts directory found. Writing empty index.');
+            process.exit(0);
+          }
+
+          const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));
+
+          const posts = files.map(filename => {
+            const raw  = fs.readFileSync(path.join(postsDir, filename), 'utf8');
+            const meta = {};
+
+            const match = raw.match(/^---\n([\s\S]*?)\n---/);
+            if (match) {
+              match[1].split('\n').forEach(line => {
+                const idx = line.indexOf(':');
+                if (idx === -1) return;
+                const key = line.slice(0, idx).trim();
+                let val   = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+                meta[key] = val;
+              });
+            }
+
+            // Derive slug from filename: 2026-04-22-my-post.md ΓåÆ 2026-04-22-my-post
+            const slug = filename.replace(/\.md$/, '');
+
+            return {
+              slug,
+              filename: '_posts/' + filename,
+              title:     meta.title     || slug,
+              date:      meta.date      || '',
+              excerpt:   meta.excerpt   || '',
+              thumbnail: meta.thumbnail || '',
+              category:  meta.category  || ''
+            };
+          });
+
+          // Sort newest first
+          posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+          fs.writeFileSync(outFile, JSON.stringify(posts, null, 2));
+          console.log(`Wrote ${posts.length} post(s) to ${outFile}`);
+          EOF
+
+      - name: Commit index.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add posts/index.json
+          git diff --cached --quiet || git commit -m "chore: rebuild post index [skip ci]"
+          git push
