@@ -63,7 +63,11 @@
           console.log('[blog.js] Card HTML:', card.substring(0, 100));
           grid.insertAdjacentHTML('beforeend', card);
         });
-        grid.removeAttribute('style');
+       grid.removeAttribute('style');
+grid.querySelectorAll('.blog-card').forEach(function(card) {
+  card.style.opacity = '1';
+  card.style.transform = 'none';
+});
         console.log('[blog.js] DONE. Grid visible. Children:', grid.children.length);
       })
       .catch(function(err) {
