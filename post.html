@@ -12,7 +12,11 @@
 <link rel="stylesheet" href="css/style.css">
 <style>
   .post-hero {
-    background: var(--color-dark, #0f1117);
+    background-color: var(--color-dark, #0f1117);
+    background-image: linear-gradient(rgba(15, 17, 23, 0.78), rgba(15, 17, 23, 0.78)), url(images/singlepostbg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 4rem 0 2rem;
     text-align: center;
   }
@@ -78,7 +82,7 @@
     <div class="container">
       <span class="label" id="post-category"></span>
       <h1 id="post-heading"></h1>
-      
+      <p class="post-meta" id="post-date-display"></p>
     </div>
   </div>
   <img id="post-hero-image" class="post-hero-image" src="" alt="" style="display:none;">
