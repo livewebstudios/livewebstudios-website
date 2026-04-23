@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0.75rem 1rem;
+    padding: 10px 1rem;
     text-align: center;
     background-color: var(--color-dark, #0f1117);
     background-image: linear-gradient(rgba(15, 17, 23, 0.52), rgba(15, 17, 23, 0.52)), url(images/singlepostbg.jpg);
@@ -28,9 +28,19 @@
     width: 100%;
     max-width: 100%;
   }
-  .post-hero .label { margin-bottom: 1rem; display: block; }
-  .post-hero h1 { color: #fff; max-width: 800px; margin: 0 auto 1rem; font-size: clamp(1.8rem, 4vw, 3rem); }
-  .post-hero .post-meta { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
+  .post-hero .label { margin-bottom: 0.5rem; display: block; }
+  .post-hero h1 {
+    color: #fff;
+    max-width: 800px;
+    margin: 0 auto 0.25rem;
+    padding-top: 12px;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+  .post-hero .post-meta {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.9rem;
+    margin: 0;
+  }
   .post-hero-image {
     width: 100%;
     max-height: 480px;
