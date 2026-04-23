@@ -47,7 +47,7 @@
       ? '<div class="card-image-wrap"><img class="card-image" src="' + post.thumbnail + '" alt="' + escHtml(post.title) + '" width="600" height="338" loading="lazy"></div>'
       : '';
     var cat  = post.category ? '<span>' + escHtml(post.category) + '</span>' : '';
-    var date = post.date ? '<span>' + formatDate(post.date) + '</span>' : '';
+    var date = '';
     return '<article class="blog-card">' + img + '<div class="body"><div class="meta">' + cat + date + '</div><h3><a href="' + href + '">' + escHtml(post.title) + '</a></h3><p>' + escHtml(post.excerpt || '') + '</p><a class="link-arrow" href="' + href + '">Read Article <span class="arrow">&rarr;</span></a></div></article>';
   }
 
@@ -113,7 +113,7 @@
         document.getElementById('post-title-tag').textContent = (meta.title || 'Post') + ' | Live Web Studios';
         document.getElementById('post-meta-desc').setAttribute('content', meta.excerpt || '');
         document.getElementById('post-heading').textContent = meta.title || '';
-        if (meta.date) document.getElementById('post-date-display').textContent = formatDate(meta.date);
+      
         if (meta.category) document.getElementById('post-category').textContent = meta.category;
 
         var heroSrc = meta.image || meta.thumbnail;
