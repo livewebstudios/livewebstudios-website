@@ -1,4 +1,4 @@
-﻿name: Generate Blog Index
+﻿name: Generate Post Index
 
 on:
   push:
@@ -7,79 +7,50 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-index:
+  build:
     runs-on: ubuntu-latest
-
-    permissions:
-      contents: write   # Needed to commit index.json back to the repo
-
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
+      - uses: actions/checkout@v3
 
       - name: Generate posts/index.json
         run: |
           mkdir -p posts
-          node - <<'EOF'
-          const fs   = require('fs');
+          node -e "
+          const fs = require('fs');
           const path = require('path');
-
           const postsDir = '_posts';
-          const outFile  = 'posts/index.json';
-
-          if (!fs.existsSync(postsDir)) {
-            fs.writeFileSync(outFile, '[]');
-            console.log('No _posts directory found. Writing empty index.');
-            process.exit(0);
-          }
-
           const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));
-
           const posts = files.map(filename => {
-            const raw  = fs.readFileSync(path.join(postsDir, filename), 'utf8');
-            const meta = {};
-
-            const match = raw.match(/^---\n([\s\S]*?)\n---/);
+            const content = fs.readFileSync(path.join(postsDir, filename), 'utf8');
+            const frontmatter = {};
+            const match = content.match(/^---[\r\n]+([\s\S]*?)[\r\n]+---/);
             if (match) {
               match[1].split('\n').forEach(line => {
-                const idx = line.indexOf(':');
-                if (idx === -1) return;
-                const key = line.slice(0, idx).trim();
-                let val   = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
-                meta[key] = val;
+                const [key, ...val] = line.split(':');
+                if (key && val.length) frontmatter[key.trim()] = val.join(':').trim().replace(/^\"|\"$/g, '');
               });
             }
-
-            // Derive slug from filename: 2026-04-22-my-post.md ΓåÆ 2026-04-22-my-post
-            const slug = filename.replace(/\.md$/, '');
-
+            const slug = filename.replace('.md', '');
+            const body = content.replace(/^---[\r\n]+[\s\S]*?[\r\n]+---/, '').trim();
+            const excerpt = body.replace(/#+\s/g, '').replace(/\*\*/g, '').substring(0, 160) + '...';
             return {
               slug,
               filename: '_posts/' + filename,
-              title:     meta.title     || slug,
-              date:      meta.date      || '',
-              excerpt:   meta.excerpt   || '',
-              thumbnail: meta.thumbnail || '',
-              category:  meta.category  || ''
+              title: frontmatter.title || slug,
+              date: frontmatter.date || '',
+              excerpt: frontmatter.description || excerpt,
+              thumbnail: frontmatter.image || '',
+              category: (frontmatter.tags || '').split(',')[0].replace('[','').replace(']','').trim()
             };
-          });
+          }).sort((a,b) => new Date(b.date) - new Date(a.date));
+          fs.writeFileSync('posts/index.json', JSON.stringify(posts, null, 2));
+          console.log('Generated index for ' + posts.length + ' posts');
+          "
 
-          // Sort newest first
-          posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-          fs.writeFileSync(outFile, JSON.stringify(posts, null, 2));
-          console.log(`Wrote ${posts.length} post(s) to ${outFile}`);
-          EOF
-
-      - name: Commit index.json
+      - name: Commit index
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
           git add posts/index.json
-          git diff --cached --quiet || git commit -m "chore: rebuild post index"
+          git diff --staged --quiet || git commit -m "Auto-generate posts/index.json"
           git push
