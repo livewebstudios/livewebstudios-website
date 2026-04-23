@@ -63,8 +63,29 @@
         loading.style.display = 'none';
         if (!posts || !posts.length) { empty.style.display = 'block'; return; }
         posts.sort(function (a, b) { return new Date(b.date) - new Date(a.date); });
+
+        
         posts.forEach(function (post) { grid.insertAdjacentHTML('beforeend', renderCard(post)); });
         grid.removeAttribute('style');
+        grid.querySelectorAll('.blog-card').forEach(function(card) {
+          card.classList.add('is-visible');
+        });
+
+
+
+
+        grid.querySelectorAll('.blog-card').forEach(function(card) {
+          card.classList.add('is-visible');
+        });
+
+        grid.querySelectorAll('.blog-card').forEach(function(card) {
+          if (window.LWS && window.LWS.observe) {
+            window.LWS.observe(card);
+          } else {
+            card.classList.add('is-visible');
+            card.classList.add('visible');
+          }
+        });
       })
       .catch(function () {
         loading.style.display = 'none';
