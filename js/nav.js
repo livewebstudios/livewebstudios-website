@@ -88,7 +88,7 @@
           '</li>' +
 
           '<li><a href="' + p + 'portfolio.html" data-page="portfolio">Portfolio</a></li>' +
-          '<li><a href="' + p + 'blog.html" data-page="blog">Blog</a></li>' +
+          '<li><a href="' + p + 'blog/" data-page="blog">Blog</a></li>' +
           '<li><a href="' + p + 'contact.html" data-page="contact" class="nav-contact-link">Contact</a></li>' +
         '</ul>' +
         '<a href="' + p + 'contact.html" class="btn-primary nav-cta">Get a Proposal <span class="btn-arrow">&rarr;</span></a>' +

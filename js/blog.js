@@ -9,6 +9,7 @@
   'use strict';
 
   const PAGE = document.body.getAttribute('data-page');
+  const BASE = /\/blog\//.test(window.location.pathname) ? '../' : '';
 
   function formatDate(str) {
     if (!str) return '';
@@ -37,7 +38,7 @@
   }
 
   function renderCard(post) {
-    const href = 'post.html?post=' + encodeURIComponent(post.slug || '');
+    const href = BASE + 'post.html?post=' + encodeURIComponent(post.slug || '');
     const img  = post.thumbnail ? '<div class="card-image-wrap"><img class="card-image" src="' + post.thumbnail + '" alt="' + escHtml(post.title) + '" width="600" height="338" loading="lazy"></div>' : '';
     const cat  = post.category ? '<span>' + escHtml(post.category) + '</span>' : '';
     const date = post.date ? '<span>' + formatDate(post.date) + '</span>' : '';
@@ -51,7 +52,7 @@
     const empty   = document.getElementById('blog-empty');
     const error   = document.getElementById('blog-error');
 
-    fetch('posts/index.json?v=' + Date.now())
+    fetch(BASE + 'posts/index.json?v=' + Date.now())
       .then(r => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.json(); })
       .then(posts => {
         loading.style.display = 'none';

@@ -6,5 +6,6 @@
 /portfolio     /portfolio.html                   301
 /contact       /contact.html                     301
 /about         /about.html                       301
-/blog          /blog.html                        301
+/blog.html     /blog/                           301
+/blog          /blog/                           301
 # Add more old WP slugs as discovered via CDX API
