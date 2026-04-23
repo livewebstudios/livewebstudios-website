@@ -1346,6 +1346,40 @@ body[data-page="404"] .page-recovery .section-subhead {
   cursor: pointer;
   transition: box-shadow var(--dur-normal) var(--ease), transform var(--dur-normal) var(--ease);
   opacity: 0; transform: translateY(24px);
+  display: flex;
+  flex-direction: column;
+}
+.portfolio-card > a.card-image-wrap {
+  display: block;
+  width: 100%;
+  flex-shrink: 0;
+  line-height: 0;
+}
+.portfolio-card .card-image {
+  aspect-ratio: 2 / 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+.portfolio-card .body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  padding: 0.75rem 0.75rem 0.625rem;
+}
+.portfolio-card .card-title {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+}
+.portfolio-card .body p {
+  margin: 0 0 0.45rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+.portfolio-card .body .link-arrow {
+  margin-top: 0.1rem;
+  align-self: flex-start;
 }
 .portfolio-card.is-visible { opacity: 1; transform: translateY(0); transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), box-shadow var(--dur-normal) var(--ease); }
 .portfolio-card:hover { box-shadow: var(--shadow-hover); transform: translateY(-3px); }
