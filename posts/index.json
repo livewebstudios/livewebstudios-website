@@ -67,7 +67,7 @@
     "filename": "_posts/2026-07-24-why-your-website-needs-a-blog.md",
     "title": "Why Your Website Needs a Blog (Even If You Think You Have Nothing to Say)",
     "date": "2026-07-24",
-    "excerpt": "\\\"I'm a plumber, not a writer.\\\" Fair. But your customers are Googling questions about plumbing before they call anyone — and a blog is how you show up for those searches.",
+    "excerpt": "\"I'm a plumber, not a writer.\" Fair. But your customers are Googling questions about plumbing before they call anyone — and a blog is how you show up for those searches.",
     "thumbnail": "/images/blog/why-your-website-needs-a-blog.jpg",
     "category": "\"business blogging\""
   },
@@ -178,5 +178,14 @@
     "excerpt": "AI-built websites aren't a trend. They're a fundamental shift in how websites get made, maintained, and paid for. Here's what that means for your small business.",
     "thumbnail": "/images/blog/the-new-web-is-here.jpg",
     "category": "\"AI websites\""
+  },
+  {
+    "slug": "2026-04-22-this-is-number-1",
+    "filename": "_posts/2026-04-22-this-is-number-1.md",
+    "title": "this is number 1",
+    "date": "",
+    "excerpt": "",
+    "thumbnail": "/images/uploads/26_04_17_jontoon_pointing_v2pointing-master.jpg",
+    "category": ""
   }
 ]

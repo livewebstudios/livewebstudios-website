@@ -1,33 +1,17 @@
-<<<<<<< HEAD
 ﻿name: Generate Post Index
-=======
-name: Generate Blog Index
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)
 
 on:
   push:
     paths:
-<<<<<<< HEAD
       - '_posts/**'
   workflow_dispatch:
-
-permissions:
-  contents: write
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-=======
-      - '_posts/**'   # Fires whenever Decap saves a post
 
 jobs:
   build-index:
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write   # Needed to commit index.json back to the repo
+      contents: write
 
     steps:
       - name: Checkout repo
@@ -37,52 +21,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)
 
       - name: Generate posts/index.json
         run: |
           mkdir -p posts
-<<<<<<< HEAD
-          node -e "
-          const fs = require('fs');
-          const path = require('path');
-          const postsDir = '_posts';
-          const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));
-          const posts = files.map(filename => {
-            const content = fs.readFileSync(path.join(postsDir, filename), 'utf8');
-            const frontmatter = {};
-            const match = content.match(/^---[\r\n]+([\s\S]*?)[\r\n]+---/);
-            if (match) {
-              match[1].split('\n').forEach(line => {
-                const [key, ...val] = line.split(':');
-                if (key && val.length) frontmatter[key.trim()] = val.join(':').trim().replace(/^\"|\"$/g, '');
-              });
-            }
-            const slug = filename.replace('.md', '');
-            const body = content.replace(/^---[\r\n]+[\s\S]*?[\r\n]+---/, '').trim();
-            const excerpt = body.replace(/#+\s/g, '').replace(/\*\*/g, '').substring(0, 160) + '...';
-            return {
-              slug,
-              filename: '_posts/' + filename,
-              title: frontmatter.title || slug,
-              date: frontmatter.date || '',
-              excerpt: frontmatter.description || excerpt,
-              thumbnail: frontmatter.image || '',
-              category: (frontmatter.tags || '').split(',')[0].replace('[','').replace(']','').trim()
-            };
-          }).sort((a,b) => new Date(b.date) - new Date(a.date));
-          fs.writeFileSync('posts/index.json', JSON.stringify(posts, null, 2));
-          console.log('Generated index for ' + posts.length + ' posts');
-          "
-
-      - name: Commit index
-        run: |
-          git config user.name "github-actions"
-          git config user.email "actions@github.com"
-          git add posts/index.json
-          git diff --staged --quiet || git commit -m "Auto-generate posts/index.json"
-          git push
-=======
           node - <<'EOF'
           const fs   = require('fs');
           const path = require('path');
@@ -113,7 +55,6 @@ jobs:
               });
             }
 
-            // Derive slug from filename: 2026-04-22-my-post.md → 2026-04-22-my-post
             const slug = filename.replace(/\.md$/, '');
 
             return {
@@ -127,7 +68,6 @@ jobs:
             };
           });
 
-          // Sort newest first
           posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
           fs.writeFileSync(outFile, JSON.stringify(posts, null, 2));
@@ -141,4 +81,3 @@ jobs:
           git add posts/index.json
           git diff --cached --quiet || git commit -m "chore: rebuild post index [skip ci]"
           git push
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)

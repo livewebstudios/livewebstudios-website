@@ -1,38 +1,19 @@
-<<<<<<< HEAD
 ﻿<!DOCTYPE html>
-=======
-<!DOCTYPE html>
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)
-<html lang="en">
-<head>
+<html lang="en"><head>
 <meta charset="UTF-8">
-<link rel="icon" href="images/favicon.png" type="image/png">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="images/favicon.png" type="image/png"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title id="post-title-tag">Post | Live Web Studios</title>
 <meta name="description" id="post-meta-desc" content="">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 <style>
-<<<<<<< HEAD
-  /* Fixed nav sits over the first paint; offset page content so hero/title is not clipped */
-  body[data-page="post"] {
-    padding-top: 5.25rem;
-  }
-  @media (max-width: 820px) {
-    body[data-page="post"] {
-      padding-top: 5.75rem;
-    }
-  }
-
   .post-hero {
     box-sizing: border-box;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: visible;
-    padding: 10px 1rem;
+    padding: 0.75rem 1rem;
     text-align: center;
     background-color: var(--color-dark, #0f1117);
     background-image: linear-gradient(rgba(15, 17, 23, 0.52), rgba(15, 17, 23, 0.52)), url(images/singlepostbg.jpg);
@@ -44,30 +25,9 @@
     width: 100%;
     max-width: 100%;
   }
-  .post-hero .label { margin-bottom: 0.5rem; display: block; }
-  .post-hero h1 {
-    color: #fff;
-    max-width: 800px;
-    margin: 0 auto 0.25rem;
-    padding-top: 12px;
-    font-size: clamp(1.8rem, 4vw, 3rem);
-    line-height: 1.18;
-  }
-  .post-hero .post-meta {
-    color: rgba(255,255,255,0.55);
-    font-size: 0.9rem;
-    margin: 0;
-  }
-=======
-  .post-hero {
-    background: var(--color-dark, #0f1117);
-    padding: 4rem 0 2rem;
-    text-align: center;
-  }
   .post-hero .label { margin-bottom: 1rem; display: block; }
   .post-hero h1 { color: #fff; max-width: 800px; margin: 0 auto 1rem; font-size: clamp(1.8rem, 4vw, 3rem); }
   .post-hero .post-meta { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)
   .post-hero-image {
     width: 100%;
     max-height: 480px;
@@ -118,11 +78,163 @@
   <div style="max-width:600px;margin:0 auto;padding:2rem;">
     <h2>Post not found.</h2>
     <p>It may have moved or been deleted.</p>
-<<<<<<< HEAD
     <a href="blog/" class="post-back">&larr; Back to Blog</a>
-=======
-    <a href="blog.html" class="post-back">&larr; Back to Blog</a>
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)
+  </div>
+</div>
+
+<div id="post-wrapper" style="display:none;">
+  <div class="post-hero">
+    <div class="container">
+      <span class="label" id="post-category"></span>
+      <h1 id="post-heading"></h1>
+      <p class="post-meta" id="post-date-display"></p>
+    </div>
+  </div>
+  <img id="post-hero-image" class="post-hero-image" src="" alt="" style="display:none;">
+
+  <main id="main">
+    <article class="post-body" id="post-content"></article>
+    <div style="max-width:780px;margin:0 auto;padding:0 1.5rem 4rem;">
+      <a href="blog/" class="post-back">&larr; Back to Blog</a>
+    </div>
+  </main>
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="images/Standard_Color.png" alt="Live Web Studios" loading="lazy" width="200" height="42">
+        <p>Est. 2004<br>North Jersey and Nationwide</p>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/website-design">Website Design</a></li>
+          <li><a href="/services/ai-platform">AI Platform</a></li>
+          <li><a href="/services/hosting">Hosting</a></li>
+          <li><a href="/services/seo">SEO</a></li>
+          <li><a href="/services/branding">Branding</a></li>
+          <li><a href="/services/ecommerce">E-Commerce</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="/about">About</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a></li>
+          <li><a href="tel:7328019611">732.801.9611</a></li>
+          <li>Saddle Brook, NJ</li>
+        </ul>
+        <img src="images/lwsface.png" alt="Jon Wolf – Live Web Studios" class="lws-face" loading="lazy">
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2026 Live Web Studios. All rights reserved.</small>
+      <span><a href="/privacy">Privacy</a> &middot; <a href="/terms">Terms</a></span>
+      <a href="https://livewebstudios.com" class="footer-badge">
+        <img src="images/verifiedsecured.png" alt="Verified &amp; Secured by Live Web Studios" loading="lazy" width="150" height="37">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="js/nav.js"></script>
+<script src="js/blog.js"></script>
+</body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<link rel="icon" href="images/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title id="post-title-tag">Post | Live Web Studios</title>
+<meta name="description" id="post-meta-desc" content="">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<style>
+  .post-hero {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 1rem;
+    text-align: center;
+    background-color: var(--color-dark, #0f1117);
+    background-image: linear-gradient(rgba(15, 17, 23, 0.52), rgba(15, 17, 23, 0.52)), url(images/singlepostbg.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .post-hero .container {
+    width: 100%;
+    max-width: 100%;
+  }
+  .post-hero .label { margin-bottom: 1rem; display: block; }
+  .post-hero h1 { color: #fff; max-width: 800px; margin: 0 auto 1rem; font-size: clamp(1.8rem, 4vw, 3rem); }
+  .post-hero .post-meta { color: rgba(255,255,255,0.55); font-size: 0.9rem; }
+  .post-hero-image {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    display: block;
+  }
+  .post-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 4rem;
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--color-text, #1a1a1a);
+  }
+  .post-body h2 { font-size: 1.6rem; margin: 2.5rem 0 1rem; }
+  .post-body h3 { font-size: 1.25rem; margin: 2rem 0 0.75rem; }
+  .post-body p { margin-bottom: 1.5rem; }
+  .post-body ul, .post-body ol { margin: 0 0 1.5rem 1.5rem; }
+  .post-body li { margin-bottom: 0.5rem; }
+  .post-body img { max-width: 100%; border-radius: 6px; margin: 1.5rem 0; }
+  .post-body blockquote {
+    border-left: 4px solid var(--color-primary, #0099CC);
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    background: #f4f8fb;
+    font-style: italic;
+  }
+  .post-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-primary, #0099CC);
+    text-decoration: none;
+    margin-bottom: 2rem;
+  }
+  .post-back:hover { text-decoration: underline; }
+  #post-loading { text-align: center; padding: 5rem 0; opacity: 0.6; }
+  #post-error { text-align: center; padding: 5rem 0; }
+</style>
+<!-- GA4_TAG_HERE -->
+</head>
+<body data-page="post">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div id="post-loading">Loading post...</div>
+<div id="post-error" style="display:none;">
+  <div style="max-width:600px;margin:0 auto;padding:2rem;">
+    <h2>Post not found.</h2>
+    <p>It may have moved or been deleted.</p>
+    <a href="blog/" class="post-back">&larr; Back to Blog</a>
   </div>
 </div>
 
@@ -141,11 +253,7 @@
       <!-- Rendered markdown goes here -->
     </article>
     <div style="max-width:780px;margin:0 auto;padding:0 1.5rem 4rem;">
-<<<<<<< HEAD
       <a href="blog/" class="post-back">&larr; Back to Blog</a>
-=======
-      <a href="blog.html" class="post-back">&larr; Back to Blog</a>
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)
     </div>
   </main>
 </div>
@@ -184,11 +292,7 @@
           <li><a href="tel:7328019611">732.801.9611</a></li>
           <li>Saddle Brook, NJ</li>
         </ul>
-<<<<<<< HEAD
         <img src="images/lwsface.png" alt="Jon Wolf ΓÇô Live Web Studios" class="lws-face" loading="lazy">
-=======
-        <img src="images/lwsface.png" alt="Jon Wolf – Live Web Studios" class="lws-face" loading="lazy">
->>>>>>> 0027f06 (Add post template and blog JS; GitHub workflow; update blog.html.)
       </div>
     </div>
     <div class="footer-bottom">
