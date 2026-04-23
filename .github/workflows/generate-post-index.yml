@@ -26,11 +26,11 @@ jobs:
         run: |
           mkdir -p posts
           node - <<'EOF'
-          const fs   = require('fs');
+          const fs = require('fs');
           const path = require('path');
 
           const postsDir = '_posts';
-          const outFile  = 'posts/index.json';
+          const outFile = 'posts/index.json';
 
           if (!fs.existsSync(postsDir)) {
             fs.writeFileSync(outFile, '[]');
@@ -41,37 +41,42 @@ jobs:
           const files = fs.readdirSync(postsDir).filter(f => f.endsWith('.md'));
 
           const posts = files.map(filename => {
-            const raw  = fs.readFileSync(path.join(postsDir, filename), 'utf8');
+            const raw = fs.readFileSync(path.join(postsDir, filename), 'utf8')
+              .replace(/^\uFEFF/, '')
+              .replace(/\r\n/g, '\n')
+              .replace(/\r/g, '\n');
             const meta = {};
 
-            const match = raw.match(/^---\n([\s\S]*?)\n---/);
+            const match = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
             if (match) {
               match[1].split('\n').forEach(line => {
                 const idx = line.indexOf(':');
                 if (idx === -1) return;
                 const key = line.slice(0, idx).trim();
-                let val   = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
+                let val = line.slice(idx + 1).trim().replace(/^["']|["']$/g, '');
                 meta[key] = val;
               });
             }
 
             const slug = filename.replace(/\.md$/, '');
+            const tagsStr = meta.tags || '';
+            const categoryFromTags = tagsStr.replace(/[\[\]"]/g, '').split(',')[0].trim();
 
             return {
               slug,
               filename: '_posts/' + filename,
-              title:     meta.title     || slug,
-              date:      meta.date      || '',
-              excerpt:   meta.excerpt   || '',
-              thumbnail: meta.thumbnail || '',
-              category:  meta.category  || ''
+              title: meta.title || slug,
+              date: meta.date || '',
+              excerpt: meta.description || meta.excerpt || '',
+              thumbnail: meta.image || meta.thumbnail || '',
+              category: meta.category || categoryFromTags || ''
             };
           });
 
           posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
           fs.writeFileSync(outFile, JSON.stringify(posts, null, 2));
-          console.log(`Wrote ${posts.length} post(s) to ${outFile}`);
+          console.log('Wrote ' + posts.length + ' post(s) to ' + outFile);
           EOF
 
       - name: Commit index.json
