@@ -1360,6 +1360,7 @@ body[data-page="404"] .page-recovery .section-subhead {
   width: 100%;
   height: auto;
   object-fit: cover;
+  object-position: top center;
   display: block;
 }
 .portfolio-card .body {
