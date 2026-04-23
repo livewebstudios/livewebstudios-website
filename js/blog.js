@@ -93,12 +93,19 @@
         document.getElementById('post-title-tag').textContent = (meta.title || 'Post') + ' | Live Web Studios';
         document.getElementById('post-meta-desc').setAttribute('content', meta.excerpt || '');
         document.getElementById('post-heading').textContent = meta.title || '';
-        document.getElementById('post-date-display').textContent = formatDate(meta.date);
+     
         if (meta.category) document.getElementById('post-category').textContent = meta.category;
-        if (meta.thumbnail) {
-          const img = document.getElementById('post-hero-image');
-          img.src = meta.thumbnail; img.alt = meta.title || ''; img.style.display = 'block';
-        }
+
+
+
+       const heroSrc = meta.image || meta.thumbnail;
+if (heroSrc) {
+  const img = document.getElementById('post-hero-image');
+  img.src = heroSrc; img.alt = meta.title || ''; img.style.display = 'block';
+}
+
+
+
         const content = document.getElementById('post-content');
         if (typeof marked !== 'undefined') { content.innerHTML = marked.parse(body); }
         else { content.textContent = body; }
