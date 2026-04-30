@@ -64,6 +64,7 @@
 
           /* ABOUT — first link */
           '<li><a href="' + p + 'about.html" data-page="about">About</a></li>' +
+          '<li><a href="' + p + 'faq.html" data-page="faq">FAQ</a></li>' +
 
           /* SERVICES mega-menu */
           '<li class="nav-item">' +
