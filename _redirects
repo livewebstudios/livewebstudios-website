@@ -1,11 +1,170 @@
-# Netlify 301 redirects — old WordPress URLs to new static slugs
-/web-design    /services/website-design.html    301
-/seo-services  /services/seo.html               301
-/hosting       /services/hosting.html            301
-/branding      /services/branding.html           301
-/portfolio     /portfolio.html                   301
-/contact       /contact.html                     301
-/about         /about.html                       301
-/blog.html     /blog/                           301
-/blog          /blog/                           301
-# Add more old WP slugs as discovered via CDX API
+# ============================================================
+# Netlify Redirects — Live Web Studios
+# Built from full Wayback CDX crawl — April 2026
+# ============================================================
+# 301 = permanent redirect (old URL → new clean URL)
+# 200 = rewrite (clean URL served silently, browser stays put)
+# ============================================================
+
+
+# ===== CORE PAGES =====
+/about-us/          /about      301
+/about-us           /about      301
+/contact-us/        /contact    301
+/contact-us         /contact    301
+/contact/           /contact    301
+/our-work/          /portfolio  301
+/our-work           /portfolio  301
+/portfolio/         /portfolio  301
+/services/          /           301
+/single-blog/       /blog/      301
+/newsletter/        /blog/      301
+/newsletter         /blog/      301
+/survey/            /           301
+
+
+# ===== OLD SERVICE SLUGS =====
+/web-design                              /services/website-design      301
+/seo-services                            /services/seo                 301
+/hosting                                 /services/hosting             301
+/branding                                /services/branding            301
+/graphic-design/                         /services/branding            301
+/graphic-design                          /services/branding            301
+/printing-service/                       /services/branding            301
+/boost-your-brand-drive-results/         /services/seo                 301
+/boost-your-brand-drive-results          /services/seo                 301
+
+/services/website-design/                /services/website-design      301
+/services/reliable-hosting-solutions/    /services/hosting             301
+/services/reliable-hosting-solutions     /services/hosting             301
+/services/e-commerce-sites/              /services/ecommerce           301
+/services/e-commerce-sites               /services/ecommerce           301
+/services/branding-corporate-image/      /services/branding            301
+/services/branding-corporate-image       /services/branding            301
+/services/logo-design-graphics/          /services/logo-design         301
+/services/logo-design-graphics           /services/logo-design         301
+/services/custom-web-app-development/    /services/consulting          301
+/services/custom-web-app-development     /services/consulting          301
+/services/ai-consulting-automation/      /services/ai-business-services 301
+/services/ai-consulting-automation       /services/ai-business-services 301
+/services/boost-your-brand-drive-results/ /services/seo               301
+/services/comprehensive-digital-marketing/ /services/seo              301
+/services/monthly-marketing-reports/    /services/seo                 301
+/services/monthly-marketing-reports     /services/seo                 301
+
+
+# ===== OLD BLOG POSTS — DATE-BASED URLS (→ blog index) =====
+/2021/06/20/new-animated-logo-for-our-company-how-we-can-help-you/          /blog/  301
+/2021/07/20/website-hosting-basics-for-non-techies/                          /blog/  301
+/2021/08/20/is-search-engine-optimization-seo-dead-in-2023-short-answer-no/ /blog/  301
+/2021/09/20/how-can-chatgpt-help-my-business-any-type-of-business/           /blog/  301
+/2021/10/20/i-asked-chatgpt-if-a-bowl-of-chili-can-help-my-business/         /blog/  301
+/2021/11/20/websites-101-using-an-all-in-one-company-for-website-services/   /blog/  301
+/2021/12/20/you-really-dont-have-a-google-business-account-yet/              /blog/  301
+/2022/01/20/nobody-likes-a-slow-website/                                      /blog/  301
+/2022/02/20/how-chatgpt-is-changing-web-design/                               /blog/  301
+/2022/03/20/web-design-basics-2/                                              /blog/  301
+/2022/04/20/is-color-important-2/                                             /blog/  301
+/2022/05/20/5-crucial-things-your-website-might-be-missing/                  /blog/  301
+/2022/06/20/5-reasons-your-business-needs-a-professional-website/             /blog/  301
+/2022/07/20/the-importance-of-mobile-friendly-website-design/                 /blog/  301
+/2022/08/20/how-to-choose-the-right-web-hosting-provider-for-your-business/  /blog/  301
+/2022/09/20/the-benefits-of-responsive-web-design/                            /blog/  301
+/2022/10/20/chatgpt-interviews-jon-wolf/                                      /blog/  301
+/2022/11/20/getting-the-most-value-out-of-your-website/                       /blog/  301
+/2022/12/20/the-role-of-social-media-in-web-design-and-marketing/             /blog/  301
+/2023/01/20/the-importance-of-website-security-and-how-to-protect-your-site/ /blog/  301
+/2023/02/20/the-benefits-of-having-a-blog-on-your-website/                   /blog/  301
+/2023/03/20/web-design-best-practices-for-e-commerce-websites/                /blog/  301
+/2023/04/20/the-importance-of-a-strong-web-presence-for-your-business/        /blog/  301
+/2023/05/20/why-your-small-business-needs-a-website/                          /blog/  301
+/2023/06/20/the-benefits-of-a-content-management-system-cms-for-your-website/ /blog/ 301
+/2023/07/20/the-advantages-of-using-a-website-builder/                        /blog/  301
+/2023/08/20/how-to-create-a-professional-website-on-a-budget/                 /blog/  301
+/2023/09/20/the-benefits-of-custom-web-design-for-your-business/              /blog/  301
+/2023/10/20/5-common-web-design-mistakes-to-avoid/                            /blog/  301
+/2023/11/20/the-role-of-search-engine-optimization-seo-in-web-design/         /blog/  301
+/2023/12/20/web-design-tips-for-a-better-user-experience/                     /blog/  301
+/2024/01/20/the-essential-elements-of-a-successful-website/                   /blog/  301
+/2024/02/20/how-to-choose-the-best-domain-name-for-your-website/              /blog/  301
+/2024/02/22/celebrating-20-years-of-innovation-unveiling-our-new-website-and-a-special-gift-for-you/ /blog/ 301
+/2024/03/05/elevate-your-brand-unleash-the-power-of-modern-design-and-digital-innovation/ /blog/ 301
+/2024/03/26/elevate-your-brand-with-a-second-website/                         /blog/  301
+/2024/12/07/how-seo-services-can-help-your-business-grow/                     /blog/  301
+/2025/01/17/how-business-owners-can-profit-from-seo-driven-traffic/           /blog/  301
+/2025/02/28/the-2025-state-of-the-website-report/                             /blog/  301
+/2025/04/04/what-we-do-for-our-hosting-customers/                             /blog/  301
+/2026/01/24/new-for-2025-custom-web-apps-smart-business-tools-built-just-for-you/ /blog/ 301
+/2026/01/27/how-americans-are-integrating-ai-into-the-workplace/              /blog/  301
+
+
+# ===== OLD BLOG POSTS — FLAT SLUG VERSIONS =====
+/new-animated-logo-for-our-company-how-we-can-help-you/           /blog/  301
+/website-hosting-basics-for-non-techies/                           /blog/  301
+/is-search-engine-optimization-seo-dead-in-2023-short-answer-no/  /blog/  301
+/how-can-chatgpt-help-my-business-any-type-of-business/            /blog/  301
+/i-asked-chatgpt-if-a-bowl-of-chili-can-help-my-business/          /blog/  301
+/websites-101-using-an-all-in-one-company-for-website-services/    /blog/  301
+/you-really-dont-have-a-google-business-account-yet/               /blog/  301
+/nobody-likes-a-slow-website/                                       /blog/  301
+/how-chatgpt-is-changing-web-design/                                /blog/  301
+/web-design-basics-2/                                               /blog/  301
+/is-color-important-2/                                              /blog/  301
+/5-crucial-things-your-website-might-be-missing/                   /blog/  301
+/5-reasons-your-business-needs-a-professional-website/              /blog/  301
+/the-importance-of-mobile-friendly-website-design/                  /blog/  301
+/how-to-choose-the-right-web-hosting-provider-for-your-business/   /blog/  301
+/the-benefits-of-responsive-web-design/                             /blog/  301
+/chatgpt-interviews-jon-wolf/                                        /blog/  301
+/getting-the-most-value-out-of-your-website/                        /blog/  301
+/the-role-of-social-media-in-web-design-and-marketing/              /blog/  301
+/the-importance-of-website-security-and-how-to-protect-your-site/  /blog/  301
+/the-benefits-of-having-a-blog-on-your-website/                     /blog/  301
+/web-design-best-practices-for-e-commerce-websites/                 /blog/  301
+/the-importance-of-a-strong-web-presence-for-your-business/         /blog/  301
+/why-your-small-business-needs-a-website/                           /blog/  301
+/the-benefits-of-a-content-management-system-cms-for-your-website/ /blog/  301
+/the-advantages-of-using-a-website-builder/                         /blog/  301
+/how-to-create-a-professional-website-on-a-budget/                  /blog/  301
+/the-benefits-of-custom-web-design-for-your-business/               /blog/  301
+/5-common-web-design-mistakes-to-avoid/                             /blog/  301
+/the-role-of-search-engine-optimization-seo-in-web-design/          /blog/  301
+/web-design-tips-for-a-better-user-experience/                      /blog/  301
+/the-essential-elements-of-a-successful-website/                    /blog/  301
+/how-to-choose-the-best-domain-name-for-your-website/               /blog/  301
+/what-is-seo/                                                        /blog/  301
+/quick-search-engine-tips-for-your-website-2/                       /blog/  301
+/keyword-planner-2/                                                  /blog/  301
+/speed-test-2/                                                       /blog/  301
+/web-design-basics-2/                                                /blog/  301
+/whats-a-website-2/                                                  /blog/  301
+
+
+# ===== BLOG POST CLEAN URLs → QUERY STRING REWRITES (200) =====
+/blog/wordpress-slowing-you-down       /post.html?post=2026-05-08-wordpress-slowing-you-down       200
+/blog/what-is-an-ai-built-website      /post.html?post=2026-05-15-what-is-an-ai-built-website      200
+/blog/hidden-cost-of-outdated-hosting  /post.html?post=2026-05-22-hidden-cost-of-outdated-hosting  200
+/blog/how-we-build-sites-2026          /post.html?post=2026-05-29-how-we-build-sites-2026          200
+/blog/case-study-first-migration       /post.html?post=2026-06-05-case-study-first-migration       200
+/blog/small-business-seo-2026          /post.html?post=2026-06-12-small-business-seo-2026          200
+/blog/monthly-reports-value            /post.html?post=2026-06-19-monthly-reports-value            200
+/blog/page-speed-bounce-rate           /post.html?post=2026-06-26-page-speed-bounce-rate           200
+/blog/migration-process-explained      /post.html?post=2026-07-03-migration-process-explained      200
+/blog/google-search-console-explained  /post.html?post=2026-07-10-google-search-console-explained  200
+/blog/5-website-mistakes               /post.html?post=2026-07-17-5-website-mistakes               200
+/blog/why-your-website-needs-a-blog    /post.html?post=2026-07-24-why-your-website-needs-a-blog    200
+/blog/what-ai-can-and-cant-do          /post.html?post=2026-07-31-what-ai-can-and-cant-do          200
+/blog/decluttering-your-website        /post.html?post=2026-08-07-decluttering-your-website        200
+/blog/local-seo-2026                   /post.html?post=2026-08-14-local-seo-2026                   200
+/blog/understanding-website-analytics  /post.html?post=2026-08-21-understanding-website-analytics  200
+/blog/moving-away-from-wordpress       /post.html?post=2026-08-28-moving-away-from-wordpress       200
+/blog/ai-consulting-small-business     /post.html?post=2026-09-04-ai-consulting-small-business     200
+/blog/whats-next-for-lws              /post.html?post=2026-09-11-whats-next-for-lws               200
+
+
+# ===== LEGACY / MISC =====
+/blog.html     /blog/   301
+/blog          /blog/   301
+/about         /about   301
+/contact       /contact 301
+/portfolio     /portfolio 301

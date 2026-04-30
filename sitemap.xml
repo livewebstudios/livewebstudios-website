@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+        http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+  <!-- ================================================ -->
+  <!-- LIVE WEB STUDIOS — sitemap.xml                   -->
+  <!-- Last updated: 2026-04-30                         -->
+  <!-- Add new blog posts to the BLOG POSTS section     -->
+  <!-- when published via Decap CMS                     -->
+  <!-- ================================================ -->
+
+
+  <!-- ===== CORE PAGES ===== -->
+  <url>
+    <loc>https://livewebstudios.com/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.00</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/about</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/portfolio</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/contact</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+
+  <!-- ===== SERVICES ===== -->
+  <url>
+    <loc>https://livewebstudios.com/services/website-design</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/hosting</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/seo</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/ecommerce</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/branding</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/logo-design</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/ai-platform</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/ai-business-services</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/ai-workflow</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/ai-image</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/consulting</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/services/maintenance-plans</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+
+  <!-- ===== INDUSTRIES ===== -->
+  <url>
+    <loc>https://livewebstudios.com/industries</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/healthcare</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/law-firm</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/financial-services</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/construction</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/real-estate</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/manufacturing</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/dental</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/nonprofit</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/b2b</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/industries/insurance</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+
+  <!-- ===== ECOSYSTEM ===== -->
+  <url>
+    <loc>https://livewebstudios.com/ecosystem/live-web-photos</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/ecosystem/live-ai-studios</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+
+  <!-- ===== BLOG INDEX ===== -->
+  <url>
+    <loc>https://livewebstudios.com/blog/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+
+  <!-- ===== BLOG POSTS ===== -->
+  <!-- FORMAT: add each new post below when published  -->
+  <!-- slug = filename minus date prefix and .md       -->
+  <url>
+    <loc>https://livewebstudios.com/blog/wordpress-slowing-you-down</loc>
+    <lastmod>2026-05-08</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/what-is-an-ai-built-website</loc>
+    <lastmod>2026-05-15</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/hidden-cost-of-outdated-hosting</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/how-we-build-sites-2026</loc>
+    <lastmod>2026-05-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/case-study-first-migration</loc>
+    <lastmod>2026-06-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/small-business-seo-2026</loc>
+    <lastmod>2026-06-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/monthly-reports-value</loc>
+    <lastmod>2026-06-19</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/page-speed-bounce-rate</loc>
+    <lastmod>2026-06-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/migration-process-explained</loc>
+    <lastmod>2026-07-03</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/google-search-console-explained</loc>
+    <lastmod>2026-07-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/5-website-mistakes</loc>
+    <lastmod>2026-07-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/why-your-website-needs-a-blog</loc>
+    <lastmod>2026-07-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/what-ai-can-and-cant-do</loc>
+    <lastmod>2026-07-31</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/decluttering-your-website</loc>
+    <lastmod>2026-08-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/local-seo-2026</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/understanding-website-analytics</loc>
+    <lastmod>2026-08-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/moving-away-from-wordpress</loc>
+    <lastmod>2026-08-28</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/ai-consulting-small-business</loc>
+    <lastmod>2026-09-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/blog/whats-next-for-lws</loc>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+
+  <!-- ===== LEGAL ===== -->
+  <url>
+    <loc>https://livewebstudios.com/privacy</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/terms</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.40</priority>
+  </url>
+
+</urlset>
