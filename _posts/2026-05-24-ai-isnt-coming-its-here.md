@@ -1,6 +1,9 @@
 ---
 title: "AI isn't coming. It's here. "
 thumbnail: /images/uploads/ainow.jpg
+excerpt: AI isn't coming. It's here. And most small business owners are either
+  ignoring it, mildly panicking about it, or clicking around on ChatGPT and
+  wondering what the big deal is.
 ---
 Let me be straight with you.
 
