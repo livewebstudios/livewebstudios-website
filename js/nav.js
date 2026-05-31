@@ -15,7 +15,7 @@
   /* Detect folder depth for relative paths */
   var path = window.location.pathname;
   var depth = 0;
-  if (/\/(services|industries|pricing|ecosystem|blog|admin)\//.test(path)) depth = 1;
+  if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios)\//.test(path)) depth = 1;
   var p = depth ? '../' : '';
 
   /* ── Mega-menu helper: icon + label link ── */
