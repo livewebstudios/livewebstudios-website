@@ -15,8 +15,9 @@
   /* Detect folder depth for relative paths */
   var path = window.location.pathname;
   var depth = 0;
-  if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios)\//.test(path)) depth = 1;
-  var p = depth ? '../' : '';
+  if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios|live-band-web-studios)\//.test(path)) depth = 1;
+  if (/\/live-band-web-studios\/forms\//.test(path)) depth = 2;   /* forms hub is two levels deep */
+  var p = depth === 2 ? '../../' : (depth === 1 ? '../' : '');
 
   /* ── Mega-menu helper: icon + label link ── */
   function navItem(href, svgPath, label) {
@@ -58,7 +59,7 @@
     '<nav class="site-nav" id="siteNav">' +
       '<div class="nav-inner">' +
         '<a href="' + p + 'index.html" class="nav-logo">' +
-          '<img src="' + p + 'images/Standard_Color.png" alt="Live Web Studios">' +
+          '<img src="' + p + 'images/Inverted_Color.png" alt="Live Web Studios">' +
         '</a>' +
         '<ul class="nav-links" id="navLinks">' +
 
@@ -100,13 +101,60 @@
   function ensureFooterIndustries() {
     var footer = document.querySelector('footer.site-footer');
     if (!footer) return;
-
-    if (footer.querySelector('h4') && footer.innerHTML.indexOf('<h4>Industries</h4>') !== -1) return;
-
     var grid = footer.querySelector('.footer-grid');
     if (!grid) return;
 
-    var industriesHTML =
+    /* Fix logo to white/inverted version on every page */
+    var logoImg = footer.querySelector('.footer-brand img');
+    if (logoImg && logoImg.getAttribute('src') && logoImg.src.indexOf('Standard_Color') !== -1) {
+      logoImg.src = logoImg.src.replace('Standard_Color', 'Inverted_Color');
+    }
+
+    /* Inject circuit canvas as first child of footer (if not already present) */
+    if (!footer.querySelector('#circuitCanvas')) {
+      var cvs = document.createElement('canvas');
+      cvs.id = 'circuitCanvas';
+      cvs.setAttribute('aria-hidden', 'true');
+      footer.insertBefore(cvs, footer.firstChild);
+    }
+
+    /* Wrap footer logo in a homepage link on every page */
+    if (logoImg && logoImg.parentNode && logoImg.parentNode.tagName !== 'A') {
+      var logoLink = document.createElement('a');
+      logoLink.href = p + 'index.html';
+      logoLink.setAttribute('aria-label', 'Live Web Studios — Home');
+      logoLink.style.display = 'inline-block';
+      logoImg.parentNode.insertBefore(logoLink, logoImg);
+      logoLink.appendChild(logoImg);
+    }
+
+    /* Only run injection + migration once */
+    if (footer.innerHTML.indexOf('<h4>Industries</h4>') !== -1) return;
+
+    /* Migrate Contact column into brand column first */
+    var brandCol = grid.querySelector('.footer-brand');
+    if (brandCol) {
+      var allCols = grid.querySelectorAll('.footer-col');
+      for (var i = 0; i < allCols.length; i++) {
+        var col = allCols[i];
+        if (col === brandCol) continue;
+        var h4 = col.querySelector('h4');
+        if (h4 && h4.textContent.trim().toLowerCase() === 'contact') {
+          var contactWrap = document.createElement('div');
+          contactWrap.className = 'footer-brand-contact';
+          var kids = Array.prototype.slice.call(col.childNodes);
+          for (var j = 0; j < kids.length; j++) {
+            if (kids[j].nodeName !== 'H4') contactWrap.appendChild(kids[j].cloneNode(true));
+          }
+          brandCol.appendChild(contactWrap);
+          col.parentNode.removeChild(col);
+          break;
+        }
+      }
+    }
+
+    /* Inject Industries at the end */
+    grid.insertAdjacentHTML('beforeend',
       '<div class="footer-col">' +
         '<h4>Industries</h4>' +
         '<ul>' +
@@ -121,14 +169,20 @@
           '<li><a href="' + p + 'industries/nonprofit.html">Nonprofits</a></li>' +
           '<li><a href="' + p + 'industries/b2b.html">B2B</a></li>' +
         '</ul>' +
-      '</div>';
+      '</div>');
 
-    var cols = grid.querySelectorAll('.footer-col');
-    if (cols && cols.length) {
-      cols[cols.length - 1].insertAdjacentHTML('beforebegin', industriesHTML);
-    } else {
-      grid.insertAdjacentHTML('beforeend', industriesHTML);
-    }
+    /* Inject Live Band Web Studios column at the far right (every page) */
+    grid.insertAdjacentHTML('beforeend',
+      '<div class="footer-col">' +
+        '<h4>Live Band Web Studios</h4>' +
+        '<ul>' +
+          '<li><a href="' + p + 'live-band-web-studios/index.html">Home</a></li>' +
+          '<li><a href="' + p + 'live-band-web-studios/pricing.html">Pricing</a></li>' +
+          '<li><a href="' + p + 'live-band-web-studios/personal-sites.html">Personal Sites</a></li>' +
+          '<li><a href="' + p + 'live-band-web-studios/portfolio.html">Portfolio</a></li>' +
+          '<li><a href="' + p + 'live-band-web-studios/forms.html">Forms</a></li>' +
+        '</ul>' +
+      '</div>');
   }
 
   function inject() {
