@@ -6,7 +6,8 @@
     "date": "2026-09-11",
     "excerpt": "2026 has been a year of change at LWS. Here's where we've been, what we've learned, and what we're building toward.",
     "thumbnail": "/images/blog/whats-next-for-lws.jpg",
-    "category": "LWS news"
+    "category": "LWS news",
+    "draft": false
   },
   {
     "slug": "2026-09-04-ai-consulting-small-business",
@@ -15,7 +16,8 @@
     "date": "2026-09-04",
     "excerpt": "Everyone's talking about AI. Most small business owners don't know where to start — and the advice out there ranges from useful to genuinely confusing. Here's a ground-level view.",
     "thumbnail": "/images/blog/ai-consulting-small-business.jpg",
-    "category": "AI consulting"
+    "category": "AI consulting",
+    "draft": false
   },
   {
     "slug": "2026-08-28-moving-away-from-wordpress",
@@ -24,7 +26,8 @@
     "date": "2026-08-28",
     "excerpt": "After 20 years of building WordPress sites, Live Web Studios is transitioning to a modern AI-built stack. Here's the honest explanation of why — and what it means for existing clients.",
     "thumbnail": "/images/blog/moving-away-from-wordpress.jpg",
-    "category": "WordPress"
+    "category": "WordPress",
+    "draft": false
   },
   {
     "slug": "2026-08-21-understanding-website-analytics",
@@ -33,7 +36,8 @@
     "date": "2026-08-21",
     "excerpt": "Analytics dashboards can look intimidating. But you only need to understand a handful of numbers to know whether your website is actually working. Here's the short version.",
     "thumbnail": "/images/blog/understanding-website-analytics.jpg",
-    "category": "website analytics"
+    "category": "website analytics",
+    "draft": false
   },
   {
     "slug": "2026-08-14-local-seo-2026",
@@ -42,7 +46,8 @@
     "date": "2026-08-14",
     "excerpt": "If your business serves a local area, you're competing in a different game than national brands. Here's how local SEO actually works in 2026 — and what you should be doing.",
     "thumbnail": "/images/blog/local-seo-2026.jpg",
-    "category": "local SEO"
+    "category": "local SEO",
+    "draft": false
   },
   {
     "slug": "2026-08-07-decluttering-your-website",
@@ -51,7 +56,8 @@
     "date": "2026-08-07",
     "excerpt": "More pages, more content, more features — it sounds like more value. It's often the opposite. Here's why the best websites in 2026 are doing less, better.",
     "thumbnail": "/images/blog/decluttering-your-website.jpg",
-    "category": "website design"
+    "category": "website design",
+    "draft": false
   },
   {
     "slug": "2026-07-31-what-ai-can-and-cant-do",
@@ -60,7 +66,8 @@
     "date": "2026-07-31",
     "excerpt": "AI is everywhere right now, and the claims are everywhere too. Let's cut through the noise and talk about what AI actually does — and doesn't do — when it comes to building and maintaining your website.",
     "thumbnail": "/images/blog/what-ai-can-and-cant-do.jpg",
-    "category": "AI for business"
+    "category": "AI for business",
+    "draft": false
   },
   {
     "slug": "2026-07-24-why-your-website-needs-a-blog",
@@ -69,7 +76,8 @@
     "date": "2026-07-24",
     "excerpt": "\\\"I'm a plumber, not a writer.\\\" Fair. But your customers are Googling questions about plumbing before they call anyone — and a blog is how you show up for those searches.",
     "thumbnail": "/images/blog/why-your-website-needs-a-blog.jpg",
-    "category": "business blogging"
+    "category": "business blogging",
+    "draft": false
   },
   {
     "slug": "2026-07-17-5-website-mistakes",
@@ -78,7 +86,8 @@
     "date": "2026-07-17",
     "excerpt": "After 20 years of building and maintaining small business websites, these are the mistakes I see most often — and they're almost always fixable.",
     "thumbnail": "/images/blog/5-website-mistakes.jpg",
-    "category": "SEO mistakes"
+    "category": "SEO mistakes",
+    "draft": false
   },
   {
     "slug": "2026-07-10-google-search-console-explained",
@@ -87,7 +96,8 @@
     "date": "2026-07-10",
     "excerpt": "Google Search Console is the closest thing to seeing your website through Google's eyes. Here's what it tells you and why every business owner should understand the basics.",
     "thumbnail": "/images/blog/google-search-console-explained.jpg",
-    "category": "Google Search Console"
+    "category": "Google Search Console",
+    "draft": false
   },
   {
     "slug": "2026-07-03-migration-process-explained",
@@ -96,7 +106,8 @@
     "date": "2026-07-03",
     "excerpt": "Migrating a site sounds intimidating. It doesn't have to be. Here's a plain walkthrough of what the process looks like from start to finish — and what you have to do (spoiler: not much).",
     "thumbnail": "/images/blog/migration-process-explained.jpg",
-    "category": "website migration"
+    "category": "website migration",
+    "draft": false
   },
   {
     "slug": "2026-06-26-page-speed-bounce-rate",
@@ -105,7 +116,8 @@
     "date": "2026-06-26",
     "excerpt": "A 1-second delay in page load time can reduce conversions by 7%. Here's what that math looks like for a small business site — and what you can do about it.",
     "thumbnail": "/images/blog/page-speed-bounce-rate.jpg",
-    "category": "page speed"
+    "category": "page speed",
+    "draft": false
   },
   {
     "slug": "2026-06-19-monthly-reports-value",
@@ -114,7 +126,8 @@
     "date": "2026-06-19",
     "excerpt": "Most web agencies go quiet after launch. A monthly report changes that dynamic completely — and it's the single best tool for a productive long-term relationship.",
     "thumbnail": "/images/blog/monthly-reports-value.jpg",
-    "category": "website reporting"
+    "category": "website reporting",
+    "draft": false
   },
   {
     "slug": "2026-06-12-small-business-seo-2026",
@@ -123,7 +136,8 @@
     "date": "2026-06-12",
     "excerpt": "SEO in 2026 isn't about tricks. It's about a handful of things done consistently well. Here's the straight version of what actually matters.",
     "thumbnail": "/images/blog/small-business-seo-2026.jpg",
-    "category": "SEO"
+    "category": "SEO",
+    "draft": false
   },
   {
     "slug": "2026-06-05-case-study-first-migration",
@@ -132,7 +146,18 @@
     "date": "2026-06-05",
     "excerpt": "Our first AI-stack migration is complete. Here's what we did, what changed, and what the numbers look like on the other side.",
     "thumbnail": "/images/blog/case-study-first-migration.jpg",
-    "category": "case study"
+    "category": "case study",
+    "draft": false
+  },
+  {
+    "slug": "2026-06-03-3-23-pm-google-changed-the-rules-this-summer-heres-what-that-means-for-your-website",
+    "filename": "_posts/2026-06-03-3-23-pm-google-changed-the-rules-this-summer-heres-what-that-means-for-your-website.md",
+    "title": "3:23 PM Google Changed the Rules This Summer. Here's What That Means for",
+    "date": "2026-06-03T21:10:29.984Z",
+    "excerpt": "If your website hasn't been touched in a year or two, this summer's",
+    "thumbnail": "/images/uploads/image_bfa65704.jpg",
+    "category": "SEO",
+    "draft": false
   },
   {
     "slug": "2026-05-29-how-we-build-sites-2026",
@@ -141,7 +166,8 @@
     "date": "2026-05-29",
     "excerpt": "For 20 years, the answer was WordPress. In 2026, we build differently — and the results are measurably better. Here's exactly how it works.",
     "thumbnail": "/images/blog/how-we-build-sites-2026.jpg",
-    "category": "web development"
+    "category": "web development",
+    "draft": false
   },
   {
     "slug": "2026-05-22-hidden-cost-of-outdated-hosting",
@@ -150,7 +176,8 @@
     "date": "2026-05-22",
     "excerpt": "Your hosting bill is the visible cost. But what about the rankings you're losing, the customers who bounce, and the time you're spending on maintenance that should be automatic?",
     "thumbnail": "/images/blog/hidden-cost-of-outdated-hosting.jpg",
-    "category": "web hosting"
+    "category": "web hosting",
+    "draft": false
   },
   {
     "slug": "2026-05-15-what-is-an-ai-built-website",
@@ -159,7 +186,8 @@
     "date": "2026-05-15",
     "excerpt": "Everyone's talking about AI websites. Most explanations are either too technical or too vague. Here's what it actually means — and what it means for you.",
     "thumbnail": "/images/blog/what-is-an-ai-built-website.jpg",
-    "category": "AI websites"
+    "category": "AI websites",
+    "draft": false
   },
   {
     "slug": "2026-05-08-wordpress-slowing-you-down",
@@ -168,7 +196,8 @@
     "date": "2026-05-08",
     "excerpt": "WordPress has been the workhorse of the web for 20 years. But for most small business sites, it's carrying a lot of weight it doesn't need. Here's what that actually costs you.",
     "thumbnail": "/images/blog/wordpress-slowing-you-down.jpg",
-    "category": "WordPress"
+    "category": "WordPress",
+    "draft": false
   },
   {
     "slug": "2026-05-24-ai-isnt-coming-its-here",
@@ -177,15 +206,7 @@
     "date": "",
     "excerpt": "AI isn't coming. It's here. And most small business owners are either",
     "thumbnail": "/images/uploads/ainow.jpg",
-    "category": ""
-  },
-  {
-    "slug": "2026-06-03-3-23-pm-google-changed-the-rules-this-summer-heres-what-that-means-for-your-website",
-    "filename": "_posts/2026-06-03-3-23-pm-google-changed-the-rules-this-summer-heres-what-that-means-for-your-website.md",
-    "title": "3:23 PM Google Changed the Rules This Summer. Here's What That Means for",
-    "date": "",
-    "excerpt": "If your website hasn't been touched in a year or two, this summer's",
-    "thumbnail": "/images/uploads/image_bfa65704.jpg",
-    "category": ""
+    "category": "",
+    "draft": false
   }
 ]
