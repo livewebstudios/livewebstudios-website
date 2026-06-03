@@ -504,7 +504,10 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
   box-shadow: 0 0 0 0 rgba(41,171,226,0.55);
   animation: lbs-promo-pulse 2.4s ease-out infinite;
   flex-shrink: 0;
+  order: 1;
 }
+.lbs-cta-band__icon { order: 2; }
+.lbs-cta-band__text { order: 3; }
 .lbs-cta-band__badge {
   background: linear-gradient(135deg, #f5e6c8, #d6a050);
   color: #1a1108;
@@ -516,7 +519,9 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
   padding: 4px 9px;
   border-radius: 6px;
   flex-shrink: 0;
+  order: 4;
 }
+.lbs-cta-band__arrow { order: 5; }
 .lbs-cta-band__icon {
   display: inline-flex;
   width: 34px;
