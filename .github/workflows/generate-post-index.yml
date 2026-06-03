@@ -61,6 +61,7 @@ jobs:
             const slug = filename.replace(/\.md$/, '');
             const tagsStr = meta.tags || '';
             const categoryFromTags = tagsStr.replace(/[\[\]"]/g, '').split(',')[0].trim();
+            const isDraft = String(meta.draft || '').toLowerCase() === 'true';
 
             return {
               slug,
@@ -69,9 +70,10 @@ jobs:
               date: meta.date || '',
               excerpt: meta.description || meta.excerpt || '',
               thumbnail: meta.image || meta.thumbnail || '',
-              category: meta.category || categoryFromTags || ''
+              category: meta.category || categoryFromTags || '',
+              draft: isDraft
             };
-          });
+          }).filter(p => !p.draft);
 
           posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 

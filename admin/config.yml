@@ -13,6 +13,37 @@ collections:
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false }
-      - { label: "Excerpt", name: "excerpt", widget: "text", required: false }
+      - label: "Publish Date"
+        name: "date"
+        widget: "datetime"
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        picker_utc: false
+        required: false
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        required: false
+        default: ""
+        options:
+          - { label: "— None —", value: "" }
+          - { label: "AI", value: "AI" }
+          - { label: "SEO", value: "SEO" }
+          - { label: "Web Design", value: "Web Design" }
+          - { label: "Web Hosting", value: "Web Hosting" }
+          - { label: "WordPress", value: "WordPress" }
+          - { label: "Case Study", value: "Case Study" }
+          - { label: "Small Business", value: "Small Business" }
+          - { label: "LWS News", value: "LWS News" }
+          - { label: "Tutorial", value: "Tutorial" }
+        hint: "Pick one. To add a new category, edit /admin/config.yml — these power the colored pill on each blog card."
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        default: []
+        hint: "Optional — type a word and press Enter. Used for related-post linking; first tag becomes the category if Category is blank."
+      - { label: "Featured Image", name: "thumbnail", widget: "image", required: false, hint: "Shown as the card thumbnail and at the top of the post." }
+      - { label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "1–2 sentences shown on blog cards and in search results." }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false, required: false, hint: "Tick to hide this post from the public blog." }
       - { label: "Body", name: "body", widget: "markdown" }
