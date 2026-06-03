@@ -280,6 +280,8 @@
    tint that darkens the video evenly. Text stays crisp everywhere. */
 .lbs-hero .hero-video { object-position: center center; }
 .lbs-hero .hero-video.loaded { opacity: 0.55; }
+/* LBS index uses --tall and runs the dim drum video — brighten it. */
+.lbs-hero--tall .hero-video.loaded { opacity: 0.85; }
 .lbs-hero .hero-video-mask {
   background:
     linear-gradient(180deg,
