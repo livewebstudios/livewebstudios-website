@@ -303,6 +303,12 @@
 .lbs-hero .section-sub,
 .lbs-hero .eyebrow { text-shadow: 0 1px 16px rgba(0,0,0,0.55); }
 
+/* Body copy in LBS heros over photos/videos: brighten the muted grey
+   (default --lbs-muted) so it's legible. */
+.lbs-hero .section-sub,
+.lbs-hero .hero-subtagline,
+.lbs-hero p { color: rgba(255,255,255,0.92); }
+
 /* Center the BODY copy as a block inside every LBS hero.
    .hero-tagline / .hero-subtagline already set margin:auto in the
    base CSS, but .section-sub and inline-style paragraphs need help

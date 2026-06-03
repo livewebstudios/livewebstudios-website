@@ -454,61 +454,56 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
 }
 .services-lbs-promo:hover .lbs-promo-arrow { transform: translateX(4px); }
 
-/* ── Live Band Web Studios CTA — full-width section variant ──
-   Same color/format DNA as .services-lbs-promo but at section scale.
-   Used between Services and About on home, and just above the footer
-   on the contact page. */
-.lbs-cta-band { padding: clamp(2rem, 5vw, 3.5rem) 0; }
-.lbs-cta-band__card {
+/* ── Live Band Web Studios CTA — thin full-width strip ──
+   Gradient is the SECTION background (no card box). Content sits on a
+   single line on monitors/laptops, stacks to 2 lines on mobile. */
+.lbs-cta-band {
   position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  padding: 1.4rem 1.75rem;
-  border-radius: var(--radius-card);
+  padding: 0.9rem 0;
   background:
     linear-gradient(90deg,
       rgba(41,171,226,0.14) 0%,
       rgba(41,171,226,0.05) 45%,
       rgba(214,160,80,0.12) 100%);
-  border: 1px solid rgba(41,171,226,0.32);
-  text-decoration: none;
-  color: var(--lws-text-primary);
+  border-top: 1px solid rgba(41,171,226,0.22);
+  border-bottom: 1px solid rgba(41,171,226,0.22);
   overflow: hidden;
-  transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
   isolation: isolate;
 }
-.lbs-cta-band__card::before {
+.lbs-cta-band::before {
   content: "";
   position: absolute;
   inset: 0;
   background:
     radial-gradient(220px 140px at 8% 50%, rgba(41,171,226,0.22), transparent 70%),
     radial-gradient(280px 180px at 96% 50%, rgba(214,160,80,0.20), transparent 70%);
-  opacity: 0.6;
+  opacity: 0.55;
   pointer-events: none;
-  transition: opacity .3s ease;
   z-index: 0;
 }
-.lbs-cta-band__card:hover {
-  border-color: rgba(41,171,226,0.7);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(41,171,226,0.20);
+.lbs-cta-band .container { position: relative; z-index: 1; }
+
+.lbs-cta-band__card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.25rem 0;
+  text-decoration: none;
+  color: var(--lws-text-primary);
+  transition: color .2s ease;
+  position: relative;
 }
-.lbs-cta-band__card:hover::before { opacity: 0.9; }
-.lbs-cta-band__card > * { position: relative; z-index: 1; }
+.lbs-cta-band__card:hover { color: #fff; }
+.lbs-cta-band__card:hover .lbs-cta-band__arrow { transform: translateX(6px); }
 
 .lbs-cta-band__pulse {
-  position: absolute;
-  top: 14px;
-  right: 16px;
-  width: 9px;
-  height: 9px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: #29abe2;
   box-shadow: 0 0 0 0 rgba(41,171,226,0.55);
   animation: lbs-promo-pulse 2.4s ease-out infinite;
-  z-index: 2;
+  flex-shrink: 0;
 }
 .lbs-cta-band__badge {
   background: linear-gradient(135deg, #f5e6c8, #d6a050);
@@ -518,38 +513,52 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
   font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  padding: 6px 10px;
+  padding: 4px 9px;
   border-radius: 6px;
   flex-shrink: 0;
 }
 .lbs-cta-band__icon {
   display: inline-flex;
-  width: 54px;
-  height: 54px;
+  width: 34px;
+  height: 34px;
   align-items: center;
   justify-content: center;
-  border-radius: 14px;
+  border-radius: 10px;
   background: rgba(41,171,226,0.18);
   color: #29abe2;
   flex-shrink: 0;
 }
+.lbs-cta-band__icon svg { width: 20px; height: 20px; }
+
+/* Text: ONE line on desktop (row), stacks to 2 on mobile */
 .lbs-cta-band__text {
   display: flex;
-  flex-direction: column;
-  gap: 4px;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.65rem;
   flex: 1;
   min-width: 0;
 }
 .lbs-cta-band__headline {
   font-family: var(--font-display, var(--font-body));
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
   font-weight: 700;
-  color: var(--lws-text-primary);
   letter-spacing: 0.01em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 .lbs-cta-band__sub {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--lws-text-secondary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.lbs-cta-band__sub::before {
+  content: "·";
+  margin-right: 0.6rem;
+  color: rgba(255,255,255,0.4);
 }
 .lbs-cta-band__sub em {
   color: #29abe2;
@@ -557,17 +566,26 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
   font-weight: 600;
 }
 .lbs-cta-band__arrow {
-  font-size: 1.6rem;
+  font-size: 1.35rem;
   color: #29abe2;
   flex-shrink: 0;
   transition: transform .25s ease;
 }
-.lbs-cta-band__card:hover .lbs-cta-band__arrow { transform: translateX(6px); }
 
-@media (max-width: 640px) {
-  .lbs-cta-band__card { padding: 1.1rem 1.2rem; gap: 0.85rem; }
-  .lbs-cta-band__icon { width: 44px; height: 44px; border-radius: 12px; }
-  .lbs-cta-band__sub { font-size: 0.85rem; }
+@media (max-width: 720px) {
+  .lbs-cta-band { padding: 0.75rem 0; }
+  .lbs-cta-band__card { gap: 0.75rem; }
+  .lbs-cta-band__icon { width: 30px; height: 30px; border-radius: 9px; }
+  .lbs-cta-band__icon svg { width: 18px; height: 18px; }
+  .lbs-cta-band__text {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+  }
+  .lbs-cta-band__headline,
+  .lbs-cta-band__sub { white-space: normal; }
+  .lbs-cta-band__sub::before { display: none; }
+  .lbs-cta-band__sub { font-size: 0.82rem; line-height: 1.35; }
 }
 
 /* Mobile — dropdown becomes a flat stacked menu; promo stays visible
