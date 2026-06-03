@@ -98,6 +98,21 @@
             '<a href="' + p + 'industries/index.html" data-page="industries" aria-haspopup="true" aria-expanded="false">Industries</a>' +
             '<div class="nav-dropdown nav-mega industries-dropdown" role="menu">' +
               '<div class="dropdown-list">' + indItems + '</div>' +
+              /* Live Band Web Studios promo — same callout as Services dropdown */
+              '<a href="' + p + 'live-band-web-studios/index.html" class="services-lbs-promo" aria-label="Live Band Web Studios — websites for musicians">' +
+                '<span class="lbs-promo-pulse" aria-hidden="true"></span>' +
+                '<span class="lbs-promo-badge">NEW</span>' +
+                '<span class="lbs-promo-icon" aria-hidden="true">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">' +
+                    '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>' +
+                  '</svg>' +
+                '</span>' +
+                '<span class="lbs-promo-text">' +
+                  '<span class="lbs-promo-headline">Musicians, go here</span>' +
+                  '<span class="lbs-promo-sub">Custom sites for bands &amp; solo artists at <em>Live Band Web Studios</em></span>' +
+                '</span>' +
+                '<span class="lbs-promo-arrow" aria-hidden="true">&rarr;</span>' +
+              '</a>' +
               '<div class="mega-footer">' +
                 '<a href="' + p + 'industries/index.html" class="mega-view-all">View all industries →</a>' +
               '</div>' +
