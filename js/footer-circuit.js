@@ -3,6 +3,11 @@
   function start() {
     var canvas = document.getElementById('circuitCanvas');
     if (!canvas) { setTimeout(start, 60); return; }
+    /* Bail if the canvas was disabled via CSS (display:none / visibility:hidden).
+       Otherwise the draw loop hangs in an infinite `while (pulses.length<N) spawnPulse()`
+       because edges build is empty at 0×0 size. */
+    var cs = window.getComputedStyle(canvas);
+    if (cs.display === 'none' || cs.visibility === 'hidden') return;
     run(canvas);
   }
 

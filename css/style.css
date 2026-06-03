@@ -1495,16 +1495,65 @@ main img:not(.clutch-badge):not(.lws-face):not(.card-icon):not([aria-hidden]) {
 .site-footer {
   position: relative;
   overflow: hidden;
+  background-image: url("../images/bg-coffee2-reverse.jpg");
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: cover;
 }
-#circuitCanvas {
+/* Right-to-left gradient: photo subject (left) shows through,
+   text columns (right) stay readable. */
+.site-footer::before {
+  content: "";
   position: absolute;
   inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  pointer-events: none;
   z-index: 0;
+  pointer-events: none;
+  /* Layer 1: flat dark tint across the whole footer for legibility
+     Layer 2: extra darkness on the LEFT so the brand block reads clean */
+  background:
+    linear-gradient(
+      270deg,
+      rgba(8,14,25,0.95) 0%,
+      rgba(8,14,25,0.85) 35%,
+      rgba(8,14,25,0.70) 65%,
+      rgba(8,14,25,0.55) 100%
+    ),
+    rgba(8,14,25,0.35);
 }
+@media (max-width: 720px) {
+  .site-footer { background-position: left bottom; }
+  .site-footer::before {
+    background:
+      linear-gradient(
+        0deg,
+        rgba(8,14,25,0.95) 0%,
+        rgba(8,14,25,0.85) 45%,
+        rgba(8,14,25,0.70) 75%,
+        rgba(8,14,25,0.55) 100%
+      ),
+      rgba(8,14,25,0.35);
+  }
+}
+/* Animated circuit canvas disabled — JS bails via the guard
+   in footer-circuit.js when this rule is present. */
+#circuitCanvas {
+  display: none !important;
+}
+
+/* Lighter footer body text on the photo background.
+   Headings keep their splash/gold color. */
+.site-footer .footer-brand p,
+.site-footer .footer-brand-contact ul li,
+.site-footer .footer-brand-contact ul li a,
+.site-footer .footer-col ul li,
+.site-footer .footer-col ul li a,
+.site-footer .footer-bottom,
+.site-footer .footer-bottom small,
+.site-footer .footer-bottom span,
+.site-footer .footer-bottom a { color: rgba(255,255,255,0.88); }
+.site-footer .footer-col ul li a:hover,
+.site-footer .footer-brand-contact ul li a:hover,
+.site-footer .footer-bottom a:hover { color: #fff; }
 /* Ensure all footer content sits above canvas */
 .footer-grid,
 .footer-bottom,
@@ -1622,4 +1671,211 @@ main img:not(.clutch-badge):not(.lws-face):not(.card-icon):not([aria-hidden]) {
 @media print {
   nav, .site-nav { display: none !important; }
   body { background: white; color: black; }
+}
+
+/* ================================================
+   SERVICES MARQUEE STRIP
+   ================================================ */
+
+.marquee-section {
+  position: relative;
+  padding: 12px 0;
+  overflow: hidden;
+  width: 100%;
+  background: #0e1a2b;
+}
+
+.marquee-bg {
+  display: none;
+}
+
+.marquee-grid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.45;
+}
+
+.blob {
+  position: absolute;
+  filter: blur(22px);
+  opacity: 0.35;
+}
+
+.blob-1 {
+  width: 220px;
+  height: 110px;
+  background: #29abe2;
+  top: -20px;
+  left: 12%;
+  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%;
+  animation: drift1 9s ease-in-out infinite alternate;
+}
+
+.blob-2 {
+  width: 180px;
+  height: 130px;
+  background: #1a6fa8;
+  top: 10px;
+  left: 52%;
+  border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%;
+  animation: drift2 11s ease-in-out infinite alternate;
+}
+
+.blob-3 {
+  width: 160px;
+  height: 100px;
+  background: #29abe2;
+  top: -10px;
+  left: 78%;
+  border-radius: 55% 45% 40% 60% / 40% 60% 50% 50%;
+  animation: drift3 8s ease-in-out infinite alternate;
+}
+
+@keyframes drift1 {
+  0%   { transform: translate(0px, 0px)   scale(1)    rotate(0deg);  border-radius: 60% 40% 55% 45% / 50% 60% 40% 50%; }
+  33%  { transform: translate(18px, 8px)  scale(1.08) rotate(4deg);  border-radius: 45% 55% 40% 60% / 60% 40% 55% 45%; }
+  66%  { transform: translate(-10px, 14px) scale(0.95) rotate(-3deg); border-radius: 55% 45% 60% 40% / 45% 55% 40% 60%; }
+  100% { transform: translate(12px, -8px) scale(1.05) rotate(6deg);  border-radius: 40% 60% 45% 55% / 55% 45% 60% 40%; }
+}
+
+@keyframes drift2 {
+  0%   { transform: translate(0px, 0px)    scale(1)    rotate(0deg);  border-radius: 45% 55% 60% 40% / 55% 45% 55% 45%; }
+  40%  { transform: translate(-14px, 10px) scale(1.1)  rotate(-5deg); border-radius: 60% 40% 45% 55% / 40% 60% 45% 55%; }
+  70%  { transform: translate(10px, -12px) scale(0.92) rotate(3deg);  border-radius: 50% 50% 55% 45% / 60% 40% 50% 50%; }
+  100% { transform: translate(-8px, 6px)   scale(1.06) rotate(-4deg); border-radius: 55% 45% 40% 60% / 45% 55% 60% 40%; }
+}
+
+@keyframes drift3 {
+  0%   { transform: translate(0px, 0px)    scale(1)    rotate(0deg);  border-radius: 55% 45% 40% 60% / 40% 60% 50% 50%; }
+  35%  { transform: translate(12px, -10px) scale(1.07) rotate(5deg);  border-radius: 40% 60% 55% 45% / 55% 45% 40% 60%; }
+  65%  { transform: translate(-16px, 8px)  scale(0.94) rotate(-4deg); border-radius: 60% 40% 50% 50% / 50% 50% 55% 45%; }
+  100% { transform: translate(8px, 14px)   scale(1.04) rotate(3deg);  border-radius: 45% 55% 60% 40% / 60% 40% 45% 55%; }
+}
+
+.marquee-track {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 75s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.marquee-tag {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.marquee-tag-text {
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 0 28px;
+}
+
+.marquee-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f5e6c8;
+  flex-shrink: 0;
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ================================================
+   PHOTO BACKGROUNDS  (coffee / mac lifestyle shots)
+   Subject is on the RIGHT of each photo, so we pin
+   the bg to the right edge and gradient the LEFT
+   side dark for text legibility — mobile included.
+   ================================================ */
+.bg-photo {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: cover;
+  background-color: #0e1a2b;
+  color: #fff;
+  overflow: hidden;
+}
+.bg-photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(8,14,25,0.92) 0%,
+    rgba(8,14,25,0.82) 35%,
+    rgba(8,14,25,0.45) 65%,
+    rgba(8,14,25,0.05) 100%
+  );
+}
+.bg-photo > * { position: relative; z-index: 1; }
+
+/* Make existing dark/colored section helpers transparent
+   when stacked with .bg-photo so the photo shows through. */
+.bg-photo.bg-depth,
+.bg-photo.section--soft,
+.bg-photo.section--alt,
+.bg-photo.bg-aurora,
+.bg-photo.bg-topo,
+.bg-photo.bg-mesh { background-color: transparent; }
+
+/* Force white text inside photo sections (overrides dark
+   defaults on .section--soft etc.) */
+.bg-photo h1,
+.bg-photo h2,
+.bg-photo h3,
+.bg-photo h4,
+.bg-photo p,
+.bg-photo li,
+.bg-photo .section-heading,
+.bg-photo .section-subhead,
+.bg-photo .eyebrow,
+.bg-photo .label { color: #fff; }
+.bg-photo .section-subhead,
+.bg-photo p { color: rgba(255,255,255,0.85); }
+
+/* Image variants */
+.bg-photo--coffee  { background-image: url("../images/bg-coffee.jpg"); }
+.bg-photo--coffee2 { background-image: url("../images/bg-coffee2.jpg"); }
+.bg-photo--coffee3 { background-image: url("../images/bg-coffee3.jpg"); }
+.bg-photo--coffee4 { background-image: url("../images/bg-coffee4.jpg"); }
+.bg-photo--mac     { background-image: url("../images/bg-mac.jpg"); }
+
+/* On narrow screens lay the overlay top-to-bottom so the
+   subject (right side of photo) is still visible underneath
+   the bottom of the content. */
+@media (max-width: 720px) {
+  .bg-photo {
+    background-position: right bottom;
+  }
+  .bg-photo::before {
+    background: linear-gradient(
+      180deg,
+      rgba(8,14,25,0.92) 0%,
+      rgba(8,14,25,0.82) 45%,
+      rgba(8,14,25,0.55) 75%,
+      rgba(8,14,25,0.20) 100%
+    );
+  }
 }
