@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Music Photo Form — Live Band Web Studios</title>
+<meta name="description" content="Musician intake & photo guide. Submit your band info and get the AI photo guide — Live Band Web Photos by Live Web Studios.">
+<meta property="og:title" content="Music Photo Form — Live Band Web Studios">
+<meta property="og:description" content="Musician intake & photo guide. Submit your band info and get the AI photo guide — Live Band Web Photos by Live Web Studios.">
+<meta property="og:type" content="website">
+<meta name="keywords" content="band photo form, musician photo guide, AI band photos, EPK photos, press photos, band intake, band photo questionnaire">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Service","name":"Band & Musician Website Design + SEO","serviceType":"Custom websites, EPKs, and SEO for bands and touring musicians","provider":{"@type":"Organization","name":"Live Web Studios","url":"https://livewebstudios.com","foundingDate":"2004","areaServed":"US"},"areaServed":"US","description":"Custom hand-built websites and EPKs for bands and musicians — search-optimized with schema markup, keyword and key-phrase targeting, and monthly SEO blog content, built on the Live Web Studios AI platform.","offers":{"@type":"Offer","priceCurrency":"USD","price":"600","description":"Band websites from $600/year"}}
+</script>
+<link rel="icon" href="../../images/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+<link rel="stylesheet" href="../../css/style.css?v=3">
+<link rel="stylesheet" href="../lbs.css?v=4">
+<style>
+  /* ── Music Photo Form — scoped styles (mpf-scope) ─────────────────────
+     All selectors prefixed so they don't leak into the rest of the site. */
+  .mpf-scope {
+    --mpf-blue: #0099CC;
+    --mpf-blue-light: #E6F5FB;
+    --mpf-blue-dark: #0C447C;
+    --mpf-text-primary: #1a1a1a;
+    --mpf-text-secondary: #555;
+    --mpf-text-tertiary: #888;
+    --mpf-border: #e0e0e0;
+    --mpf-border-hover: #b0d8ec;
+    --mpf-bg: #ffffff;
+    --mpf-bg-secondary: #f7f7f7;
+    --mpf-warn-bg: #fff8e6;
+    --mpf-warn-border: #e6a817;
+    --mpf-warn-text: #7a5200;
+    --mpf-radius: 8px;
+    --mpf-radius-lg: 12px;
+    --mpf-radius-pill: 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    color: var(--mpf-text-primary);
+    line-height: 1.6;
+    padding: 40px 16px 80px;
+  }
+
+  .mpf-scope .page-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    background: var(--mpf-bg);
+    border-radius: var(--mpf-radius-lg);
+    border: 1px solid var(--mpf-border);
+    padding: 40px 40px 48px;
+    box-shadow: 0 24px 64px rgba(0,0,0,0.35);
+  }
+
+  /* HEADER */
+  .mpf-scope .f-header { border-bottom: 3px solid var(--mpf-blue); padding-bottom: 1.25rem; margin-bottom: 1.5rem; }
+  .mpf-scope .f-eyebrow { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mpf-blue); margin-bottom: 6px; }
+  .mpf-scope .f-header h1 { font-family: 'Outfit', sans-serif; font-size: 26px; font-weight: 700; color: var(--mpf-text-primary); line-height: 1.2; margin-bottom: 8px; }
+  .mpf-scope .f-header p { font-size: 14px; color: var(--mpf-text-secondary); line-height: 1.65; }
+
+  /* OPTIONAL NOTE */
+  .mpf-scope .f-optional-note { background: var(--mpf-blue-light); border: 1px solid var(--mpf-blue); border-radius: var(--mpf-radius); padding: 12px 16px; font-size: 13px; color: var(--mpf-blue-dark); line-height: 1.6; display: flex; gap: 10px; align-items: flex-start; margin-bottom: 2rem; }
+  .mpf-scope .f-optional-note svg { flex-shrink: 0; margin-top: 1px; }
+
+  /* SECTIONS */
+  .mpf-scope .f-section { margin-bottom: 2.25rem; }
+  .mpf-scope .f-section-title { font-family: 'Outfit', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mpf-blue); padding-bottom: 8px; border-bottom: 1px solid var(--mpf-border); margin-bottom: 1.1rem; }
+
+  /* FIELDS */
+  .mpf-scope .f-field { margin-bottom: 1rem; }
+  .mpf-scope .f-field:last-child { margin-bottom: 0; }
+  .mpf-scope .f-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .mpf-scope label.f-label { display: block; font-size: 13px; font-weight: 500; color: var(--mpf-text-secondary); margin-bottom: 5px; }
+  .mpf-scope .req { color: var(--mpf-blue); margin-left: 2px; }
+  .mpf-scope .f-hint { font-size: 12px; color: var(--mpf-text-tertiary); margin-bottom: 6px; line-height: 1.5; }
+
+  .mpf-scope input[type="text"],
+  .mpf-scope input[type="email"],
+  .mpf-scope input[type="url"],
+  .mpf-scope textarea,
+  .mpf-scope select {
+    width: 100%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--mpf-text-primary);
+    background: var(--mpf-bg);
+    border: 1px solid var(--mpf-border);
+    border-radius: var(--mpf-radius);
+    padding: 9px 12px;
+    outline: none;
+    transition: border-color 0.15s;
+    line-height: 1.5;
+    min-height: unset;
+  }
+  .mpf-scope input[type="text"]:focus,
+  .mpf-scope input[type="email"]:focus,
+  .mpf-scope input[type="url"]:focus,
+  .mpf-scope textarea:focus { border-color: var(--mpf-blue); box-shadow: 0 0 0 3px rgba(0,153,204,0.12); }
+  .mpf-scope textarea { resize: vertical; min-height: 85px; }
+  .mpf-scope input::placeholder, .mpf-scope textarea::placeholder { color: var(--mpf-text-tertiary); }
+
+  /* PILLS */
+  .mpf-scope .pill-group { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .mpf-scope .pill { display: inline-flex; align-items: center; padding: 6px 16px; border: 1px solid var(--mpf-border); border-radius: var(--mpf-radius-pill); font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--mpf-text-secondary); cursor: pointer; background: var(--mpf-bg); transition: border-color 0.15s, color 0.15s, background 0.15s; user-select: none; }
+  .mpf-scope .pill:hover { border-color: var(--mpf-blue); color: var(--mpf-blue); }
+  .mpf-scope .pill.selected { background: var(--mpf-blue-light); border-color: var(--mpf-blue); color: var(--mpf-blue); font-weight: 500; }
+
+  /* CHECKBOX GRID */
+  .mpf-scope .f-check-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 4px; }
+  .mpf-scope .f-check-item { display: flex; align-items: center; gap: 9px; font-size: 13px; color: var(--mpf-text-primary); cursor: pointer; padding: 8px 12px; border: 1px solid var(--mpf-border); border-radius: var(--mpf-radius); background: var(--mpf-bg-secondary); transition: border-color 0.15s; }
+  .mpf-scope .f-check-item:hover { border-color: var(--mpf-border-hover); }
+  .mpf-scope .f-check-item input[type="checkbox"] { accent-color: var(--mpf-blue); width: 14px; height: 14px; min-height: 14px; margin: 0; flex-shrink: 0; }
+
+  /* OTHER ROW */
+  .mpf-scope .other-row { display: flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid var(--mpf-border); border-radius: var(--mpf-radius); background: var(--mpf-bg-secondary); margin-top: 8px; }
+  .mpf-scope .other-row input[type="checkbox"] { accent-color: var(--mpf-blue); width: 14px; height: 14px; min-height: 14px; margin: 0; flex-shrink: 0; }
+  .mpf-scope .other-row .other-label { font-size: 13px; color: var(--mpf-text-primary); white-space: nowrap; cursor: pointer; }
+  .mpf-scope .other-row .other-text { flex: 1; border: none; border-bottom: 1px solid var(--mpf-border); border-radius: 0; padding: 1px 4px; font-size: 13px; color: var(--mpf-text-primary); background: transparent; width: auto; box-shadow: none; min-height: unset; }
+  .mpf-scope .other-row .other-text:focus { border-bottom-color: var(--mpf-blue); box-shadow: none; outline: none; }
+  .mpf-scope .other-row .other-text:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  /* STEP CARDS */
+  .mpf-scope .f-step-cards { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
+  .mpf-scope .f-step-card { display: flex; gap: 14px; align-items: flex-start; background: var(--mpf-bg-secondary); border: 1px solid var(--mpf-border); border-radius: var(--mpf-radius); padding: 12px 16px; }
+  .mpf-scope .f-step-num { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 700; color: var(--mpf-blue); min-width: 22px; line-height: 1; padding-top: 1px; flex-shrink: 0; }
+  .mpf-scope .f-step-body { font-size: 13px; color: var(--mpf-text-primary); line-height: 1.6; }
+  .mpf-scope .f-step-body strong { display: block; font-weight: 500; font-size: 13.5px; color: var(--mpf-text-primary); margin-bottom: 3px; }
+
+  /* INFO / WARN BOXES */
+  .mpf-scope .f-info-box { background: var(--mpf-blue-light); border: 1px solid var(--mpf-blue); border-radius: var(--mpf-radius); padding: 11px 15px; font-size: 13px; color: var(--mpf-blue-dark); line-height: 1.65; display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; }
+  .mpf-scope .f-info-box svg { flex-shrink: 0; margin-top: 1px; }
+  .mpf-scope .f-warn-box { background: var(--mpf-warn-bg); border: 1px solid var(--mpf-warn-border); border-radius: var(--mpf-radius); padding: 11px 15px; font-size: 13px; color: var(--mpf-warn-text); line-height: 1.65; display: flex; gap: 10px; align-items: flex-start; margin-top: 12px; }
+  .mpf-scope .f-warn-box svg { flex-shrink: 0; margin-top: 1px; }
+
+  /* SEND GRID */
+  .mpf-scope .send-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+  .mpf-scope .send-card { background: var(--mpf-bg-secondary); border: 1px solid var(--mpf-border); border-radius: var(--mpf-radius); padding: 12px 14px; }
+  .mpf-scope .send-card strong { display: block; font-size: 13px; font-weight: 500; color: var(--mpf-text-primary); margin-bottom: 4px; }
+  .mpf-scope .send-card span { font-size: 12.5px; color: var(--mpf-text-secondary); line-height: 1.55; }
+
+  /* SUBMIT */
+  .mpf-scope .f-submit-wrap { margin-top: 2rem; }
+  .mpf-scope .f-submit { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 600; background: var(--mpf-blue); color: #fff; border: none; border-radius: var(--mpf-radius); padding: 14px 28px; width: 100%; cursor: pointer; letter-spacing: 0.03em; transition: opacity 0.15s, transform 0.1s; min-height: 48px; }
+  .mpf-scope .f-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+  .mpf-scope .f-submit:active { transform: scale(0.99); }
+  .mpf-scope .f-fine { font-size: 12px; color: var(--mpf-text-tertiary); text-align: center; margin-top: 10px; line-height: 1.55; }
+
+  /* INTERNAL FORM FOOTER */
+  .mpf-scope .f-footer { text-align: center; margin-top: 2rem; padding-top: 1.25rem; border-top: 1px solid var(--mpf-border); font-size: 12px; color: var(--mpf-text-tertiary); }
+  .mpf-scope .f-footer a { color: var(--mpf-blue); text-decoration: none; }
+  .mpf-scope .f-footer a:hover { text-decoration: underline; }
+
+  /* Success screen (inline) */
+  .mpf-scope .mpf-success { display: none; text-align: center; padding: 4rem 1.5rem; background: var(--mpf-bg); border: 1px solid var(--mpf-border); border-radius: var(--mpf-radius-lg); max-width: 680px; margin: 0 auto; }
+  .mpf-scope .mpf-success.show { display: block; }
+  .mpf-scope .mpf-success h2 { font-family: 'Outfit', sans-serif; font-size: 28px; color: var(--mpf-blue-dark); margin-bottom: 0.5rem; }
+  .mpf-scope .mpf-success p { color: var(--mpf-text-secondary); margin-bottom: 1.25rem; }
+
+  /* RESPONSIVE */
+  @media (max-width: 540px) {
+    .mpf-scope { padding: 24px 12px 60px; }
+    .mpf-scope .page-wrap { padding: 24px 20px 36px; }
+    .mpf-scope .f-row { grid-template-columns: 1fr; }
+    .mpf-scope .f-check-grid { grid-template-columns: 1fr; }
+    .mpf-scope .send-grid { grid-template-columns: 1fr; }
+    .mpf-scope .f-header h1 { font-size: 22px; }
+  }
+
+  /* Branded hero strip above the form (matches sibling form pages) */
+  .lbs-scope .form-hero { text-align: center; padding: 3rem 1.5rem 1rem; }
+  .lbs-scope .form-hero .lbs-logo-wrap { margin-bottom: 1.25rem; }
+  .lbs-scope .form-hero h1 { font-size: clamp(2.4rem, 7vw, 3.6rem); }
+  .lbs-scope .form-hero .sub { color: var(--lbs-offwhite); max-width: 580px; margin: 1rem auto 0; }
+  .lbs-scope .form-hero .optnote { color: var(--lbs-gold); font-size: .9rem; margin-top: .75rem; }
+</style>
+</head>
+<body data-page="live-band-web-studios">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Main LWS nav is injected here by js/nav.js -->
+
+<!-- 2ND MENU / SUB-HEADER -->
+<nav class="lbs-subnav" aria-label="Live Band Web Studios">
+  <div class="lbs-subnav__inner">
+    <a href="../index.html" class="lbs-subnav__cta">Live Band Web Studios <span class="lbs-subnav__cta-arrow" aria-hidden="true">&rarr;</span></a>
+    <div class="lbs-subnav__links">
+      <a href="../index.html">Home</a>
+      <a href="../pricing.html">Pricing</a>
+      <div class="lbs-subnav__item">
+        <a href="../forms.html" class="active">Forms</a>
+        <div class="lbs-subnav__drop">
+          <a href="band-bio-form.html">Band Bio Form</a>
+          <a href="band-member-bio-form.html">Band Member Bio Form</a>
+          <a href="music-photo-form.html">Music Photo Form</a>
+        </div>
+      </div>
+      <a href="../personal-sites.html">Personal Sites</a>
+      <a href="../portfolio.html">Portfolio</a>
+    </div>
+  </div>
+</nav>
+
+<div class="lbs-scope" id="main">
+
+<header class="form-hero bg-photo bg-photo--guitarmast">
+  <div class="lbs-logo-wrap">
+    <img src="../images/logo-live-band.png" alt="Live Band Web Studios" class="lbs-logo__img"
+         onerror="this.style.display='none'; document.getElementById('lbs-logo-fallback').style.display='block'">
+    <div id="lbs-logo-fallback" class="lbs-logo__fallback" style="display:none">LIVE BAND WEB STUDIOS</div>
+  </div>
+  <h1>Music Photo Form</h1>
+  <p class="sub">Musician intake &amp; photo guide — everything we need to capture your band at its best, plus the AI photo guide so your reference shots come out right.</p>
+  <p class="optnote">Only your artist name is required. Every other field is optional.</p>
+</header>
+
+<!-- ── The form lives in its own light-themed scope ── -->
+<div class="mpf-scope">
+
+  <div class="page-wrap" id="mpf-form-wrap">
+
+    <!-- HEADER -->
+    <div class="f-header">
+      <p class="f-eyebrow">Live Web Studios — Live Band Web Photos</p>
+      <h1>Musician intake &amp; photo guide</h1>
+      <p>Everything we need to capture your band at its best — and create professional web images from your existing photos.</p>
+    </div>
+
+    <!-- OPTIONAL NOTE -->
+    <div class="f-optional-note">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      <span>Only your artist name is required. Every other field is optional — but the more you share, the better your photos and web content will turn out. Think of this as a creative brief, not a questionnaire.</span>
+    </div>
+
+    <form id="mpf-form" action="https://formspree.io/f/mvznpvnq" method="POST">
+
+      <input type="hidden" name="_subject" value="New Music Photo Form Submission">
+
+      <!-- SECTION 1 -->
+      <div class="f-section">
+        <p class="f-section-title">Section 1 — The basics</p>
+
+        <div class="f-field">
+          <label class="f-label" for="band-name">Band or artist name <span class="req">*</span></label>
+          <input type="text" id="band-name" name="band_name" placeholder="The Loud Collective" required>
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="genre">Genre / style</label>
+          <input type="text" id="genre" name="genre" placeholder="Classic Rock, Jazz, Originals...">
+        </div>
+
+        <div class="f-row">
+          <div class="f-field">
+            <label class="f-label" for="contact-name">Your name (primary contact)</label>
+            <input type="text" id="contact-name" name="contact_name" placeholder="First &amp; last name">
+          </div>
+          <div class="f-field">
+            <label class="f-label" for="role">Your role in the band</label>
+            <input type="text" id="role" name="role" placeholder="Vocalist, Manager, Guitarist...">
+          </div>
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@yourband.com">
+        </div>
+      </div>
+
+      <!-- SECTION 2 -->
+      <div class="f-section">
+        <p class="f-section-title">Section 2 — On stage</p>
+
+        <div class="f-field">
+          <label class="f-label" for="description">Physical description</label>
+          <p class="f-hint">In addition to the photos you'll send us, describe yourself briefly — height, hair, build, anything distinctive. This helps us generate accurate and consistent AI images of you.</p>
+          <textarea id="description" name="description" placeholder="e.g. Tall, curly red hair, usually in all black, always wears a Les Paul..."></textarea>
+        </div>
+
+        <div class="f-field">
+          <label class="f-label">On-stage energy</label>
+          <p class="f-hint">Pick the one that best captures how you come across live. This shapes the visual direction of your photos.</p>
+          <div class="pill-group" id="energy-pills">
+            <span class="pill" data-group="energy" onclick="selectPill(this)">High-energy &amp; explosive</span>
+            <span class="pill" data-group="energy" onclick="selectPill(this)">Cool &amp; commanding</span>
+            <span class="pill" data-group="energy" onclick="selectPill(this)">Warm &amp; crowd-connected</span>
+            <span class="pill" data-group="energy" onclick="selectPill(this)">Gritty &amp; authentic</span>
+            <span class="pill" data-group="energy" onclick="selectPill(this)">Smooth &amp; soulful</span>
+            <span class="pill" data-group="energy" onclick="selectPill(this)">Theatrical &amp; dramatic</span>
+          </div>
+          <input type="hidden" name="on_stage_energy" id="energy-val">
+          <div class="other-row">
+            <input type="checkbox" id="energy-other-cb" onchange="toggleOther('energy-other-cb','energy-other-txt','energy-val')">
+            <label class="other-label" for="energy-other-cb">Other:</label>
+            <input type="text" class="other-text" id="energy-other-txt" name="on_stage_energy_other" placeholder="describe your energy..." disabled>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION 3 -->
+      <div class="f-section">
+        <p class="f-section-title">Section 3 — Visual style</p>
+
+        <div class="f-field">
+          <label class="f-label">Visual vibe</label>
+          <p class="f-hint">Select all that apply — this shapes the look and feel of your final images.</p>
+          <div class="f-check-grid">
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Dark & cinematic"> Dark &amp; cinematic</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Raw & gritty"> Raw &amp; gritty</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Clean & polished"> Clean &amp; polished</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Vintage / retro"> Vintage / retro</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="High-energy & live"> High-energy &amp; live</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Moody & atmospheric"> Moody &amp; atmospheric</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Fun & upbeat"> Fun &amp; upbeat</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Studio / artistic"> Studio / artistic</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Hippie / bohemian"> Hippie / bohemian</label>
+            <label class="f-check-item"><input type="checkbox" name="vibe[]" value="Glam / theatrical"> Glam / theatrical</label>
+          </div>
+          <div class="other-row">
+            <input type="checkbox" id="vibe-other-cb" onchange="toggleOther('vibe-other-cb','vibe-other-txt',null)">
+            <label class="other-label" for="vibe-other-cb">Other:</label>
+            <input type="text" class="other-text" id="vibe-other-txt" name="vibe_other" placeholder="describe your vibe..." disabled>
+          </div>
+        </div>
+
+        <div class="f-field" style="margin-top: 1rem;">
+          <label class="f-label">Stage attire / wardrobe</label>
+          <div class="f-check-grid">
+            <label class="f-check-item"><input type="checkbox" name="attire[]" value="Jeans & a t-shirt"> Jeans &amp; a t-shirt</label>
+            <label class="f-check-item"><input type="checkbox" name="attire[]" value="Band merch / uniform"> Band merch / uniform</label>
+            <label class="f-check-item"><input type="checkbox" name="attire[]" value="Business casual"> Business casual</label>
+            <label class="f-check-item"><input type="checkbox" name="attire[]" value="Dressed up / formal"> Dressed up / formal</label>
+            <label class="f-check-item"><input type="checkbox" name="attire[]" value="Full costume / themed"> Full costume / themed</label>
+            <label class="f-check-item"><input type="checkbox" name="attire[]" value="Hippie / flowing outfits"> Hippie / flowing outfits</label>
+          </div>
+          <div class="other-row">
+            <input type="checkbox" id="attire-other-cb" onchange="toggleOther('attire-other-cb','attire-other-txt',null)">
+            <label class="other-label" for="attire-other-cb">Other:</label>
+            <input type="text" class="other-text" id="attire-other-txt" name="attire_other" placeholder="describe your look..." disabled>
+          </div>
+        </div>
+
+        <div class="f-field" style="margin-top: 1rem;">
+          <label class="f-label" for="inspiration">Artists whose visual style you admire</label>
+          <input type="text" id="inspiration" name="inspiration" placeholder="Foo Fighters, Lake Street Dive, Grateful Dead...">
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="colors">Colors to feature or avoid</label>
+          <input type="text" id="colors" name="colors" placeholder="e.g. Feature our red-and-black brand colors. Avoid anything neon.">
+        </div>
+
+        <div class="f-field">
+          <label class="f-label" for="hard-nos">Hard no's</label>
+          <input type="text" id="hard-nos" name="hard_nos" placeholder="No open-mouth shots. Avoid the back of the stage. No flash.">
+        </div>
+      </div>
+
+      <!-- SECTION 4 -->
+      <div class="f-section">
+        <p class="f-section-title">Section 4 — How to photograph yourself for AI</p>
+        <p style="font-size: 13px; color: var(--mpf-text-secondary); margin-bottom: 6px; line-height: 1.65;">The photos you send me are the raw material I use to place you into different scenes, stages, environments, and creative scenarios using AI. The better your reference shots, the more realistic and varied the final results. These aren't finished photos — they're reference material. You're giving me enough to work with.</p>
+        <p style="font-size: 13px; color: var(--mpf-text-secondary); margin-bottom: 1rem; line-height: 1.65;">The more variety you give me — angles, expressions, lighting conditions — the more situations I can put you in. Shoot as many as you can.</p>
+
+        <div class="f-step-cards">
+
+          <div class="f-step-card">
+            <span class="f-step-num">1</span>
+            <div class="f-step-body">
+              <strong>Good lighting is everything</strong>
+              Natural light near a window is your best friend. Overcast daylight is ideal — no harsh shadows, no blown-out highlights. Shade outdoors also works great. Avoid shooting in the dark or under fluorescent overhead light.
+            </div>
+          </div>
+
+          <div class="f-step-card">
+            <span class="f-step-num">2</span>
+            <div class="f-step-body">
+              <strong>Shoot from multiple angles</strong>
+              Front-facing, left profile, right profile, slightly above, slightly below. I need to understand how you look from different perspectives so I can place you convincingly in any scene. Five to ten shots from varied angles goes a long way.
+            </div>
+          </div>
+
+          <div class="f-step-card">
+            <span class="f-step-num">3</span>
+            <div class="f-step-body">
+              <strong>Vary your expressions</strong>
+              Serious, smiling, mid-performance intensity, relaxed, eyes closed. The more expressions I have to work from, the more authentic your AI images will look — whether it's a press shot, a live moment, or a candid.
+            </div>
+          </div>
+
+          <div class="f-step-card">
+            <span class="f-step-num">4</span>
+            <div class="f-step-body">
+              <strong>Include full-body and close-up shots</strong>
+              Close-ups of your face are essential. But also send full-body shots so I can see your posture, your instrument, your stage presence, and your outfit. Both are needed for different types of scenes.
+            </div>
+          </div>
+
+          <div class="f-step-card">
+            <span class="f-step-num">5</span>
+            <div class="f-step-body">
+              <strong>Plain or simple backgrounds preferred</strong>
+              A white wall, a plain door, open sky outdoors — anything clean and uncluttered. I'm extracting you from the background, so complex backgrounds just make that harder.
+            </div>
+          </div>
+
+          <div class="f-step-card">
+            <span class="f-step-num">6</span>
+            <div class="f-step-body">
+              <strong>Wear what you perform in</strong>
+              Send a few shots in your stage outfit or signature look. Also send a few in everyday clothes. I can place you in different wardrobe via AI, but having your real look as reference makes the results more accurate.
+            </div>
+          </div>
+
+          <div class="f-step-card">
+            <span class="f-step-num">7</span>
+            <div class="f-step-body">
+              <strong>Use Portrait Mode for headshots, landscape for everything else</strong>
+              For individual close-ups: switch to iPhone Portrait Mode — it blurs the background and sharpens your face, which is exactly what I need. For full-body and band shots: rotate your phone horizontal (landscape).
+            </div>
+          </div>
+
+          <div class="f-step-card">
+            <span class="f-step-num">8</span>
+            <div class="f-step-body">
+              <strong>Include your instrument</strong>
+              Shots of you holding or playing your instrument — guitar in hand, sticks in the air, keys at your fingertips. Also useful: close-ups of hands on strings, the drum kit, your pedal board. These details make the final images feel real, not generated.
+            </div>
+          </div>
+
+        </div>
+
+        <div class="f-warn-box">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Aim for 20–40 photos minimum across different angles, expressions, and lighting. The more reference you give me, the more scenes I can create for you. More is always better here.</span>
+        </div>
+
+        <p style="font-size: 13.5px; font-weight: 500; color: var(--mpf-text-primary); margin: 1.5rem 0 6px;">How to send your photos</p>
+        <p style="font-size: 13px; color: var(--mpf-text-secondary); margin-bottom: 0; line-height: 1.6;">Send at full resolution — never via text message or screenshot. Use any of these options:</p>
+
+        <div class="send-grid">
+          <div class="send-card">
+            <strong>Google Drive</strong>
+            <span>Upload to a folder, click Share, and send me the link. Great for large batches.</span>
+          </div>
+          <div class="send-card">
+            <strong>Dropbox</strong>
+            <span>Use "Request files" — no Dropbox account needed on your end. We can set up a link for you.</span>
+          </div>
+          <div class="send-card">
+            <strong>WeTransfer</strong>
+            <span>Go to wetransfer.com — free, no account needed. Drag photos in, enter our email, hit Send.</span>
+          </div>
+          <div class="send-card">
+            <strong>iCloud Link</strong>
+            <span>In iPhone Photos, select shots &rarr; Share &rarr; Copy iCloud Link &rarr; paste into an email to us.</span>
+          </div>
+        </div>
+
+        <div class="f-info-box">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Send everything to <strong>jonwolf@livewebstudios.com</strong> with your band name in the subject line. Never send via iMessage or standard text — compression kills the quality permanently.</span>
+        </div>
+      </div>
+
+      <!-- SECTION 5 -->
+      <div class="f-section">
+        <p class="f-section-title">Section 5 — Anything else?</p>
+        <div class="f-field">
+          <label class="f-label" for="notes">Specific scenes, scenarios, locations, or anything else that helps us understand your vision</label>
+          <textarea id="notes" name="notes" placeholder="e.g. I'd love shots that look like I'm performing at a big arena. Would love a moody outdoor scene. The band has a retro 70s look — lean into that..." style="min-height: 100px;"></textarea>
+        </div>
+      </div>
+
+      <!-- SUBMIT -->
+      <div class="f-submit-wrap">
+        <button type="submit" class="f-submit">Submit — let's get this show on the road</button>
+        <p class="f-fine">After submitting, Jon Wolf at Live Web Studios will follow up within 1–2 business days.<br>No spam — just results.</p>
+      </div>
+
+    </form>
+
+    <!-- FORM-INTERNAL FOOTER (inside the white card) -->
+    <div class="f-footer">
+      <a href="https://livewebstudios.com" target="_blank" rel="noopener">livewebstudios.com</a> &nbsp;&middot;&nbsp; jonwolf@livewebstudios.com &nbsp;&middot;&nbsp; &copy; Live Web Studios
+    </div>
+
+  </div><!-- /.page-wrap -->
+
+  <!-- Inline success screen -->
+  <div class="mpf-success" id="mpf-success">
+    <h2>Got it. Thanks!</h2>
+    <p>Your Music Photo Form is on its way to Jon. Expect a reply within 1–2 business days. Now go take some photos.</p>
+    <p><a href="../index.html" class="f-submit" style="display:inline-block;width:auto;">Back to Live Band Web Studios</a></p>
+  </div>
+
+</div><!-- /.mpf-scope -->
+
+</div><!-- /.lbs-scope -->
+
+<footer class="site-footer">
+  <canvas id="circuitCanvas" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand">
+        <img src="../../images/Inverted_Color.png" alt="Live Web Studios" loading="lazy" width="200" height="42">
+        <p>Built in North Jersey since 2004.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../services.html">Services</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../faq.html">FAQ</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../../services/website-design.html">Web Design</a></li>
+          <li><a href="../../services/hosting.html">Hosting</a></li>
+          <li><a href="../../services/ai-platform.html">AI Platformed Sites</a></li>
+          <li><a href="../../services/seo.html">SEO</a></li>
+          <li><a href="../../services/ai-business-services.html">AI Consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:7328019611">732.801.9611</a></li>
+          <li><a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a></li>
+          <li>446 Saddle River Rd., Unit 2</li>
+          <li>Saddle Brook, NJ 07663</li>
+          <li class="lws-face-li" style="list-style:none;padding-top:0.5rem"><img src="../../images/lwsface.png" alt="Jon Wolf – Live Web Studios" class="lws-face" loading="lazy"></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2026 Live Web Studios &middot; All rights reserved &middot; Built AI Platformed</small>
+      <span><a href="../../privacy.html">Privacy</a> &middot; <a href="../../terms.html">Terms</a></span>
+      <a href="https://livewebstudios.com" class="footer-badge">
+        <img src="../../images/verifiedsecured.png" alt="Verified &amp; Secured by Live Web Studios" loading="lazy" width="150" height="37">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script src="../../js/nav.js"></script>
+<script src="../../js/footer-circuit.js" defer></script>
+
+<script>
+  /* Pill single-select + Other-row toggling (scoped to the form) */
+  function selectPill(el) {
+    var group = el.getAttribute('data-group');
+    var hiddenInput = document.getElementById(group + '-val');
+    document.querySelectorAll('.mpf-scope .pill[data-group="' + group + '"]').forEach(function (p) {
+      p.classList.remove('selected');
+    });
+    el.classList.add('selected');
+    if (hiddenInput) hiddenInput.value = el.textContent.trim();
+    var otherCb = document.getElementById(group + '-other-cb');
+    if (otherCb) {
+      otherCb.checked = false;
+      var otherTxt = document.getElementById(group + '-other-txt');
+      if (otherTxt) { otherTxt.disabled = true; otherTxt.value = ''; }
+    }
+  }
+
+  function toggleOther(cbId, txtId, valId) {
+    var cb = document.getElementById(cbId);
+    var txt = document.getElementById(txtId);
+    txt.disabled = !cb.checked;
+    if (cb.checked) {
+      txt.focus();
+      var group = cbId.replace('-other-cb', '');
+      document.querySelectorAll('.mpf-scope .pill[data-group="' + group + '"]').forEach(function (p) {
+        p.classList.remove('selected');
+      });
+      if (valId) document.getElementById(valId).value = '';
+    } else {
+      txt.value = '';
+    }
+  }
+
+  /* Formspree AJAX submit → inline success screen */
+  (function () {
+    var form = document.getElementById('mpf-form');
+    var wrap = document.getElementById('mpf-form-wrap');
+    var success = document.getElementById('mpf-success');
+    if (!form) return;
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type=submit]');
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      try {
+        var res = await fetch('https://formspree.io/f/mvznpvnq', {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          if (wrap) wrap.style.display = 'none';
+          if (success) success.classList.add('show');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          if (btn) { btn.disabled = false; btn.textContent = "Submit — let's get this show on the road"; }
+          alert('Something went wrong sending the form. Please email jonwolf@livewebstudios.com directly.');
+        }
+      } catch (err) {
+        if (btn) { btn.disabled = false; btn.textContent = "Submit — let's get this show on the road"; }
+        alert('Something went wrong sending the form. Please email jonwolf@livewebstudios.com directly.');
+      }
+    });
+  })();
+</script>
+
+</body>
+</html>

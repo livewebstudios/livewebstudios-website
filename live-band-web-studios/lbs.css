@@ -246,7 +246,70 @@
   background-image: repeating-linear-gradient(45deg, rgba(42,184,212,1) 0, rgba(42,184,212,1) 1px, transparent 1px, transparent 14px);
   opacity: 0.04; pointer-events: none;
 }
-.lbs-scope .lbs-hero__inner { position: relative; z-index: 1; max-width: var(--lbs-maxw); margin: 0 auto; padding: 0 2rem; width: 100%; }
+.lbs-scope .lbs-hero__inner { position: relative; z-index: 3; max-width: var(--lbs-maxw); margin: 0 auto; padding: 0 2rem; width: 100%; }
+
+/* Extra .bg-photo variants whose images live under live-band-web-studios/images/
+   (the base .bg-photo class + ::before overlay are defined in css/style.css).
+   !important is required because .lbs-scope .section--dark uses the `background`
+   shorthand (specificity 0,2,1) which would otherwise wipe out background-image. */
+.bg-photo--bluestage,
+.lbs-scope .bg-photo--bluestage,
+.lbs-scope .section.bg-photo--bluestage,
+.lbs-scope .section--dark.bg-photo--bluestage {
+  background-image: url("images/bluestage.jpg") !important;
+  background-color: #0e1a2b !important;
+  background-repeat: no-repeat !important;
+  background-position: right center !important;
+  background-size: cover !important;
+}
+.bg-photo--guitarmast,
+.lbs-scope .bg-photo--guitarmast,
+.lbs-scope .section.bg-photo--guitarmast,
+.lbs-scope .section--dark.bg-photo--guitarmast {
+  background-image: url("images/guitarmast.jpg") !important;
+  background-color: #0e1a2b !important;
+  background-repeat: no-repeat !important;
+  background-position: right center !important;
+  background-size: cover !important;
+}
+/* When used on a form-hero (no .section padding), give the photo room to breathe */
+.form-hero.bg-photo { padding-top: 4rem; padding-bottom: 3rem; }
+
+/* Hero video on LBS pages — content is CENTERED, so override the
+   index-hero mask (which is heavy on the left) with a flat uniform
+   tint that darkens the video evenly. Text stays crisp everywhere. */
+.lbs-hero .hero-video { object-position: center center; }
+.lbs-hero .hero-video.loaded { opacity: 0.55; }
+.lbs-hero .hero-video-mask {
+  background:
+    linear-gradient(180deg,
+      rgba(11,18,32,0.55) 0%,
+      rgba(11,18,32,0.40) 50%,
+      rgba(11,18,32,0.55) 100%);
+}
+/* Crisper text-shadow so the headline reads sharply against the video */
+.lbs-hero .hero-title,
+.lbs-hero .hero-tagline,
+.lbs-hero .section-sub,
+.lbs-hero .eyebrow { text-shadow: 0 1px 16px rgba(0,0,0,0.55); }
+
+/* Center the BODY copy as a block inside every LBS hero.
+   .hero-tagline / .hero-subtagline already set margin:auto in the
+   base CSS, but .section-sub and inline-style paragraphs need help
+   when their parent (.lbs-hero__inner) doesn't carry the .centered class. */
+.lbs-hero .lbs-hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.lbs-hero .lbs-hero__inner > * { width: 100%; }
+.lbs-hero .section-sub,
+.lbs-hero .section-sub.centered,
+.lbs-hero .lbs-hero__inner > p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
 
 .lbs-scope .lbs-logo-wrap { display: flex; justify-content: center; margin-bottom: 1.5rem; }
 .lbs-scope .lbs-logo__img { max-width: 420px; width: 100%; height: auto; }

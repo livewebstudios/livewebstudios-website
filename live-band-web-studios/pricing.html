@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 <link rel="stylesheet" href="../css/style.css?v=3">
-<link rel="stylesheet" href="lbs.css">
+<link rel="stylesheet" href="lbs.css?v=4">
 </head>
 <body data-page="live-band-web-studios">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -37,6 +37,7 @@
         <div class="lbs-subnav__drop">
           <a href="forms/band-bio-form.html">Band Bio Form</a>
           <a href="forms/band-member-bio-form.html">Band Member Bio Form</a>
+          <a href="forms/music-photo-form.html">Music Photo Form</a>
         </div>
       </div>
       <a href="personal-sites.html">Personal Sites</a>
@@ -49,7 +50,26 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="lbs-hero lbs-hero--mid bg-photo bg-photo--coffee4">
+<section class="lbs-hero lbs-hero--mid">
+
+  <!-- HERO VIDEO -->
+  <div class="hero-video-wrap">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source src="../video/hero-1080.mp4" media="(min-width: 768px)" type="video/mp4">
+      <source src="../video/hero-720.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-mask"></div>
+  </div>
+  <!-- END HERO VIDEO -->
+
   <div class="lbs-hero__inner">
     <span class="eyebrow">No Contracts. No Surprises. No WordPress.</span>
     <h1 class="hero-title">Pricing</h1>
@@ -152,7 +172,7 @@
 </section>
 
 <!-- PERSONAL SITES TEASER -->
-<section class="section section--dark">
+<section class="section section--dark bg-photo bg-photo--guitarmast">
   <div class="container centered">
     <h2 class="section-heading">Individual Musician? We Do That Too.</h2>
     <p class="section-sub">Personal sites for solo artists, sidemen, studio players, and anyone who's more than just a band member. Consultation-based pricing.</p>

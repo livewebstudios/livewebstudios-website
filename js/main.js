@@ -147,9 +147,59 @@
     if (collapseBtn) collapseBtn.addEventListener('click', function () { items.forEach(function (i) { i.classList.remove('open'); }); });
   }
 
+  /* ── Hero video — fade-in on playing, pause when tab hidden,
+       and (for data-play-once videos) freeze on the last frame. ── */
+  function initHeroVideo() {
+    var video = document.querySelector('.hero-video');
+    if (!video) return;
+
+    var playOnce = video.hasAttribute('data-play-once');
+    var hasEnded = false;
+
+    // Fade in once playing — prevents black flash before first frame
+    video.addEventListener('playing', function () {
+      video.classList.add('loaded');
+    }, { once: true });
+
+    // Fallback — if `playing` doesn't fire within 2s, reveal anyway
+    setTimeout(function () {
+      if (!video.classList.contains('loaded')) {
+        video.classList.add('loaded');
+      }
+    }, 2000);
+
+    // For play-once videos: freeze on the last frame. The browser keeps
+    // showing the last decoded frame after a video ends, but we also clamp
+    // currentTime in case the browser drops back to 0.
+    if (playOnce) {
+      video.addEventListener('ended', function () {
+        hasEnded = true;
+        try {
+          // Pin to just-before-end so the last frame stays visible
+          var t = video.duration;
+          if (isFinite(t) && t > 0) video.currentTime = Math.max(0, t - 0.05);
+          video.pause();
+        } catch (e) { /* ignore */ }
+      });
+    }
+
+    // Pause when tab is hidden — saves battery and CPU.
+    // For play-once videos that have ended, do NOT auto-restart on visibility.
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        video.pause();
+      } else {
+        if (playOnce && hasEnded) return;  // keep the last frame frozen
+        var p = video.play();
+        if (p && typeof p.catch === 'function') p.catch(function () {});
+      }
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     initHero();
     initParallax();
+    initHeroVideo();
     initScrollReveal();
     initNav();
     initSmoothScroll();

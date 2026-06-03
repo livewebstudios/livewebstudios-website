@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
 <link rel="stylesheet" href="../css/style.css?v=3">
-<link rel="stylesheet" href="lbs.css">
+<link rel="stylesheet" href="lbs.css?v=4">
 </head>
 <body data-page="live-band-web-studios">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -37,6 +37,7 @@
         <div class="lbs-subnav__drop">
           <a href="forms/band-bio-form.html">Band Bio Form</a>
           <a href="forms/band-member-bio-form.html">Band Member Bio Form</a>
+          <a href="forms/music-photo-form.html">Music Photo Form</a>
         </div>
       </div>
       <a href="personal-sites.html">Personal Sites</a>
@@ -50,6 +51,25 @@
 
 <!-- HERO -->
 <section class="lbs-hero lbs-hero--tall">
+
+  <!-- HERO VIDEO -->
+  <div class="hero-video-wrap">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+      data-play-once
+    >
+      <source src="../video/bg-drumstart-1080.mp4" media="(min-width: 768px)" type="video/mp4">
+      <source src="../video/bg-drumstart.mp4" type="video/mp4">
+    </video>
+    <div class="hero-video-mask"></div>
+  </div>
+  <!-- END HERO VIDEO -->
+
   <div class="lbs-hero__inner">
     <span class="eyebrow">A Service of Live Web Studios</span>
     <div class="lbs-logo-wrap">
@@ -114,7 +134,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="section">
+<section class="section bg-photo bg-photo--bluestage">
   <div class="container">
     <div class="section-header centered">
       <h2 class="section-heading">How It Works</h2>
@@ -155,46 +175,6 @@
     </div>
     <div class="note-block mt-2" style="text-align:center">
       <strong class="text-cyan">Built on the Live Web Studios AI Platform.</strong> Google didn't just tweak the rules — it completely overturned them. The old SEO playbook is dead. We build for how search works now, and adjust the moment it changes again.
-    </div>
-  </div>
-</section>
-
-<!-- PRICING TEASER -->
-<section class="section section--dark">
-  <div class="container">
-    <div class="section-header centered">
-      <h2 class="section-heading">Two Tiers. Zero Templates.</h2>
-    </div>
-    <div class="price-grid mt-2">
-      <div class="price-card">
-        <span class="badge badge--gold">Basic</span>
-        <span class="price-amt">$600 <span class="price-note">/ year</span></span>
-        <span class="price-build">free build</span>
-        <ul class="feature-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i> Custom hand-built site</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Gig page + upcoming shows</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Photo gallery + YouTube embeds</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Easy self-serve updates for your dates</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> 1 hr/month updates by Jon</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Monthly SEO + traffic report</li>
-        </ul>
-        <a href="pricing.html" class="btn-secondary">See Full Pricing</a>
-      </div>
-      <div class="price-card price-card--pro">
-        <span class="badge badge--cyan">Touring / Pro</span>
-        <span class="price-amt">$995 <span class="price-note">build</span></span>
-        <span class="price-build">+ $1,548 / year</span>
-        <ul class="feature-list">
-          <li><i class="ti ti-check" aria-hidden="true"></i> Everything in Basic</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Full multi-page custom site</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> EPK page (bio, photos, audio/video, tech rider, stage plot, input list)</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Set list management</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Member bio pages</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> 3 SEO blog posts/month</li>
-          <li><i class="ti ti-check" aria-hidden="true"></i> Monthly SEO + keyword ranking report</li>
-        </ul>
-        <a href="pricing.html" class="btn-primary">See Full Pricing</a>
-      </div>
     </div>
   </div>
 </section>
