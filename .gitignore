@@ -12,3 +12,7 @@ $RECYCLE.BIN/
 # Claude Code
 *.log
 .claude/
+
+# Personal handoff / planning docs — never commit
+26_*_handoff.md
+*_handoff.md

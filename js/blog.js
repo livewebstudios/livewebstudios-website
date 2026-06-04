@@ -113,6 +113,16 @@
         document.getElementById('post-title-tag').textContent = (meta.title || 'Post') + ' | Live Web Studios';
         document.getElementById('post-meta-desc').setAttribute('content', meta.excerpt || '');
         document.getElementById('post-heading').textContent = meta.title || '';
+
+        /* Canonical: strip YYYY-MM-DD- date prefix from the slug so the URL
+           matches the public clean route (/blog/<slug>/). Falls back to
+           /blog/ if the slug doesn't look dated. */
+        var canonicalEl = document.getElementById('post-canonical');
+        if (canonicalEl) {
+          var cleanSlug = String(slug || '').replace(/^\d{4}-\d{2}-\d{2}-/, '');
+          canonicalEl.setAttribute('href',
+            'https://livewebstudios.com/blog/' + (cleanSlug ? cleanSlug + '/' : ''));
+        }
       
         if (meta.category) document.getElementById('post-category').textContent = meta.category;
 

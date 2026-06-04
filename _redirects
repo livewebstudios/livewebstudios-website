@@ -7,6 +7,16 @@
 # ============================================================
 
 
+# ===== CANONICAL DOMAIN =====
+# Force non-www on apex. Trailing ! forces the redirect even when a
+# browser has a cached www response. Subdomains (staging.*) are NOT
+# affected — only www.* matches.
+https://www.livewebstudios.com/*    https://livewebstudios.com/:splat    301!
+
+# Kill the /index.html duplicate of the root URL
+/index.html    /    301!
+
+
 # ===== CORE PAGES =====
 /about-us/          /about      301
 /about-us           /about      301
