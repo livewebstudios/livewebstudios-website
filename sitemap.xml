@@ -6,7 +6,7 @@
 
   <!-- ================================================ -->
   <!-- LIVE WEB STUDIOS — sitemap.xml                   -->
-  <!-- Last updated: 2026-04-30                         -->
+  <!-- Last updated: 2026-06-14                         -->
   <!-- Add new blog posts to the BLOG POSTS section     -->
   <!-- when published via Decap CMS                     -->
   <!-- ================================================ -->
@@ -41,8 +41,22 @@
     <priority>0.85</priority>
   </url>
 
+  <url>
+    <loc>https://livewebstudios.com/faq</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
 
   <!-- ===== SERVICES ===== -->
+  <url>
+    <loc>https://livewebstudios.com/services</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
   <url>
     <loc>https://livewebstudios.com/services/website-design</loc>
     <lastmod>2026-04-30</lastmod>
@@ -366,6 +380,66 @@
     <lastmod>2026-09-11</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.70</priority>
+  </url>
+
+
+  <!-- ===== NAMESAKE (custom personal websites) ===== -->
+  <url>
+    <loc>https://livewebstudios.com/namesake</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/namesake/how-it-works</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/namesake/start</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+
+  <!-- ===== LIVE BAND WEB STUDIOS (musician & band sites) ===== -->
+  <url>
+    <loc>https://livewebstudios.com/live-band-web-studios</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/live-band-web-studios/pricing</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/live-band-web-studios/personal-sites</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/live-band-web-studios/portfolio</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
+    <loc>https://livewebstudios.com/live-band-web-studios/forms</loc>
+    <lastmod>2026-06-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.80</priority>
   </url>
 
 

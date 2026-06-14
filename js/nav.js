@@ -15,7 +15,7 @@
   /* Detect folder depth for relative paths */
   var path = window.location.pathname;
   var depth = 0;
-  if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios|live-band-web-studios)\//.test(path)) depth = 1;
+  if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios|live-band-web-studios|namesake)\//.test(path)) depth = 1;
   if (/\/live-band-web-studios\/forms\//.test(path)) depth = 2;   /* forms hub is two levels deep */
   var p = depth === 2 ? '../../' : (depth === 1 ? '../' : '');
 
@@ -55,6 +55,23 @@
     navItem('industries/b2b.html',                  '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>',                     'B2B') +
     navItem('industries/insurance.html',            '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',                                                                       'Insurance');
 
+  /* ── Namesake promo — sibling vertical, sits alongside the Live Band Web Studios promo ── */
+  var nsPromo =
+    '<a href="' + p + 'namesake/index.html" class="services-lbs-promo" aria-label="Namesake — personal pages for professionals">' +
+      '<span class="lbs-promo-pulse" aria-hidden="true"></span>' +
+      '<span class="lbs-promo-badge">NEW</span>' +
+      '<span class="lbs-promo-icon" aria-hidden="true">' +
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">' +
+          '<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>' +
+        '</svg>' +
+      '</span>' +
+      '<span class="lbs-promo-text">' +
+        '<span class="lbs-promo-headline">New Service: NAMESAKE</span>' +
+        '<span class="lbs-promo-sub">Personal pages for professionals</span>' +
+      '</span>' +
+      '<span class="lbs-promo-arrow" aria-hidden="true">&rarr;</span>' +
+    '</a>';
+
   var navHTML =
     '<nav class="site-nav" id="siteNav">' +
       '<div class="nav-inner">' +
@@ -87,6 +104,7 @@
                 '</span>' +
                 '<span class="lbs-promo-arrow" aria-hidden="true">&rarr;</span>' +
               '</a>' +
+              nsPromo +
               '<div class="mega-footer">' +
                 '<a href="' + p + 'services.html" class="mega-view-all">View all services →</a>' +
               '</div>' +
@@ -113,12 +131,16 @@
                 '</span>' +
                 '<span class="lbs-promo-arrow" aria-hidden="true">&rarr;</span>' +
               '</a>' +
+              nsPromo +
               '<div class="mega-footer">' +
                 '<a href="' + p + 'industries/index.html" class="mega-view-all">View all industries →</a>' +
               '</div>' +
             '</div>' +
           '</li>' +
 
+          /* Verticals as direct links — the mega-dropdown promos don't open on mobile, so these surface them */
+          '<li class="nav-mobile-vertical"><a href="' + p + 'namesake/index.html" data-page="namesake">Namesake <span class="nav-mobile-new">New</span></a></li>' +
+          '<li class="nav-mobile-vertical"><a href="' + p + 'live-band-web-studios/index.html">Live Band Web Studios</a></li>' +
           '<li><a href="' + p + 'portfolio.html" data-page="portfolio">Portfolio</a></li>' +
           '<li><a href="' + p + 'blog/" data-page="blog">Blog</a></li>' +
           '<li><a href="' + p + 'contact.html" data-page="contact" class="nav-contact-link">Contact</a></li>' +

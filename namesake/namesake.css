@@ -1,0 +1,612 @@
+/* =========================================================================
+   namesake.css — Namesake (a vertical of Live Web Studios)
+   Custom personal websites for individuals. Est. 2004 parent.
+
+   IMPORTANT — same scoping contract as lbs.css:
+   - Loads ALONGSIDE the parent site's css/style.css.
+   - The parent chrome (nav.site-nav + footer.site-footer) is styled by
+     style.css and is NEVER touched here.
+   - All microsite content lives inside <div class="ns-scope"> and every
+     content rule is scoped to .ns-scope so it can't collide with the
+     parent's generic classes (.section, .container, .btn-primary, etc.).
+   - Fonts are namespaced (--ns-font-*) so they don't clobber the parent's
+     --font-body / --font-display (which the main nav relies on).
+   - The thin 2nd menu (.ns-subnav) is chrome — it lives OUTSIDE .ns-scope
+     and uses the parent font to match the main menu exactly.
+   - Colors reuse the parent's dark-theme tokens (--lws-*) because the LWS
+     dark palette IS the Namesake palette. We add only what's Namesake-specific.
+   ========================================================================= */
+
+:root {
+  /* Namesake type — namespaced so the parent chrome keeps Sora */
+  --ns-font-display: 'Montserrat', 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ns-font-body:    'Inter', 'Sora', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  /* Namesake-specific accents (logo mark cyan as a spark over the steel blue UI) */
+  --ns-mark:      #00AEEF;   /* the Namesake logo mark */
+  --ns-steel:     #5BA4CF;   /* primary UI accent (== --lws-blue-primary) */
+  --ns-steel-dk:  #2D6A9F;   /* deep (== --lws-blue-deep) */
+  --ns-ink:       #0F1117;   /* near-black base */
+  --ns-surface:   #1A202C;   /* raised surface */
+  --ns-elevated:  #242C3A;
+  --ns-text:      #F2F4F7;
+  --ns-text-soft: #C7D0DB;
+  --ns-muted:     #8b93a1;
+  --ns-line:      rgba(255,255,255,0.08);
+  --ns-line-2:    rgba(91,164,207,0.22);
+
+  --ns-maxw:      1160px;
+  --ns-radius:    16px;
+  --ns-radius-sm: 10px;
+  --ns-ease:      cubic-bezier(0.22, 1, 0.36, 1);
+
+  --ns-navh:      72px;   /* main LWS nav height, to offset the sub-header */
+}
+
+/* =========================================================================
+   SUB-HEADER (thin 2nd menu, sits right under the main LWS nav)
+   Lives OUTSIDE .ns-scope. Matches the main nav font (Sora), uppercase.
+   §5 hard rule: every button must be visible on monitor AND mobile.
+   ========================================================================= */
+.ns-subnav {
+  position: sticky;
+  top: var(--ns-navh);
+  margin-top: var(--ns-navh);   /* clears the fixed main nav on first paint */
+  z-index: 95;
+  background: rgba(15,17,23,0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-top: 1px solid var(--ns-line);
+  border-bottom: 1px solid var(--ns-line);
+}
+.ns-subnav__inner {
+  max-width: var(--container-outer, 1328px);
+  margin: 0 auto;
+  padding: 0 var(--container-pad, 24px);
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.ns-subnav__cta {
+  font-family: var(--font-body, 'Sora', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ns-steel);
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  border: 1px solid rgba(91,164,207,0.45);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background .2s ease, border-color .2s ease, color .2s ease;
+}
+.ns-subnav__cta:hover {
+  background: rgba(91,164,207,0.12);
+  border-color: var(--ns-steel);
+  color: #fff;
+}
+.ns-subnav__cta-arrow { line-height: 1; display: inline-block; transition: transform .2s ease; }
+.ns-subnav__cta:hover .ns-subnav__cta-arrow { transform: translateX(2px); }
+.ns-subnav__links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+}
+.ns-subnav__links a {
+  font-family: var(--font-body, 'Sora', sans-serif);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ns-muted);
+  padding: 0.4rem 0.7rem;
+  border-radius: 6px;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: color .2s ease, background .2s ease;
+}
+.ns-subnav__links a:hover { color: #fff; background: rgba(91,164,207,0.1); }
+.ns-subnav__links a.active { color: var(--ns-steel); }
+.ns-subnav a:focus-visible { outline: 2px solid var(--ns-steel); outline-offset: 2px; border-radius: 4px; color: #fff; }
+
+@media (max-width: 768px) {
+  :root { --ns-navh: 64px; }
+  /* Stack the CTA over the links and CENTER everything so all buttons are seen — no horizontal scroll */
+  .ns-subnav__inner {
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.5rem 12px;
+  }
+  .ns-subnav__links { justify-content: center; gap: 0.2rem; }
+  .ns-subnav__links a { padding: 0.35rem 0.55rem; letter-spacing: 0.04em; }
+}
+
+/* =========================================================================
+   SCOPED MICROSITE CONTENT — everything below is under .ns-scope
+   ========================================================================= */
+.ns-scope {
+  background: var(--ns-ink);
+  color: var(--ns-text-soft);
+  font-family: var(--ns-font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: clip;
+}
+.ns-scope * { box-sizing: border-box; }
+.ns-scope img { max-width: 100%; height: auto; display: block; }
+.ns-scope a { color: var(--ns-steel); text-decoration: none; transition: color .2s ease; }
+.ns-scope a:hover { color: #fff; }
+.ns-scope ul { list-style: none; margin: 0; padding: 0; }
+.ns-scope p { margin: 0; }
+.ns-scope :focus-visible { outline: 2px solid var(--ns-steel); outline-offset: 3px; border-radius: 4px; }
+
+.ns-wrap {
+  max-width: var(--ns-maxw);
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 48px);
+  width: 100%;
+}
+
+/* ── Typography helpers ── */
+.ns-scope h1, .ns-scope h2, .ns-scope h3, .ns-scope h4 {
+  font-family: var(--ns-font-display);
+  color: var(--ns-text);
+  line-height: 1.12;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+.ns-scope h1 { font-size: clamp(2.4rem, 6vw, 4.25rem); }
+.ns-scope h2 { font-size: clamp(1.9rem, 4vw, 3rem); }
+.ns-scope h3 { font-size: clamp(1.15rem, 2vw, 1.4rem); font-weight: 600; letter-spacing: -0.01em; }
+
+.ns-eyebrow {
+  display: inline-block;
+  font-family: var(--ns-font-display);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ns-steel);
+  margin-bottom: 1.1rem;
+}
+.ns-lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  line-height: 1.6;
+  color: var(--ns-text-soft);
+  max-width: 60ch;
+}
+.ns-muted { color: var(--ns-muted); }
+
+/* ── Buttons ── */
+.ns-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--ns-font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  padding: 0.95rem 1.6rem;
+  border-radius: var(--ns-radius-sm);
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: transform .25s var(--ns-ease), box-shadow .25s var(--ns-ease), background .25s ease, border-color .25s ease, color .2s ease;
+}
+.ns-btn__arrow { transition: transform .25s var(--ns-ease); }
+.ns-btn:hover .ns-btn__arrow { transform: translateX(4px); }
+.ns-btn--primary {
+  background: linear-gradient(135deg, var(--ns-steel) 0%, var(--ns-steel-dk) 100%);
+  color: #07121d;
+  box-shadow: 0 10px 30px rgba(91,164,207,0.28);
+}
+.ns-btn--primary:hover {
+  color: #07121d;
+  transform: translateY(-2px);
+  box-shadow: 0 16px 42px rgba(91,164,207,0.42);
+}
+.ns-btn--ghost {
+  background: rgba(255,255,255,0.02);
+  border-color: var(--ns-line-2);
+  color: var(--ns-text);
+}
+.ns-btn--ghost:hover { color: #fff; border-color: var(--ns-steel); background: rgba(91,164,207,0.10); transform: translateY(-2px); }
+.ns-btn--lg { padding: 1.1rem 2rem; font-size: 1.02rem; }
+.ns-btn-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
+.ns-btn-row--center { justify-content: center; }
+
+/* ── Section rhythm ── */
+.ns-section { padding: clamp(72px, 11vw, 140px) 0; position: relative; }
+.ns-section--tight { padding: clamp(56px, 8vw, 100px) 0; }
+.ns-section--surface { background: linear-gradient(180deg, var(--ns-ink) 0%, #11161f 50%, var(--ns-ink) 100%); }
+.ns-section__head { max-width: 720px; margin-bottom: clamp(2.5rem, 5vw, 4rem); }
+.ns-section__head.is-centered { margin-left: auto; margin-right: auto; text-align: center; }
+.ns-section__head .ns-lead { margin-top: 1.1rem; }
+.ns-section__head.is-centered .ns-lead { margin-left: auto; margin-right: auto; }
+
+/* =========================================================================
+   HERO — ambient motion background + Namesake lockup
+   ========================================================================= */
+.ns-hero {
+  position: relative;
+  min-height: clamp(620px, 92vh, 920px);
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  isolation: isolate;
+}
+.ns-hero--short { min-height: clamp(440px, 62vh, 620px); }
+
+/* Ambient animated-gradient background (placeholder for Jon's Higgsfield video) */
+.ns-hero__bg {
+  position: absolute;
+  inset: -10% -10% -10% -10%;
+  z-index: -2;
+  background:
+    radial-gradient(48% 50% at 18% 28%, rgba(91,164,207,0.30), transparent 60%),
+    radial-gradient(46% 48% at 82% 22%, rgba(0,174,239,0.18), transparent 62%),
+    radial-gradient(60% 60% at 70% 88%, rgba(45,106,159,0.34), transparent 64%),
+    radial-gradient(50% 50% at 30% 82%, rgba(20,46,74,0.55), transparent 66%),
+    var(--ns-ink);
+  filter: saturate(1.05);
+  animation: ns-drift 26s ease-in-out infinite alternate;
+}
+@keyframes ns-drift {
+  0%   { transform: scale(1) translate(0, 0); }
+  50%  { transform: scale(1.08) translate(2%, -1.5%); }
+  100% { transform: scale(1.04) translate(-2%, 1.5%); }
+}
+/* Vignette + readability mask over the ambient bg */
+.ns-hero__mask {
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(15,17,23,0.35) 0%, rgba(15,17,23,0.10) 38%, rgba(15,17,23,0.78) 100%),
+    radial-gradient(120% 90% at 50% 0%, transparent 55%, rgba(15,17,23,0.65) 100%);
+}
+/* Mouse-parallax orbs (driven by namesake.js) */
+.ns-orb {
+  position: absolute; z-index: -1; border-radius: 50%;
+  filter: blur(48px); opacity: 0.55; will-change: transform;
+  transition: transform .35s ease-out;
+}
+.ns-orb--1 { width: 360px; height: 360px; top: 8%;  left: 6%;  background: radial-gradient(circle, rgba(91,164,207,0.55), transparent 70%); }
+.ns-orb--2 { width: 300px; height: 300px; top: 18%; right: 8%; background: radial-gradient(circle, rgba(0,174,239,0.40), transparent 70%); }
+.ns-orb--3 { width: 420px; height: 420px; bottom: 2%; right: 22%; background: radial-gradient(circle, rgba(45,106,159,0.50), transparent 70%); }
+
+/* Optional video slot — see commented <video> in the page markup */
+.ns-hero__video {
+  position: absolute; inset: 0; z-index: -2;
+  width: 100%; height: 100%; object-fit: cover;
+}
+
+.ns-hero__inner {
+  position: relative;
+  max-width: var(--ns-maxw);
+  margin: 0 auto;
+  padding: clamp(120px, 16vh, 180px) clamp(20px, 5vw, 48px) clamp(80px, 12vh, 120px);
+  width: 100%;
+}
+.ns-hero--short .ns-hero__inner { padding-top: clamp(96px, 13vh, 150px); padding-bottom: clamp(56px, 8vh, 90px); }
+
+/* Lockup: mark stacked over the NAMESAKE wordmark in real Montserrat */
+.ns-lockup { display: inline-flex; align-items: center; gap: 0.9rem; margin-bottom: 1.6rem; }
+.ns-lockup--stack { flex-direction: column; align-items: flex-start; gap: 0.7rem; }
+.ns-lockup__mark { width: 64px; height: 64px; flex-shrink: 0; }
+.ns-lockup__word {
+  font-family: var(--ns-font-display);
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  letter-spacing: 0.32em;   /* stacked tracking per spec */
+  line-height: 1;
+  padding-left: 0.32em;     /* optical balance for the tracking */
+}
+.ns-hero h1 { margin-top: 0.4rem; max-width: 16ch; }
+.ns-hero .ns-lead { margin-top: 1.5rem; }
+.ns-hero .ns-btn-row { margin-top: 2.4rem; }
+.ns-hero__secondary {
+  font-family: var(--ns-font-display);
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--ns-text-soft);
+}
+.ns-hero__secondary:hover { color: #fff; }
+.ns-hero__secondary .ns-btn__arrow { display: inline-block; margin-left: 0.3rem; }
+
+/* Scroll cue */
+.ns-scroll-cue {
+  position: absolute; left: 50%; bottom: 26px; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  color: var(--ns-muted); font-size: 0.72rem; letter-spacing: 0.22em; text-transform: uppercase;
+  font-family: var(--ns-font-display);
+}
+.ns-scroll-cue__line {
+  width: 1px; height: 42px;
+  background: linear-gradient(180deg, var(--ns-steel), transparent);
+  animation: ns-cue 2.2s ease-in-out infinite;
+  transform-origin: top;
+}
+@keyframes ns-cue { 0%,100% { transform: scaleY(0.4); opacity: 0.4; } 50% { transform: scaleY(1); opacity: 1; } }
+
+/* =========================================================================
+   VALUE STACK — "Built entirely for you"
+   ========================================================================= */
+.ns-values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+.ns-value {
+  position: relative;
+  padding: clamp(1.5rem, 3vw, 2.2rem);
+  background: linear-gradient(180deg, var(--ns-surface) 0%, #161c26 100%);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius);
+  overflow: hidden;
+  transition: transform .3s var(--ns-ease), border-color .3s ease, box-shadow .3s ease;
+}
+.ns-value::after {
+  content: ""; position: absolute; left: 0; top: 0; height: 100%; width: 3px;
+  background: linear-gradient(180deg, var(--ns-steel), var(--ns-steel-dk));
+  opacity: 0; transition: opacity .3s ease;
+}
+.ns-value:hover { transform: translateY(-4px); border-color: var(--ns-line-2); box-shadow: 0 18px 44px rgba(0,0,0,0.42); }
+.ns-value:hover::after { opacity: 1; }
+.ns-value__icon {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 48px; height: 48px; border-radius: 12px; margin-bottom: 1.1rem;
+  background: rgba(91,164,207,0.12); color: var(--ns-steel);
+  border: 1px solid var(--ns-line-2);
+}
+.ns-value__icon svg { width: 24px; height: 24px; }
+.ns-value h3 { margin-bottom: 0.5rem; }
+.ns-value p { color: var(--ns-muted); font-size: 0.98rem; }
+.ns-value--wide { grid-column: 1 / -1; }
+
+/* =========================================================================
+   PROCESS STEPS
+   ========================================================================= */
+.ns-steps { display: grid; gap: 1rem; counter-reset: ns-step; }
+.ns-step {
+  position: relative;
+  display: grid; grid-template-columns: auto 1fr; gap: 1.4rem; align-items: start;
+  padding: clamp(1.4rem, 3vw, 2rem) clamp(1.4rem, 3vw, 2.2rem);
+  background: linear-gradient(180deg, var(--ns-surface) 0%, #161c26 100%);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius);
+  transition: transform .3s var(--ns-ease), border-color .3s ease;
+}
+.ns-step:hover { transform: translateX(4px); border-color: var(--ns-line-2); }
+.ns-step__num {
+  counter-increment: ns-step;
+  font-family: var(--ns-font-display); font-weight: 700;
+  font-size: 1.5rem; line-height: 1;
+  width: 56px; height: 56px; flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 14px;
+  color: var(--ns-steel);
+  background: rgba(91,164,207,0.10);
+  border: 1px solid var(--ns-line-2);
+}
+.ns-step__num::before { content: counter(ns-step, decimal-leading-zero); }
+.ns-step h3 { margin-bottom: 0.4rem; }
+.ns-step p { color: var(--ns-muted); }
+
+/* ── Included list ── */
+.ns-included { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.75rem 2rem; margin-top: 0.5rem; }
+.ns-included li {
+  display: flex; gap: 0.8rem; align-items: flex-start;
+  padding: 0.65rem 0; border-bottom: 1px solid var(--ns-line);
+  color: var(--ns-text-soft);
+}
+.ns-included li svg { width: 20px; height: 20px; color: var(--ns-steel); flex-shrink: 0; margin-top: 3px; }
+.ns-included strong { color: var(--ns-text); font-weight: 600; }
+
+/* =========================================================================
+   EXAMPLES BLOCK — "See it live." (reusable on all 3 pages)
+   ========================================================================= */
+.ns-examples { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; }
+.ns-ex-card {
+  display: flex; flex-direction: column;
+  background: linear-gradient(180deg, var(--ns-surface) 0%, #161c26 100%);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius);
+  overflow: hidden;
+  transition: transform .3s var(--ns-ease), border-color .3s ease, box-shadow .3s ease;
+}
+.ns-ex-card--live:hover { transform: translateY(-5px); border-color: var(--ns-line-2); box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+.ns-ex-card__thumb {
+  position: relative; aspect-ratio: 16 / 10; overflow: hidden;
+  background:
+    radial-gradient(60% 70% at 30% 20%, rgba(91,164,207,0.22), transparent 70%),
+    linear-gradient(135deg, #1d2531, #11161f);
+  display: flex; align-items: center; justify-content: center;
+}
+.ns-ex-card__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.ns-ex-card__thumb-mark { width: 54px; height: 54px; opacity: 0.5; }
+.ns-ex-card__body { padding: 1.5rem 1.5rem 1.7rem; display: flex; flex-direction: column; flex: 1; }
+.ns-ex-card__name { font-family: var(--ns-font-display); font-weight: 700; color: var(--ns-text); font-size: 1.15rem; margin-bottom: 0.5rem; }
+.ns-ex-card__desc { color: var(--ns-muted); font-size: 0.95rem; margin-bottom: 1.2rem; flex: 1; }
+.ns-ex-card__link {
+  font-family: var(--ns-font-display); font-weight: 600; font-size: 0.9rem;
+  color: var(--ns-steel); display: inline-flex; align-items: center; gap: 0.4rem; align-self: flex-start;
+}
+.ns-ex-card__link:hover { color: #fff; }
+.ns-ex-card__link .ns-btn__arrow { display: inline-block; }
+/* Placeholder ("More coming soon") cards */
+.ns-ex-card--soon { border-style: dashed; border-color: var(--ns-line); opacity: 0.78; }
+.ns-ex-card--soon .ns-ex-card__thumb { background: linear-gradient(135deg, #171d27, #0f141c); }
+.ns-ex-card--soon .ns-ex-card__name { color: var(--ns-text-soft); }
+.ns-soon-badge {
+  font-family: var(--ns-font-display); font-size: 0.7rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--ns-muted);
+  padding: 0.3rem 0.7rem; border: 1px solid var(--ns-line); border-radius: 100px;
+}
+
+/* =========================================================================
+   START PAGE — live name preview + intake form
+   ========================================================================= */
+.ns-preview {
+  position: relative; overflow: hidden; isolation: isolate;
+  padding: clamp(110px, 16vh, 170px) 0 clamp(70px, 10vh, 110px);
+  text-align: center;
+}
+.ns-preview__inner { position: relative; max-width: 960px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+.ns-preview__label { margin-bottom: 0.9rem; }
+.ns-preview h1 { font-size: clamp(1.4rem, 3vw, 2rem); font-weight: 600; color: var(--ns-text); margin-bottom: 1.5rem; }
+.ns-name-display {
+  font-family: var(--ns-font-display); font-weight: 700; color: #fff;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  font-size: clamp(2.4rem, 9vw, 6rem); line-height: 1.02;
+  word-break: break-word;
+  text-shadow: 0 0 60px rgba(91,164,207,0.35);
+  min-height: 1.1em;
+  transition: opacity .2s ease;
+}
+.ns-name-display.is-placeholder { color: var(--ns-muted); text-shadow: none; }
+.ns-name-input {
+  margin: 2rem auto 0; display: block; width: min(440px, 100%);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--ns-line-2);
+  border-radius: var(--ns-radius-sm);
+  color: #fff; font-family: var(--ns-font-body); font-size: 1.1rem;
+  padding: 0.95rem 1.2rem; text-align: center;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.ns-name-input::placeholder { color: var(--ns-muted); }
+.ns-name-input:focus { outline: none; border-color: var(--ns-steel); background: rgba(255,255,255,0.06); box-shadow: 0 0 0 4px rgba(91,164,207,0.15); }
+.ns-preview__micro { margin-top: 1.1rem; color: var(--ns-muted); font-size: 0.95rem; }
+
+/* Form */
+.ns-form { max-width: 760px; margin: 0 auto; }
+.ns-field { margin-bottom: 1.6rem; }
+.ns-field > label,
+.ns-fieldset > legend {
+  display: block; font-family: var(--ns-font-display); font-weight: 600;
+  color: var(--ns-text); font-size: 1rem; margin-bottom: 0.55rem;
+}
+.ns-field__hint { color: var(--ns-muted); font-weight: 400; font-size: 0.88rem; }
+.ns-input, .ns-textarea, .ns-select {
+  width: 100%;
+  background: var(--ns-surface);
+  border: 1px solid var(--ns-line);
+  border-radius: var(--ns-radius-sm);
+  color: var(--ns-text); font-family: var(--ns-font-body); font-size: 1rem;
+  padding: 0.85rem 1rem;
+  transition: border-color .2s ease, box-shadow .2s ease, background .2s ease;
+}
+.ns-textarea { min-height: 130px; resize: vertical; line-height: 1.6; }
+.ns-input::placeholder, .ns-textarea::placeholder { color: var(--ns-muted); }
+.ns-input:focus, .ns-textarea:focus, .ns-select:focus {
+  outline: none; border-color: var(--ns-steel); background: #1c232f;
+  box-shadow: 0 0 0 4px rgba(91,164,207,0.14);
+}
+.ns-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; }
+.ns-fieldset { border: 0; padding: 0; margin: 0 0 1.6rem; }
+.ns-field--domain { margin-top: 1rem; margin-bottom: 0; max-width: 360px; }
+.ns-field--domain label { margin-bottom: 0.4rem; }
+.ns-choices { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.ns-choice {
+  position: relative;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1rem; border: 1px solid var(--ns-line);
+  border-radius: 100px; cursor: pointer; color: var(--ns-text-soft);
+  font-size: 0.95rem; transition: border-color .2s ease, background .2s ease, color .2s ease;
+}
+.ns-choice:hover { border-color: var(--ns-line-2); color: #fff; }
+.ns-choice input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.ns-choice:has(input:checked) { border-color: var(--ns-steel); background: rgba(91,164,207,0.12); color: #fff; }
+.ns-choice:has(input:focus-visible) { outline: 2px solid var(--ns-steel); outline-offset: 2px; }
+.ns-form__submit { margin-top: 0.5rem; }
+.ns-form__note { margin-top: 1rem; color: var(--ns-muted); font-size: 0.88rem; }
+
+/* =========================================================================
+   CLOSING CTA
+   ========================================================================= */
+.ns-cta {
+  position: relative; overflow: hidden; isolation: isolate; text-align: center;
+  padding: clamp(80px, 12vw, 150px) 0;
+}
+.ns-cta__bg {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(60% 120% at 50% 0%, rgba(91,164,207,0.22), transparent 60%),
+    radial-gradient(50% 120% at 80% 100%, rgba(0,174,239,0.14), transparent 60%),
+    linear-gradient(180deg, #11161f, var(--ns-ink));
+}
+.ns-cta__inner { max-width: 760px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 48px); }
+.ns-cta h2 { margin-bottom: 1.4rem; }
+.ns-cta .ns-lead { margin-left: auto; margin-right: auto; }
+.ns-cta .ns-btn-row { justify-content: center; margin-top: 2rem; }
+
+/* =========================================================================
+   THANK-YOU — immersive confirmation
+   ========================================================================= */
+.ns-thanks {
+  position: relative; overflow: hidden; isolation: isolate;
+  min-height: clamp(520px, 78vh, 760px);
+  display: flex; align-items: center; text-align: center;
+}
+.ns-thanks__inner {
+  position: relative; max-width: 640px; margin: 0 auto;
+  padding: clamp(80px, 12vh, 120px) clamp(20px, 5vw, 48px); width: 100%;
+}
+.ns-thanks__mark { width: 80px; height: 80px; margin: 0 auto 1.7rem; }
+.ns-thanks h1 { margin-bottom: 1.1rem; }
+.ns-thanks .ns-lead { margin: 0 auto; }
+.ns-thanks .ns-btn-row { justify-content: center; margin-top: 2.2rem; }
+
+/* =========================================================================
+   HERO ENTRANCE — pure CSS, no JS dependency (so above-the-fold content
+   always paints even if main.js is slow/blocked). Below-the-fold uses .reveal.
+   ========================================================================= */
+@keyframes ns-rise { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: none; } }
+.ns-hero__inner > *,
+.ns-preview__inner > *,
+.ns-thanks__inner { animation: ns-rise 0.8s var(--ns-ease) both; }
+.ns-hero__inner > *:nth-child(1), .ns-preview__inner > *:nth-child(1) { animation-delay: 0s; }
+.ns-hero__inner > *:nth-child(2), .ns-preview__inner > *:nth-child(2) { animation-delay: 0.08s; }
+.ns-hero__inner > *:nth-child(3), .ns-preview__inner > *:nth-child(3) { animation-delay: 0.16s; }
+.ns-hero__inner > *:nth-child(4), .ns-preview__inner > *:nth-child(4) { animation-delay: 0.24s; }
+.ns-hero__inner > *:nth-child(5), .ns-preview__inner > *:nth-child(5) { animation-delay: 0.32s; }
+
+/* =========================================================================
+   SCROLL REVEAL — scoped tuning (main.js toggles .visible)
+   ========================================================================= */
+.ns-scope .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s var(--ns-ease), transform .7s var(--ns-ease); }
+.ns-scope .reveal.visible { opacity: 1; transform: none; }
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 860px) {
+  .ns-values { grid-template-columns: 1fr; }
+  .ns-examples { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+  .ns-included { grid-template-columns: 1fr; }
+  .ns-grid-2 { grid-template-columns: 1fr; gap: 0; }
+  .ns-orb { display: none; }   /* lighten mobile paint */
+}
+@media (max-width: 520px) {
+  .ns-lockup__mark { width: 52px; height: 52px; }
+  .ns-step { grid-template-columns: 1fr; gap: 0.9rem; }
+  .ns-btn { width: 100%; justify-content: center; }
+  .ns-hero__secondary { width: 100%; justify-content: center; text-align: center; }
+}
+
+/* =========================================================================
+   REDUCED MOTION
+   ========================================================================= */
+@media (prefers-reduced-motion: reduce) {
+  .ns-hero__bg, .ns-scroll-cue__line { animation: none !important; }
+  .ns-orb { transition: none !important; }
+  .ns-hero__inner > *, .ns-preview__inner > *, .ns-thanks__inner { animation: none !important; opacity: 1 !important; transform: none !important; }
+  .ns-scope .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

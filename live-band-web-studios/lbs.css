@@ -153,9 +153,37 @@
 
 @media (max-width: 768px) {
   :root { --lbs-navh: 64px; }
-  .lbs-subnav__inner { height: 44px; padding: 0 14px; }
+  /* Let the bar grow to two rows so every link label is visible */
+  .lbs-subnav__inner {
+    height: auto;
+    min-height: 44px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 12px;
+  }
   .lbs-subnav__brand { display: none; }
-  .lbs-subnav__links { justify-content: flex-start; width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  /* Compact, stacked CTA — stops it hogging the row's width */
+  .lbs-subnav__cta {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+    line-height: 1.18;
+    padding: 0.3rem 0.6rem;
+    max-width: 8em;
+    white-space: normal;
+    text-align: center;
+  }
+  .lbs-subnav__cta-arrow { display: none; }
+  /* Show every link — wrap to as many rows as needed instead of horizontal-scroll */
+  .lbs-subnav__links {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4px;
+    overflow: visible;
+  }
+  .lbs-subnav__links a { padding: 0.35rem 0.5rem; }
   /* On mobile the Forms dropdown collapses — the Forms link goes to the hub which lists both forms */
   .lbs-subnav__drop { display: none !important; }
   .lbs-subnav__item > a::after { content: ""; }
@@ -227,12 +255,12 @@
   transition: all .2s ease;
   text-align: center;
 }
-.lbs-scope .btn-primary { background: var(--lbs-cyan); color: var(--lbs-white); border-color: var(--lbs-cyan); }
-.lbs-scope .btn-primary:hover { background: var(--lbs-cyan-dk); border-color: var(--lbs-cyan-dk); color: #fff; }
+.lbs-scope .btn-primary { background: var(--lbs-cyan); color: var(--lbs-navy); border-color: var(--lbs-cyan); }
+.lbs-scope .btn-primary:hover { background: var(--lbs-cyan-dk); border-color: var(--lbs-cyan-dk); color: var(--lbs-navy); }
 .lbs-scope .btn-secondary { background: transparent; color: var(--lbs-cyan); border-color: var(--lbs-cyan); }
 .lbs-scope .btn-secondary:hover { background: rgba(42,184,212,0.12); color: var(--lbs-white); }
 .lbs-scope .btn-dark { background: var(--lbs-navy); color: var(--lbs-white); border-color: rgba(255,255,255,0.4); }
-.lbs-scope .btn-dark:hover { background: #060a12; border-color: #fff; color: #fff; }
+.lbs-scope .btn-dark:hover { background: #060a12; border-color: var(--lbs-white); color: var(--lbs-white); }
 .lbs-scope .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; }
 .lbs-scope .btn-row.centered { justify-content: center; }
 .lbs-scope .link-arrow { display: inline-block; margin-top: 1rem; font-weight: 500; }
@@ -302,6 +330,8 @@
 .lbs-hero .hero-tagline,
 .lbs-hero .section-sub,
 .lbs-hero .eyebrow { text-shadow: 0 1px 16px rgba(0,0,0,0.55); }
+/* Keep the gold eyebrow legible over photo sections (non-hero too) */
+.lbs-scope .bg-photo .eyebrow { text-shadow: 0 1px 10px rgba(0,0,0,0.6); }
 
 /* Body copy in LBS heros over photos/videos: brighten the muted grey
    (default --lbs-muted) so it's legible. */
@@ -374,7 +404,7 @@
 .lbs-scope .price-card--pro { border-color: var(--lbs-cyan); box-shadow: 0 0 0 1px var(--lbs-cyan), 0 18px 50px rgba(0,0,0,.35); }
 .lbs-scope .badge { display: inline-block; font-family: var(--lbs-font-display); font-size: 13px; letter-spacing: 0.12em; padding: 4px 14px; border-radius: 999px; text-transform: uppercase; margin-bottom: 1rem; align-self: flex-start; }
 .lbs-scope .badge--gold { background: rgba(201,146,42,0.15); color: var(--lbs-gold); border: 1px solid rgba(201,146,42,0.4); }
-.lbs-scope .badge--cyan { background: var(--lbs-cyan); color: #fff; }
+.lbs-scope .badge--cyan { background: var(--lbs-cyan); color: var(--lbs-navy); }
 .lbs-scope .price-amt { font-family: var(--lbs-font-display); font-size: 3.5rem; color: var(--lbs-white); line-height: 1; }
 .lbs-scope .price-amt--sm { font-size: 2.6rem; color: var(--lbs-gold); }
 .lbs-scope .price-note { font-size: 14px; color: var(--lbs-muted); }
@@ -391,17 +421,17 @@
 
 /* ---------- CTA banner ---------- */
 .lbs-scope .cta-banner { background: var(--lbs-cyan); padding: 4rem 0; text-align: center; }
-.lbs-scope .cta-banner h2 { color: var(--lbs-white); font-size: clamp(2.2rem, 6vw, 3rem); }
-.lbs-scope .cta-banner p { color: rgba(255,255,255,0.85); font-size: 1.15rem; margin: 1rem auto 2rem; max-width: 620px; }
+.lbs-scope .cta-banner h2 { color: var(--lbs-navy); font-size: clamp(2.2rem, 6vw, 3rem); }
+.lbs-scope .cta-banner p { color: rgba(10,15,26,0.82); font-size: 1.15rem; margin: 1rem auto 2rem; max-width: 620px; }
 
 /* ---------- Pills ---------- */
 .lbs-scope .pill-grid { display: flex; flex-wrap: wrap; gap: .75rem; }
 .lbs-scope .pill { display: inline-block; border: 1px solid var(--lbs-border); border-radius: 999px; padding: 8px 18px; font-size: .9rem; color: var(--lbs-offwhite); background: var(--lbs-dark); transition: all .2s ease; }
-.lbs-scope .pill:hover { background: var(--lbs-cyan); color: #fff; border-color: var(--lbs-cyan); }
+.lbs-scope .pill:hover { background: var(--lbs-cyan); color: var(--lbs-navy); border-color: var(--lbs-cyan); }
 
 /* ---------- Portfolio ---------- */
 .lbs-scope .portfolio-card { background: var(--lbs-mid); border: 1px solid var(--lbs-border); border-radius: var(--lbs-radius); overflow: hidden; display: flex; flex-direction: column; }
-.lbs-scope .portfolio-card__thumb { aspect-ratio: 16 / 10; background: linear-gradient(135deg, #1a2232 0%, #0e0e0e 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem; border-bottom: 1px solid var(--lbs-border); }
+.lbs-scope .portfolio-card__thumb { aspect-ratio: 16 / 10; background: linear-gradient(135deg, var(--lbs-mid) 0%, var(--lbs-dark) 100%); display: flex; align-items: center; justify-content: center; text-align: center; padding: 1rem; border-bottom: 1px solid var(--lbs-border); }
 .lbs-scope .portfolio-card__thumb span { font-family: var(--lbs-font-display); font-size: 2rem; color: var(--lbs-cyan); letter-spacing: .04em; line-height: 1.05; }
 .lbs-scope .portfolio-card__body { padding: 1.75rem; display: flex; flex-direction: column; flex: 1; }
 .lbs-scope .portfolio-card__name { font-size: 1.6rem; margin: .5rem 0 .25rem; }
@@ -430,6 +460,25 @@
 .lbs-scope .contact-line { color: var(--lbs-gold); font-family: var(--lbs-font-display); letter-spacing: .05em; font-size: 1.1rem; }
 .lbs-scope .mt-1 { margin-top: 1rem; } .lbs-scope .mt-2 { margin-top: 2rem; } .lbs-scope .mb-1 { margin-bottom: 1rem; }
 .lbs-scope .text-gold { color: var(--lbs-gold); } .lbs-scope .text-cyan { color: var(--lbs-cyan); }
+.lbs-scope .text-sm { font-size: .95rem; }
+.lbs-scope .gap-15 { gap: 1.5rem; }
+.lbs-scope .inline-block { display: inline-block; }
+.lbs-scope .justify-center { justify-content: center; }
+.lbs-scope .mx-auto { margin-left: auto; margin-right: auto; }
+/* Screen-reader-only heading (logo serves as the visual H1 on the home hero) */
+.lbs-scope .lbs-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+
+/* ---------- Card hover + micro-interactions (ANIMATE pass) ---------- */
+.lbs-scope .card, .lbs-scope .price-card, .lbs-scope .portfolio-card, .lbs-scope .formhub-card {
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
+}
+.lbs-scope .card:hover, .lbs-scope .portfolio-card:hover, .lbs-scope .formhub-card:hover {
+  transform: translateY(-4px); border-color: var(--lbs-cyan); box-shadow: 0 14px 34px rgba(0,0,0,.35);
+}
+.lbs-scope .link-arrow, .lbs-scope .portfolio-card__link i { transition: transform .2s ease; }
+.lbs-scope .link-arrow:hover, .lbs-scope .portfolio-card__link:hover i { transform: translateX(3px); }
+/* Gentle, even readability tint on centered photo heroes */
+.lbs-scope .lbs-hero.bg-photo { box-shadow: inset 0 0 0 100vmax rgba(8,14,25,0.30); }
 
 /* =========================================================================
    RESPONSIVE
@@ -447,6 +496,10 @@
   .lbs-scope .formhub-card { grid-template-columns: 1fr; text-align: left; }
   .lbs-scope .btn-row { flex-direction: column; }
   .lbs-scope .btn-row .btn-primary, .lbs-scope .btn-row .btn-secondary, .lbs-scope .btn-row .btn-dark { width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .lbs-scope .price-amt { font-size: 2.8rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
