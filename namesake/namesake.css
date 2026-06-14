@@ -485,7 +485,7 @@
 .ns-name-display.is-placeholder { color: var(--ns-muted); text-shadow: none; }
 .ns-name-input {
   margin: 2rem auto 0; display: block; width: min(440px, 100%);
-  background: rgba(255,255,255,0.04);
+  background: var(--ns-surface);
   border: 1px solid var(--ns-line-2);
   border-radius: var(--ns-radius-sm);
   color: #fff; font-family: var(--ns-font-body); font-size: 1.1rem;
@@ -603,7 +603,7 @@
 .ns-logo-frame {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 15px; margin-bottom: 1.3rem;
-  background: rgba(15,17,23,0.55);
+  background: #161b24;
   border: 1px solid rgba(255,255,255,0.22);
   border-radius: 0;
   box-shadow: 0 14px 36px rgba(0,0,0,0.5);
@@ -685,7 +685,7 @@
    STEP CARDS — portrait as background (focus to the right, text on the left)
    ========================================================================= */
 .ns-step--bg { position: relative; overflow: hidden; display: block; min-height: 210px; padding: clamp(1.6rem, 3vw, 2.3rem); }
-.ns-step__bg { position: absolute; top: 0; right: 0; height: 100%; width: 60%; object-fit: cover; object-position: 50% 14%; z-index: 0; }
+.ns-step__bg { position: absolute; top: 0; right: 0; height: 100%; width: 60%; object-fit: cover; object-position: 50% 50%; z-index: 0; }
 .ns-step--bg::before {
   content: ""; position: absolute; inset: 0; z-index: 1;
   background: linear-gradient(90deg, #141a24 0%, #141a24 38%, rgba(20,26,36,0.62) 60%, rgba(20,26,36,0) 90%);
@@ -706,7 +706,7 @@
   box-shadow: 0 16px 40px rgba(0,0,0,0.5);
   animation: ns-float 6s ease-in-out infinite; will-change: transform;
 }
-.ns-portraits__p img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: var(--po, 0.55); filter: grayscale(0) contrast(1.0) brightness(1.28) saturate(1.05); }
+.ns-portraits__p img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 1; filter: grayscale(0) contrast(1.0) brightness(1.05) saturate(1.05); }
 @keyframes ns-float {
   0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
   50% { transform: translateY(-26px) rotate(var(--r, 0deg)); }
@@ -728,13 +728,13 @@
 @media (max-width: 720px) {
   .ns-portraits__p--3, .ns-portraits__p--7, .ns-portraits__p--8,
   .ns-portraits__p--9, .ns-portraits__p--12, .ns-portraits__p--13, .ns-portraits__p--14 { display: none; }
-  .ns-portraits__p img { opacity: 0.42 !important; }
+  .ns-portraits__p img { opacity: 0.9 !important; }
 }
 @media (prefers-reduced-motion: reduce) { .ns-portraits__p { animation: none !important; } }
 /* Left scrim on portrait heroes so the (left-aligned) headline stays readable over the photos */
 .ns-hero .ns-hero__mask {
   background:
-    linear-gradient(90deg, rgba(15,17,23,0.82) 0%, rgba(15,17,23,0.45) 40%, rgba(15,17,23,0.08) 66%, transparent 82%),
+    linear-gradient(90deg, rgba(15,17,23,0.93) 0%, rgba(15,17,23,0.62) 38%, rgba(15,17,23,0.14) 64%, transparent 82%),
     linear-gradient(180deg, rgba(15,17,23,0.30) 0%, rgba(15,17,23,0.08) 42%, rgba(15,17,23,0.70) 100%),
     radial-gradient(120% 90% at 50% 0%, transparent 58%, rgba(15,17,23,0.55) 100%);
 }
