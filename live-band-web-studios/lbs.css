@@ -163,15 +163,14 @@
     padding: 7px 12px;
   }
   .lbs-subnav__brand { display: none; }
-  /* Compact, stacked CTA — stops it hogging the row's width */
+  /* Single-line CTA — sits on its own row on top of the link labels */
   .lbs-subnav__cta {
     display: inline-block;
-    font-size: 0.6rem;
-    letter-spacing: 0.03em;
-    line-height: 1.18;
-    padding: 0.3rem 0.6rem;
-    max-width: 8em;
-    white-space: normal;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
+    padding: 0.3rem 0.75rem;
+    white-space: nowrap;
     text-align: center;
   }
   .lbs-subnav__cta-arrow { display: none; }

@@ -602,7 +602,7 @@
    ========================================================================= */
 .ns-logo-frame {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 15px; margin-bottom: 1.3rem;
+  padding: 10px; margin-bottom: 1.3rem;
   background: #161b24;
   border: 1px solid rgba(255,255,255,0.22);
   border-radius: 0;

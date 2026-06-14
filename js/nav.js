@@ -88,23 +88,28 @@
           '<li class="nav-item">' +
             '<a href="' + p + 'services.html" data-page="services" aria-haspopup="true" aria-expanded="false">Services</a>' +
             '<div class="nav-dropdown nav-mega services-dropdown" role="menu">' +
-              '<div class="dropdown-grid">' + svcItems + '</div>' +
-              /* Live Band Web Studios promo — sub-brand callout */
-              '<a href="' + p + 'live-band-web-studios/index.html" class="services-lbs-promo" aria-label="Live Band Web Studios — websites for musicians">' +
-                '<span class="lbs-promo-pulse" aria-hidden="true"></span>' +
-                '<span class="lbs-promo-badge">NEW</span>' +
-                '<span class="lbs-promo-icon" aria-hidden="true">' +
-                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">' +
-                    '<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>' +
-                  '</svg>' +
-                '</span>' +
-                '<span class="lbs-promo-text">' +
-                  '<span class="lbs-promo-headline">Musicians, go here</span>' +
-                  '<span class="lbs-promo-sub">Custom sites for bands &amp; solo artists at <em>Live Band Web Studios</em></span>' +
-                '</span>' +
-                '<span class="lbs-promo-arrow" aria-hidden="true">&rarr;</span>' +
-              '</a>' +
-              nsPromo +
+              '<div class="mega-columns">' +
+                /* Columns 1–2: the 12 Live Web Studios services (2-col grid) */
+                '<div class="mega-services">' +
+                  '<div class="dropdown-grid">' + svcItems + '</div>' +
+                '</div>' +
+                /* Column 3: Live Band Web Studios vertical */
+                '<div class="mega-col">' +
+                  '<a href="' + p + 'live-band-web-studios/index.html" class="mega-col-head">Live Band Web Studios</a>' +
+                  '<a href="' + p + 'live-band-web-studios/index.html" class="mega-col-link">Home</a>' +
+                  '<a href="' + p + 'live-band-web-studios/pricing.html" class="mega-col-link">Pricing</a>' +
+                  '<a href="' + p + 'live-band-web-studios/forms.html" class="mega-col-link">Forms</a>' +
+                  '<a href="' + p + 'live-band-web-studios/personal-sites.html" class="mega-col-link">Personal Sites</a>' +
+                  '<a href="' + p + 'live-band-web-studios/portfolio.html" class="mega-col-link">Portfolio</a>' +
+                '</div>' +
+                /* Column 4: Namesake vertical */
+                '<div class="mega-col">' +
+                  '<a href="' + p + 'namesake/index.html" class="mega-col-head">Namesake <span class="mega-col-badge">NEW</span></a>' +
+                  '<a href="' + p + 'namesake/index.html" class="mega-col-link">Overview</a>' +
+                  '<a href="' + p + 'namesake/how-it-works.html" class="mega-col-link">How It Works</a>' +
+                  '<a href="' + p + 'namesake/start.html" class="mega-col-link">Start</a>' +
+                '</div>' +
+              '</div>' +
               '<div class="mega-footer">' +
                 '<a href="' + p + 'services.html" class="mega-view-all">View all services →</a>' +
               '</div>' +

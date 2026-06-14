@@ -339,6 +339,40 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
 .mega-view-all { font-size: 0.8125rem; font-weight: 600; color: var(--lws-blue-primary); }
 .mega-view-all:hover { color: #7BC0E0; }
 
+/* ── 4-column Services mega-menu: 12 services (cols 1–2) + Live Band (3) + Namesake (4) ── */
+.services-dropdown { width: min(1040px, 94vw); }
+.services-dropdown .mega-columns {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1.25rem;
+  align-items: stretch;
+}
+.mega-col {
+  display: flex; flex-direction: column; gap: 0.1rem;
+  padding-left: 1.25rem; border-left: 1px solid var(--lws-border);
+}
+.mega-col-head {
+  font-family: var(--font-display, var(--font-body));
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
+  text-transform: uppercase; color: var(--lws-text-primary);
+  padding: 0.3rem 0.5rem 0.55rem; margin-bottom: 0.3rem;
+  border-bottom: 1px solid var(--lws-border);
+  text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
+  transition: color var(--fast);
+}
+.mega-col-head:hover { color: var(--lws-blue-primary); }
+.mega-col-badge {
+  background: linear-gradient(135deg, #f5e6c8, #d6a050);
+  color: #1a1108; font-size: 9px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 2px 6px; border-radius: 5px; flex-shrink: 0;
+}
+.mega-col-link {
+  display: block; padding: 0.5rem; font-size: 0.8125rem;
+  color: var(--lws-text-secondary); border-radius: var(--radius-sm);
+  text-decoration: none; transition: color var(--fast), background var(--fast);
+}
+.mega-col-link:hover { color: var(--lws-text-primary); background: var(--lws-bg-elevated); }
+
 /* ── Live Band Web Studios promo inside the Services mega-menu ── */
 .services-lbs-promo {
   position: relative;
@@ -2057,6 +2091,9 @@ main img:not(.clutch-badge):not(.lws-face):not(.card-icon):not([aria-hidden]) {
   .nav-item.open .nav-dropdown { display: block; }
   .nav-mega { width: 100%; left: auto; transform: none; }
   .services-dropdown .dropdown-grid, .industries-dropdown .dropdown-list { grid-template-columns: 1fr; }
+  .services-dropdown .mega-columns { display: block; }
+  /* Verticals are surfaced separately via .nav-mobile-vertical links below */
+  .mega-col { display: none; }
   .mega-footer { display: none; }
   /* Surface the verticals as full-size direct links in the mobile menu (the mega-dropdowns don't open on mobile) */
   .nav-mobile-vertical { display: block; }
