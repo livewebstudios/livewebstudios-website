@@ -228,6 +228,11 @@
 .ns-btn--lg { padding: 1.1rem 2rem; font-size: 1.02rem; }
 .ns-btn-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
 .ns-btn-row--center { justify-content: center; }
+/* CTA buttons are <a> inside .ns-scope, so the scoped `.ns-scope a` link color would
+   tint them steel — override with higher specificity so the letters are truly white */
+.ns-scope .ns-btn--primary, .ns-scope .ns-btn--primary:hover,
+.ns-scope .ns-btn--ghost, .ns-scope .ns-btn--ghost:hover,
+.ns-scope .ns-hero__secondary, .ns-scope .ns-hero__secondary:hover { color: #fff; }
 
 /* ── Section rhythm ── */
 .ns-section { padding: clamp(72px, 11vw, 140px) 0; position: relative; }
