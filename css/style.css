@@ -1487,18 +1487,18 @@ body[data-page="contact"] .split-section .split-content { opacity: 1; transform:
    ========================================================================= */
 .contact-form { display: flex; flex-direction: column; gap: 0.85rem; width: 100%; }
 .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
-.form-group label { font-size: 0.875rem; font-weight: 600; color: var(--lws-text-secondary); }
+.form-group label { font-size: 0.8rem; font-weight: 600; color: var(--lws-text-secondary); text-transform: uppercase; letter-spacing: 0.1em; }
 .contact-form input,
 .contact-form select,
 .contact-form textarea,
 .form-group input,
 .form-group select,
 .form-group textarea {
-  width: 100%; padding: 0.85rem 1rem;
-  background: var(--lws-bg-elevated); border: 1px solid var(--lws-border);
-  border-radius: var(--radius-btn);
+  width: 100%; padding: 0.9rem 1.05rem;
+  background: rgba(36,44,58,0.55); border: 1.5px solid var(--lws-blue-primary);
+  border-radius: 8px;
   color: var(--lws-text-primary); font-family: var(--font-body); font-size: 0.95rem;
-  transition: border-color var(--fast) var(--ease-out);
+  transition: border-color var(--fast) var(--ease-out), box-shadow var(--fast) var(--ease-out), background var(--fast) var(--ease-out);
   -webkit-appearance: none; appearance: none;
 }
 .contact-form input::placeholder,
@@ -1511,7 +1511,7 @@ body[data-page="contact"] .split-section .split-content { opacity: 1; transform:
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  outline: none; border-color: var(--lws-blue-primary); box-shadow: 0 0 0 3px var(--lws-blue-glow);
+  outline: none; border-color: var(--lws-blue-hover); box-shadow: 0 0 0 3px var(--lws-blue-glow); background: rgba(36,44,58,0.8);
 }
 .contact-form select,
 .form-group select {

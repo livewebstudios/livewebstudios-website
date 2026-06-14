@@ -508,7 +508,7 @@
 .ns-input, .ns-textarea, .ns-select {
   width: 100%;
   background: var(--ns-surface);
-  border: 1px solid var(--ns-line);
+  border: 1.5px solid var(--ns-steel);
   border-radius: var(--ns-radius-sm);
   color: var(--ns-text); font-family: var(--ns-font-body); font-size: 1rem;
   padding: 0.85rem 1rem;
@@ -602,10 +602,10 @@
    ========================================================================= */
 .ns-logo-frame {
   display: inline-flex; align-items: center; justify-content: center;
-  padding: 8px 13px; margin-bottom: 1.3rem;
+  padding: 15px; margin-bottom: 1.3rem;
   background: rgba(15,17,23,0.55);
   border: 1px solid rgba(255,255,255,0.22);
-  border-radius: 6px;
+  border-radius: 0;
   box-shadow: 0 14px 36px rgba(0,0,0,0.5);
   -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
 }
@@ -701,28 +701,34 @@
    ========================================================================= */
 .ns-portraits { position: absolute; inset: 0; z-index: -1; overflow: hidden; pointer-events: none; }
 .ns-portraits__p {
-  position: absolute; display: block; border-radius: 10px; overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.14);
+  position: absolute; display: block; border-radius: 0; overflow: hidden;
+  border: 3px solid #fff;
   box-shadow: 0 16px 40px rgba(0,0,0,0.5);
-  opacity: 0.62; filter: grayscale(0) contrast(1.0) brightness(1.32) saturate(1.05);
-  animation: ns-float 9s ease-in-out infinite; will-change: transform;
+  animation: ns-float 6s ease-in-out infinite; will-change: transform;
 }
-.ns-portraits__p img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.ns-portraits__p img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: var(--po, 0.55); filter: grayscale(0) contrast(1.0) brightness(1.28) saturate(1.05); }
 @keyframes ns-float {
   0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
   50% { transform: translateY(-26px) rotate(var(--r, 0deg)); }
 }
-.ns-portraits__p--1 { width: 122px; height: 152px; top: 13%; left: 3%;   --r: -4deg; opacity: 0.66; animation-delay: 0s; }
-.ns-portraits__p--2 { width: 98px;  height: 122px; top: 63%; left: 6%;   --r: 3deg;  opacity: 0.54; animation-delay: -3s; }
-.ns-portraits__p--3 { width: 102px; height: 128px; bottom: 7%; left: 27%; --r: 2deg; opacity: 0.46; animation-delay: -6s; }
-.ns-portraits__p--4 { width: 128px; height: 160px; top: 11%; right: 5%;  --r: 4deg;  opacity: 0.66; animation-delay: -1.5s; }
-.ns-portraits__p--5 { width: 108px; height: 136px; top: 44%; right: 4%;  --r: -3deg; opacity: 0.58; animation-delay: -4.5s; }
-.ns-portraits__p--6 { width: 98px;  height: 122px; top: 70%; right: 15%; --r: 3deg;  opacity: 0.52; animation-delay: -7.5s; }
-.ns-portraits__p--7 { width: 92px;  height: 116px; top: 22%; right: 23%; --r: -2deg; opacity: 0.44; animation-delay: -9.5s; }
-.ns-portraits__p--8 { width: 84px;  height: 106px; top: 6%;  left: 41%; --r: 3deg;  opacity: 0.40; animation-delay: -11s; }
+.ns-portraits__p--1  { width: 122px; height: 152px; top: 13%; left: 3%;   --r: -4deg; --po: 0.62; animation-delay: 0s; }
+.ns-portraits__p--2  { width: 98px;  height: 122px; top: 63%; left: 6%;   --r: 3deg;  --po: 0.54; animation-delay: -1s; }
+.ns-portraits__p--3  { width: 102px; height: 128px; bottom: 7%; left: 27%; --r: 2deg; --po: 0.46; animation-delay: -2s; }
+.ns-portraits__p--4  { width: 128px; height: 160px; top: 11%; right: 5%;  --r: 4deg;  --po: 0.62; animation-delay: -1.5s; }
+.ns-portraits__p--5  { width: 108px; height: 136px; top: 44%; right: 4%;  --r: -3deg; --po: 0.58; animation-delay: -2.5s; }
+.ns-portraits__p--6  { width: 98px;  height: 122px; top: 70%; right: 15%; --r: 3deg;  --po: 0.52; animation-delay: -3.5s; }
+.ns-portraits__p--7  { width: 92px;  height: 116px; top: 22%; right: 23%; --r: -2deg; --po: 0.44; animation-delay: -4.5s; }
+.ns-portraits__p--8  { width: 84px;  height: 106px; top: 6%;  left: 41%; --r: 3deg;  --po: 0.40; animation-delay: -5s; }
+.ns-portraits__p--9  { width: 100px; height: 126px; top: 4%;  left: 20%; --r: -3deg; --po: 0.48; animation-delay: -2.2s; }
+.ns-portraits__p--10 { width: 92px;  height: 116px; bottom: 5%; left: 13%; --r: 3deg; --po: 0.46; animation-delay: -3s; }
+.ns-portraits__p--11 { width: 104px; height: 130px; bottom: 7%; right: 7%; --r: 2deg; --po: 0.54; animation-delay: -1.8s; }
+.ns-portraits__p--12 { width: 84px;  height: 106px; top: 8%;  right: 35%; --r: -2deg; --po: 0.36; animation-delay: -4s; }
+.ns-portraits__p--13 { width: 96px;  height: 120px; top: 42%; right: 30%; --r: 4deg; --po: 0.40; animation-delay: -2.8s; }
+.ns-portraits__p--14 { width: 90px;  height: 114px; bottom: 24%; right: 39%; --r: -3deg; --po: 0.34; animation-delay: -5.5s; }
 @media (max-width: 720px) {
-  .ns-portraits__p--3, .ns-portraits__p--7, .ns-portraits__p--8 { display: none; }
-  .ns-portraits__p { opacity: 0.42 !important; }
+  .ns-portraits__p--3, .ns-portraits__p--7, .ns-portraits__p--8,
+  .ns-portraits__p--9, .ns-portraits__p--12, .ns-portraits__p--13, .ns-portraits__p--14 { display: none; }
+  .ns-portraits__p img { opacity: 0.42 !important; }
 }
 @media (prefers-reduced-motion: reduce) { .ns-portraits__p { animation: none !important; } }
 /* Left scrim on portrait heroes so the (left-aligned) headline stays readable over the photos */
