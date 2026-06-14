@@ -91,6 +91,7 @@
               '<div class="mega-columns">' +
                 /* Columns 1–2: the 12 Live Web Studios services (2-col grid) */
                 '<div class="mega-services">' +
+                  '<a href="' + p + 'services.html" class="mega-col-head">Live Web Studios</a>' +
                   '<div class="dropdown-grid">' + svcItems + '</div>' +
                 '</div>' +
                 /* Column 3: Live Band Web Studios vertical */
@@ -210,6 +211,16 @@
       }
     }
 
+    /* Remove the retired "Quick Links" column */
+    var allCols2 = grid.querySelectorAll('.footer-col');
+    for (var q = 0; q < allCols2.length; q++) {
+      var qh4 = allCols2[q].querySelector('h4');
+      if (qh4 && qh4.textContent.trim().toLowerCase() === 'quick links') {
+        allCols2[q].parentNode.removeChild(allCols2[q]);
+        break;
+      }
+    }
+
     /* Inject Industries at the end */
     grid.insertAdjacentHTML('beforeend',
       '<div class="footer-col">' +
@@ -238,6 +249,17 @@
           '<li><a href="' + p + 'live-band-web-studios/personal-sites.html">Personal Sites</a></li>' +
           '<li><a href="' + p + 'live-band-web-studios/portfolio.html">Portfolio</a></li>' +
           '<li><a href="' + p + 'live-band-web-studios/forms.html">Forms</a></li>' +
+        '</ul>' +
+      '</div>');
+
+    /* Inject Namesake column at the far right (every page) */
+    grid.insertAdjacentHTML('beforeend',
+      '<div class="footer-col">' +
+        '<h4>Namesake</h4>' +
+        '<ul>' +
+          '<li><a href="' + p + 'namesake/index.html">Overview</a></li>' +
+          '<li><a href="' + p + 'namesake/how-it-works.html">How It Works</a></li>' +
+          '<li><a href="' + p + 'namesake/start.html">Start</a></li>' +
         '</ul>' +
       '</div>');
   }

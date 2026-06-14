@@ -373,6 +373,15 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
 }
 .mega-col-link:hover { color: var(--lws-text-primary); background: var(--lws-bg-elevated); }
 
+/* ── Centered legal pages (Privacy, Terms) ── */
+.article--centered .article-body {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 var(--container-pad, 24px);
+  text-align: center;
+}
+.article--centered .article-body ul { list-style: none; padding-left: 0; }
+
 /* ── Live Band Web Studios promo inside the Services mega-menu ── */
 .services-lbs-promo {
   position: relative;
