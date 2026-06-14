@@ -27,7 +27,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css?v=6">
-<link rel="stylesheet" href="namesake.css?v=1">
+<link rel="stylesheet" href="namesake.css?v=2">
 </head>
 <body data-page="namesake">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -55,6 +55,17 @@
        Jon: drop the Higgsfield hero video (muted, no sound) in the commented
        <video> below and it sits behind everything. Until then the CSS gradient runs. -->
   <div class="ns-hero__bg" aria-hidden="true"></div>
+  <!-- Floating portraits of the target audiences (executives, founders, attorneys, performers) -->
+  <div class="ns-portraits" aria-hidden="true">
+    <span class="ns-portraits__p ns-portraits__p--1"><img src="images/portraits/portrait-01.jpg" alt=""></span>
+    <span class="ns-portraits__p ns-portraits__p--2"><img src="images/portraits/portrait-14.jpg" alt=""></span>
+    <span class="ns-portraits__p ns-portraits__p--3"><img src="images/portraits/portrait-10.jpg" alt=""></span>
+    <span class="ns-portraits__p ns-portraits__p--4"><img src="images/portraits/portrait-06.jpg" alt=""></span>
+    <span class="ns-portraits__p ns-portraits__p--5"><img src="images/portraits/portrait-15.jpg" alt=""></span>
+    <span class="ns-portraits__p ns-portraits__p--6"><img src="images/portraits/portrait-03.jpg" alt=""></span>
+    <span class="ns-portraits__p ns-portraits__p--7"><img src="images/portraits/portrait-11.jpg" alt=""></span>
+    <span class="ns-portraits__p ns-portraits__p--8"><img src="images/portraits/portrait-08.jpg" alt=""></span>
+  </div>
   <span class="ns-orb ns-orb--1" aria-hidden="true"></span>
   <span class="ns-orb ns-orb--2" aria-hidden="true"></span>
   <span class="ns-orb ns-orb--3" aria-hidden="true"></span>
@@ -67,9 +78,8 @@
 
   <div class="ns-hero__inner">
     <span class="ns-eyebrow">Namesake — by Live Web Studios</span>
-    <div class="ns-lockup ns-lockup--stack" aria-label="Namesake">
-      <img src="images/namesake-mark.svg" alt="" class="ns-lockup__mark" aria-hidden="true">
-      <span class="ns-lockup__word">Namesake</span>
+    <div class="ns-logo-frame" aria-label="Namesake">
+      <img src="images/namesake-header-horiz.svg" alt="Namesake" class="ns-logo-frame__img">
     </div>
     <h1>The website your name deserves.</h1>
     <p class="ns-lead">Custom personal sites for the people behind the work — executives, founders, attorneys, performers. Not a template. Not a profile page. A site built entirely around you.</p>
@@ -95,26 +105,31 @@
     </div>
     <div class="ns-values">
       <article class="ns-value reveal">
+        <span class="ns-value__bg ns-value__bg--grid" aria-hidden="true"></span>
         <span class="ns-value__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></span>
         <h3>Fully custom design</h3>
         <p>No templates. No drag-and-drop. Every pixel is drawn for you — your look, your story, your name front and center.</p>
       </article>
       <article class="ns-value reveal reveal-delay-1">
+        <span class="ns-value__bg ns-value__bg--wash" aria-hidden="true"></span>
         <span class="ns-value__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg></span>
         <h3>Custom imagery &amp; illustration</h3>
         <p>Original visuals, photo work, art direction. Not stock. The images carry your name as carefully as the words do.</p>
       </article>
       <article class="ns-value reveal reveal-delay-2">
+        <span class="ns-value__bg ns-value__bg--motion" aria-hidden="true"></span>
         <span class="ns-value__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg></span>
         <h3>Motion that moves</h3>
         <p>Ambient video, parallax, fluid interaction. A Namesake site feels alive the moment someone lands — that's the whole point.</p>
       </article>
       <article class="ns-value reveal reveal-delay-3">
+        <span class="ns-value__bg ns-value__bg--scan" aria-hidden="true"></span>
         <span class="ns-value__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></span>
         <h3>Built for how people find you now</h3>
         <p>Clean structure, schema, and SEO from day one — AI Platformed, so the search tools doing the looking actually find you. Including the AI ones.</p>
       </article>
       <article class="ns-value ns-value--wide reveal">
+        <span class="ns-value__bg ns-value__bg--editor" aria-hidden="true"></span>
         <span class="ns-value__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></span>
         <h3>Yours to run</h3>
         <p>When it's done, it's yours. Update it through a simple editor anytime — no developer required, no surprise bill to keep it online. And Jon's number is on the site if you ever want a hand.</p>
@@ -124,15 +139,20 @@
 </section>
 
 <!-- ============ HOW IT WORKS (teaser) ============ -->
-<section class="ns-section ns-section--surface ns-section--tight" aria-labelledby="ns-teaser-h">
+<section class="ns-section ns-section--surface" aria-labelledby="ns-teaser-h">
   <div class="ns-wrap">
-    <div class="ns-section__head is-centered reveal">
-      <span class="ns-eyebrow">The process</span>
-      <h2 id="ns-teaser-h">Simple, and built around you.</h2>
-      <p class="ns-lead">No intake maze. No mockups pulled from a template library. Jon listens, then Namesake builds — custom, on a private staging server, until it's exactly yours. Five clean steps, start to launch.</p>
-    </div>
-    <div class="ns-btn-row ns-btn-row--center reveal">
-      <a href="how-it-works.html" class="ns-btn ns-btn--ghost">See how it works <span class="ns-btn__arrow" aria-hidden="true">&rarr;</span></a>
+    <div class="ns-split2 reveal">
+      <div class="ns-split2__media">
+        <img src="images/portraits/portrait-13.jpg" alt="A professional whose personal site was built by Namesake" loading="lazy" width="480" height="600">
+      </div>
+      <div class="ns-split2__body">
+        <span class="ns-eyebrow">The process</span>
+        <h2 id="ns-teaser-h">Simple, and built around you.</h2>
+        <p class="ns-lead">No intake maze. No mockups pulled from a template library. Jon listens, then Namesake builds — custom, on a private staging server, until it's exactly yours. Five clean steps, start to launch.</p>
+        <div class="ns-btn-row">
+          <a href="how-it-works.html" class="ns-btn ns-btn--ghost">See how it works <span class="ns-btn__arrow" aria-hidden="true">&rarr;</span></a>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -156,13 +176,15 @@
           <a class="ns-ex-card__link" href="https://jonwolfstudios.com" target="_blank" rel="noopener">Visit the site <span class="ns-btn__arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
-      <!-- Card 2 — PLACEHOLDER -->
-      <!-- NAMESAKE EXAMPLE SLOT 2 — Jon to add: thumbnail, 2-sentence description, link -->
-      <article class="ns-ex-card ns-ex-card--soon reveal reveal-delay-1">
-        <div class="ns-ex-card__thumb"><span class="ns-soon-badge">More coming soon</span></div>
+      <!-- Card 2 — LIVE -->
+      <article class="ns-ex-card ns-ex-card--live reveal reveal-delay-1">
+        <div class="ns-ex-card__thumb">
+          <img src="images/example-drrozcohen.jpg" alt="drrozcohen.com — Dr. Roz Cohen's speaker and consulting site" loading="lazy" width="800" height="500">
+        </div>
         <div class="ns-ex-card__body">
-          <h3 class="ns-ex-card__name">Your site here</h3>
-          <p class="ns-ex-card__desc">Namesake is just getting started. The next one could carry your name.</p>
+          <h3 class="ns-ex-card__name">drrozcohen.com</h3>
+          <p class="ns-ex-card__desc">Dr. Roz Cohen of Socius Strategies — a warm, credible home for a speaker and consultant. Built to carry her voice on culture, belonging, and inclusion.</p>
+          <a class="ns-ex-card__link" href="https://drrozcohen.com" target="_blank" rel="noopener">Visit the site <span class="ns-btn__arrow" aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
       <!-- Card 3 — PLACEHOLDER -->
