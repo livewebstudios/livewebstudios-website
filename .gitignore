@@ -16,3 +16,4 @@ $RECYCLE.BIN/
 # Personal handoff / planning docs — never commit
 26_*_handoff.md
 *_handoff.md
+*_handoff_v*.md
