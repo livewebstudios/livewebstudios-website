@@ -361,6 +361,7 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
   transition: color var(--fast);
 }
 .mega-col-head:hover { color: var(--lws-blue-primary); }
+.mega-col-head--center { justify-content: center; text-align: center; }
 .mega-col-badge {
   background: linear-gradient(135deg, #f5e6c8, #d6a050);
   color: #1a1108; font-size: 9px; font-weight: 800; letter-spacing: 0.12em;

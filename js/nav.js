@@ -91,7 +91,7 @@
               '<div class="mega-columns">' +
                 /* Columns 1–2: the 12 Live Web Studios services (2-col grid) */
                 '<div class="mega-services">' +
-                  '<a href="' + p + 'services.html" class="mega-col-head">Live Web Studios</a>' +
+                  '<a href="' + p + 'services.html" class="mega-col-head mega-col-head--center">Services</a>' +
                   '<div class="dropdown-grid">' + svcItems + '</div>' +
                 '</div>' +
                 /* Column 3: Live Band Web Studios vertical */
