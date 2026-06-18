@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Add Tour Dates | Live Web Studios Client Guide</title>
+<meta name="description" content="Step-by-step guide for adding and managing tour dates in your Decap CMS admin panel. Built by Live Web Studios.">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- ============================================================
+  HANDOFF NOTE FOR CLAUDE CODE:
+  This page is a standalone instructional guide to be hosted at
+  livewebstudios.com/guides/decap-tour-dates/ (or similar path).
+  
+  Brand it to match livewebstudios.com exactly:
+  - Import the LWS global nav and footer
+  - Apply the LWS CSS custom properties (colors, fonts, shadows)
+  - Images are in /guides/decap-tour-dates/images/ 
+    (copy from build/decap-login/ and optimize)
+  - Images display at max-width: 900px, framed with border + shadow
+  - Page background: var(--bg-light) or site default
+  - All LWS page requirements apply: GA4 snippet, schema, OG tags
+  ============================================================ -->
+
+<style>
+  /* ---- Standalone preview styles — CC will replace with LWS globals ---- */
+  :root {
+    --lws-blue: #1a9ed4;
+    --lws-dark: #0f172a;
+    --lws-text: #334155;
+    --lws-muted: #64748b;
+    --lws-border: #e2e8f0;
+    --lws-bg: #f8fafc;
+    --lws-white: #ffffff;
+    --lws-green: #16a34a;
+    --lws-step-bg: #eff6ff;
+    --lws-step-border: #bfdbfe;
+    --shadow-card: 0 4px 6px -1px rgba(15,23,42,0.07), 0 2px 4px -2px rgba(15,23,42,0.05);
+    --shadow-img: 0 8px 20px -4px rgba(15,23,42,0.12);
+    --radius: 10px;
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--lws-bg);
+    color: var(--lws-text);
+    line-height: 1.65;
+    font-size: 1rem;
+  }
+
+  /* Page header */
+  .page-header {
+    background: var(--lws-dark);
+    color: var(--lws-white);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+  }
+  .page-header .tag {
+    display: inline-block;
+    background: var(--lws-blue);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+  }
+  .page-header h1 {
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+  }
+  .page-header p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.72);
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  /* Main container */
+  .guide-wrap {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+  }
+
+  /* Info callout boxes */
+  .callout {
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  .callout-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 0.05rem; }
+  .callout.info { background: var(--lws-step-bg); border: 1px solid var(--lws-step-border); }
+  .callout.success { background: #f0fdf4; border: 1px solid #bbf7d0; }
+  .callout.tip { background: #fffbeb; border: 1px solid #fde68a; }
+  .callout strong { display: block; margin-bottom: 0.2rem; }
+
+  /* Step cards */
+  .step {
+    background: var(--lws-white);
+    border: 1px solid var(--lws-border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+  .step-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--lws-border);
+    background: var(--lws-white);
+  }
+  .step-number {
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    background: var(--lws-blue);
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .step-header h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--lws-dark);
+  }
+  .step-body {
+    padding: 1.5rem;
+  }
+  .step-body p { margin-bottom: 0.85rem; }
+  .step-body p:last-child { margin-bottom: 0; }
+  .step-body strong { color: var(--lws-dark); }
+
+  /* Screenshot frames */
+  .screenshot-wrap {
+    margin: 1.5rem 0 0.5rem;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--lws-border);
+    box-shadow: var(--shadow-img);
+  }
+  .screenshot-wrap img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .screenshot-caption {
+    font-size: 0.8rem;
+    color: var(--lws-muted);
+    margin-top: 0.5rem;
+    font-style: italic;
+  }
+
+  /* Field reference table */
+  .field-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.92rem;
+  }
+  .field-table th {
+    text-align: left;
+    padding: 0.6rem 1rem;
+    background: var(--lws-bg);
+    color: var(--lws-muted);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 2px solid var(--lws-border);
+  }
+  .field-table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--lws-border);
+    vertical-align: top;
+  }
+  .field-table tr:last-child td { border-bottom: none; }
+  .field-table td:first-child { font-weight: 600; color: var(--lws-dark); white-space: nowrap; }
+  .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .badge-req { background: #fee2e2; color: #b91c1c; }
+  .badge-opt { background: #f0fdf4; color: #166534; }
+
+  /* Power features section */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+  }
+  .feature-card {
+    background: var(--lws-white);
+    border: 1px solid var(--lws-border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    box-shadow: var(--shadow-card);
+  }
+  .feature-card .feat-icon { font-size: 1.6rem; margin-bottom: 0.6rem; }
+  .feature-card h3 { font-size: 1rem; font-weight: 700; color: var(--lws-dark); margin-bottom: 0.4rem; }
+  .feature-card p { font-size: 0.9rem; color: var(--lws-muted); }
+
+  /* Need help CTA */
+  .help-cta {
+    background: var(--lws-dark);
+    color: var(--lws-white);
+    border-radius: var(--radius);
+    padding: 2rem 2rem;
+    text-align: center;
+    margin-top: 3rem;
+  }
+  .help-cta h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .help-cta p { color: rgba(255,255,255,0.72); margin-bottom: 1.25rem; font-size: 0.95rem; }
+  .help-cta a {
+    display: inline-block;
+    background: var(--lws-blue);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.8rem 1.75rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .help-cta a:hover { opacity: 0.88; }
+
+  @media (max-width: 640px) {
+    .guide-wrap { padding: 2rem 1.25rem 4rem; }
+    .step-body { padding: 1.25rem; }
+    .field-table { font-size: 0.85rem; }
+    .field-table th, .field-table td { padding: 0.6rem 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <span class="tag">Client Guide</span>
+  <h1>How to Add Tour Dates</h1>
+  <p>A step-by-step walkthrough for managing your show calendar through the Decap CMS admin panel.</p>
+</header>
+
+<main class="guide-wrap">
+
+  <!-- BEFORE YOU BEGIN -->
+  <div class="callout info">
+    <span class="callout-icon">📧</span>
+    <div>
+      <strong>Before you begin — check your email.</strong>
+      You should have received an invitation email from Jon Wolf at Live Web Studios. That email contains a link to verify your address and set your password. You can't log in until that's done. Check your spam folder if you don't see it. Once you're set up, you won't need to do this again.
+    </div>
+  </div>
+
+  <!-- STEP 0: Navigate to Admin -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">0</span>
+      <h2>Go to Your Admin Panel</h2>
+    </div>
+    <div class="step-body">
+      <p>Open your browser and go to your website address with <strong>/admin</strong> added to the end. For example:</p>
+      <p><strong>yourband.com/admin</strong></p>
+      <p>Bookmark this URL. You'll use it every time.</p>
+      <div class="screenshot-wrap">
+        <img src="images/1-decap.png" alt="Decap CMS admin landing page showing the Login with Netlify Identity button" width="900" height="622" loading="lazy">
+      </div>
+      <p class="screenshot-caption">The Decap CMS admin landing page. One button. Hard to miss.</p>
+    </div>
+  </div>
+
+  <!-- STEP 1: Log In -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">1</span>
+      <h2>Log In</h2>
+    </div>
+    <div class="step-body">
+      <p>Click <strong>"Login with Netlify Identity."</strong> A login dialog will appear. Enter your email address and the password you set when you accepted the invitation.</p>
+      <div class="screenshot-wrap">
+        <img src="images/2-decap.png" alt="Decap CMS login modal with email and password fields" width="900" height="622" loading="lazy">
+      </div>
+      <p class="screenshot-caption">Enter your email and password, then click Log in.</p>
+      <p style="margin-top:1rem;">Forgot your password? Hit <strong>"Forgot password?"</strong> right on that screen and it'll email you a reset link.</p>
+    </div>
+  </div>
+
+  <!-- STEP 2: Dashboard -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">2</span>
+      <h2>Find Tour Dates in the Dashboard</h2>
+    </div>
+    <div class="step-body">
+      <p>After you log in, you'll land on the <strong>Collections</strong> dashboard. This is the main menu for everything your site manages.</p>
+      <p>Click <strong>Site Content</strong> in the left column, then click <strong>Tour Dates</strong> from the list.</p>
+      <div class="screenshot-wrap">
+        <img src="images/3-decap.png" alt="Decap CMS dashboard showing Site Content collection with Tour Dates highlighted" width="900" height="622" loading="lazy">
+      </div>
+      <p class="screenshot-caption">Click "Site Content" on the left, then "Tour Dates."</p>
+    </div>
+  </div>
+
+  <!-- STEP 3: Add a Show -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">3</span>
+      <h2>Add a New Show</h2>
+    </div>
+    <div class="step-body">
+      <p>You'll see your current show list. To add a new date, click <strong>"Add shows +"</strong> on the right side of the SHOWS bar.</p>
+      <div class="screenshot-wrap">
+        <img src="images/4-decap.png" alt="Tour dates list view with Add shows button highlighted by a red arrow" width="900" height="622" loading="lazy">
+      </div>
+      <p class="screenshot-caption">Click "Add shows +" to create a new entry. Then scroll down to the bottom — that's where the new blank form opens.</p>
+      <div class="callout tip" style="margin-top:1.25rem;">
+        <span class="callout-icon">💡</span>
+        <div><strong>Scroll down after clicking.</strong> The new entry form opens at the bottom of the list — below all your existing shows. Scroll all the way down to find it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4: Fill In the Form -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">4</span>
+      <h2>Fill In the Show Details</h2>
+    </div>
+    <div class="step-body">
+      <p>Fill in the fields for the new show. Required fields are marked below. The rest are optional — leave them blank if you don't have that info yet.</p>
+
+      <table class="field-table">
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>What to Enter</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>VENUE NAME <span class="badge badge-req">Required</span></td>
+            <td>The full name of the venue. e.g., <em>The Stone Pony</em></td>
+          </tr>
+          <tr>
+            <td>CITY / STATE <span class="badge badge-req">Required</span></td>
+            <td>City and state. e.g., <em>Asbury Park, NJ</em></td>
+          </tr>
+          <tr>
+            <td>DATE <span class="badge badge-req">Required</span></td>
+            <td>Use the date picker or type in MM/DD/YYYY format.</td>
+          </tr>
+          <tr>
+            <td>SHOW TIME <span class="badge badge-opt">Optional</span></td>
+            <td>e.g., <em>8:00 PM</em>. Leave blank if not confirmed yet.</td>
+          </tr>
+          <tr>
+            <td>TICKET / EVENT URL <span class="badge badge-opt">Optional</span></td>
+            <td>Paste a link to Eventbrite, Facebook event, or venue page.</td>
+          </tr>
+          <tr>
+            <td>BUTTON LABEL <span class="badge badge-opt">Optional</span></td>
+            <td>Text for the ticket button. Defaults to <em>GET TICKETS</em>. Options: <em>MORE INFO · FREE ADMISSION</em></td>
+          </tr>
+          <tr>
+            <td>NOTES <span class="badge badge-opt">Optional</span></td>
+            <td>Any extra info. e.g., <em>Free Admission · 21+</em></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="screenshot-wrap">
+        <img src="images/5-decap.png" alt="New tour date entry form showing all fields including Venue Name, City/State, Date, Show Time, Ticket URL, Button Label, and Notes" width="900" height="622" loading="lazy">
+      </div>
+      <p class="screenshot-caption">The new show entry form. Fill in what you have and leave the rest blank.</p>
+    </div>
+  </div>
+
+  <!-- STEP 5: Publish -->
+  <div class="step">
+    <div class="step-header">
+      <span class="step-number">5</span>
+      <h2>Publish Your Changes</h2>
+    </div>
+    <div class="step-body">
+      <p>When you're done, scroll back up to the top and click the <strong>Publish</strong> button. You'll see a green <strong>"Entry saved"</strong> confirmation in the top right.</p>
+      <div class="screenshot-wrap">
+        <img src="images/6-decap.png" alt="Publish button at top of form with Entry saved confirmation toast message in green" width="900" height="622" loading="lazy">
+      </div>
+      <p class="screenshot-caption">Green "Entry saved" toast = you're done. Your site updates automatically within about 30 seconds.</p>
+      <div class="callout success" style="margin-top:1.25rem;">
+        <span class="callout-icon">✅</span>
+        <div><strong>That's it.</strong> No FTP. No plugins. No contacting anyone. The site rebuilds itself and the new date is live within about 30 seconds.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POWER FEATURES -->
+  <section style="margin-top: 3rem;">
+    <h2 style="font-size:1.4rem; font-weight:800; color:var(--lws-dark); margin-bottom:0.4rem;">What Else This System Can Do</h2>
+    <p style="color:var(--lws-muted); margin-bottom:0.5rem;">Your tour date system is fully customizable. Here's what's already built in — and what can be added.</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-icon">🗑️</div>
+        <h3>Old Dates Drop Out Automatically</h3>
+        <p>Past shows disappear from the live site on their own. You don't have to clean anything up.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">↕️</div>
+        <h3>Sort Any Way You Want</h3>
+        <p>Shows can be displayed in any order on any page — chronological, featured first, reverse — totally your call.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">🧩</div>
+        <h3>Custom Fields</h3>
+        <p>Need a "Doors Time" field? A "Support Act" field? New fields can be added easily without rebuilding anything.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">📄</div>
+        <h3>Show Up Anywhere on the Site</h3>
+        <p>The same show data can feed the homepage, a dedicated tour page, or both. One entry, multiple places.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HELP CTA -->
+  <div class="help-cta">
+    <h2>Need Something Changed?</h2>
+    <p>Questions about your admin, new fields, or anything else on the site — reach out.</p>
+    <a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a>
+  </div>
+
+</main>
+
+<!-- 
+  FOOTER: CC — replace with LWS global footer including:
+  - verifiedsecured.png badge at 150×37px
+  - "Built by Live Web Studios" credit
+  - Standard LWS footer links
+-->
+
+</body>
+</html>
