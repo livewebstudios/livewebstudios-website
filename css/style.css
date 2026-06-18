@@ -301,6 +301,10 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
 /* Dropdown */
 .nav-item { position: relative; }
 .nav-dropdown {
+  /* Brighter white border for the whole mega-menu (frame + column dividers + underlines),
+     matching the crisp border the decap page shows. Scoped here so it doesn't affect
+     cards/footers/forms that also use --lws-border. */
+  --lws-border: rgba(255,255,255,0.40);
   position: absolute; top: calc(100% + 8px); left: 0;
   background: var(--lws-bg-surface); border: 1px solid var(--lws-border);
   border-radius: var(--radius-card);
