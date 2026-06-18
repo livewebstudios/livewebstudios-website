@@ -15,7 +15,7 @@
   /* Detect folder depth for relative paths */
   var path = window.location.pathname;
   var depth = 0;
-  if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios|live-band-web-studios|namesake)\//.test(path)) depth = 1;
+  if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios|live-band-web-studios|namesake|decap)\//.test(path)) depth = 1;
   if (/\/live-band-web-studios\/forms\//.test(path)) depth = 2;   /* forms hub is two levels deep */
   var p = depth === 2 ? '../../' : (depth === 1 ? '../' : '');
 

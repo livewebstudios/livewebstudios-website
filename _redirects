@@ -172,6 +172,11 @@ https://www.livewebstudios.com/*    https://livewebstudios.com/:splat    301!
 /blog/whats-next-for-lws              /post.html?post=2026-09-11-whats-next-for-lws               200
 
 
+# ===== DECAP CLIENT GUIDE =====
+# Draft filename was published before the page was finished → clean /decap/ URL
+/decap/decap-tour-guide.html   /decap/   301
+
+
 # ===== LEGACY / MISC =====
 /blog.html     /blog/   301
 /blog          /blog/   301
