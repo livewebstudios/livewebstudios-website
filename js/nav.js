@@ -102,6 +102,7 @@
                   '<a href="' + p + 'live-band-web-studios/forms.html" class="mega-col-link">Forms</a>' +
                   '<a href="' + p + 'live-band-web-studios/personal-sites.html" class="mega-col-link">Personal Sites</a>' +
                   '<a href="' + p + 'live-band-web-studios/portfolio.html" class="mega-col-link">Portfolio</a>' +
+                  '<a href="' + p + 'decap/" class="mega-col-link">Page Edit Docs</a>' +
                 '</div>' +
                 /* Column 4: Namesake vertical */
                 '<div class="mega-col">' +
@@ -249,6 +250,7 @@
           '<li><a href="' + p + 'live-band-web-studios/personal-sites.html">Personal Sites</a></li>' +
           '<li><a href="' + p + 'live-band-web-studios/portfolio.html">Portfolio</a></li>' +
           '<li><a href="' + p + 'live-band-web-studios/forms.html">Forms</a></li>' +
+          '<li><a href="' + p + 'decap/">Page Edit Docs</a></li>' +
         '</ul>' +
       '</div>');
 

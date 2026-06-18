@@ -327,14 +327,14 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
 .nav-mega {
   position: fixed; top: 72px; right: auto;
   left: 50%; transform: translateX(-50%) translateY(8px);
-  width: min(900px, 90vw); padding: 1.5rem;
+  width: min(900px, 90vw); padding: 1rem;
 }
 .nav-item:hover .nav-mega,
 .nav-item.is-focused .nav-mega { transform: translateX(-50%) translateY(0); }
 .services-dropdown .dropdown-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; }
 .industries-dropdown .dropdown-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0.25rem; }
 .mega-footer {
-  margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--lws-border);
+  margin-top: 0.7rem; padding-top: 0.7rem; border-top: 1px solid var(--lws-border);
   display: flex; align-items: center; justify-content: space-between;
 }
 .mega-view-all { font-size: 0.8125rem; font-weight: 600; color: var(--lws-blue-primary); }
@@ -345,18 +345,18 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
 .services-dropdown .mega-columns {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
-  gap: 1.25rem;
+  gap: 0.85rem;
   align-items: stretch;
 }
 .mega-col {
   display: flex; flex-direction: column; gap: 0.1rem;
-  padding-left: 1.25rem; border-left: 1px solid var(--lws-border);
+  padding-left: 0.9rem; border-left: 1px solid var(--lws-border);
 }
 .mega-col-head {
   font-family: var(--font-display, var(--font-body));
   font-size: 0.78rem; font-weight: 700; letter-spacing: 0.05em;
   text-transform: uppercase; color: var(--lws-text-primary);
-  padding: 0.3rem 0.5rem 0.55rem; margin-bottom: 0.3rem;
+  padding: 0.2rem 0.4rem 0.4rem; margin-bottom: 0.2rem;
   border-bottom: 1px solid var(--lws-border);
   text-decoration: none; display: flex; align-items: center; gap: 0.45rem;
   transition: color var(--fast);
@@ -369,7 +369,7 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
   text-transform: uppercase; padding: 2px 6px; border-radius: 5px; flex-shrink: 0;
 }
 .mega-col-link {
-  display: block; padding: 0.5rem; font-size: 0.8125rem;
+  display: block; padding: 0.35rem 0.5rem; font-size: 0.8125rem;
   color: var(--lws-text-secondary); border-radius: var(--radius-sm);
   text-decoration: none; transition: color var(--fast), background var(--fast);
 }

@@ -39,7 +39,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=10">
+<link rel="stylesheet" href="../css/style.css?v=11">
 
 <style>
   /* ---- Page-specific component styles for the Decap tour-dates guide ----
@@ -61,16 +61,43 @@
     --radius: 10px;
   }
 
-  /* Page background for the guide content area */
+  /* LWS dark-blue page background with a slow drifting glow.
+     Body text stays dark (--lws-text) because all body copy sits inside
+     light cards/callouts; un-carded text is set light individually. */
   body {
-    background: var(--lws-bg);
+    background: #0f172a;
     color: var(--lws-text);
     line-height: 1.65;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -20%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(38% 34% at 18% 22%, rgba(91,164,207,0.20), transparent 60%),
+      radial-gradient(42% 38% at 82% 28%, rgba(45,106,159,0.22), transparent 62%),
+      radial-gradient(48% 44% at 50% 82%, rgba(30,76,122,0.20), transparent 66%);
+    animation: decapDrift 30s ease-in-out infinite alternate;
+  }
+  @keyframes decapDrift {
+    0%   { transform: translate3d(0, 0, 0) scale(1); }
+    50%  { transform: translate3d(2.5%, -2%, 0) scale(1.06); }
+    100% { transform: translate3d(-2%, 1.5%, 0) scale(1.03); }
+  }
+
+  /* Subtle scroll-reveal for cards (applied via JS only when motion is allowed) */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    body::before { animation: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
   }
 
   /* Page header */
   .page-header {
-    background: var(--lws-dark);
+    background: transparent;
     color: var(--lws-white);
     padding: 7rem 2rem 2.5rem;
     text-align: center;
@@ -245,8 +272,9 @@
 
   /* Need help CTA */
   .help-cta {
-    background: var(--lws-dark);
+    background: #16223b;
     color: var(--lws-white);
+    border: 1px solid rgba(255,255,255,0.10);
     border-radius: var(--radius);
     padding: 2rem 2rem;
     text-align: center;
@@ -444,8 +472,8 @@
 
   <!-- POWER FEATURES -->
   <section style="margin-top: 3rem;">
-    <h2 style="font-size:1.4rem; font-weight:800; color:var(--lws-dark); margin-bottom:0.4rem;">What Else This System Can Do</h2>
-    <p style="color:var(--lws-muted); margin-bottom:0.5rem;">Your tour date system is fully customizable. Here's what's already built in — and what can be added.</p>
+    <h2 style="font-size:1.4rem; font-weight:800; color:#fff; margin-bottom:0.4rem;">What Else This System Can Do</h2>
+    <p style="color:rgba(255,255,255,0.72); margin-bottom:0.5rem;">Your tour date system is fully customizable. Here's what's already built in — and what can be added.</p>
     <div class="features-grid">
       <div class="feature-card">
         <div class="feat-icon" aria-hidden="true">🗑️</div>
@@ -533,9 +561,20 @@
   </div>
 </footer>
 
-<script src="../js/nav.js?v=10"></script>
+<script src="../js/nav.js?v=11"></script>
 <script src="../js/animations.js"></script>
 <script src="../js/main.js"></script>
 <script src="../js/footer-circuit.js" defer></script>
+<script>
+/* Subtle scroll-reveal for the guide cards — self-contained, safe under reduced-motion */
+(function(){
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  var els = document.querySelectorAll('.callout, .step, .feature-card');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('is-visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ el.classList.add('reveal'); io.observe(el); });
+})();
+</script>
 </body>
 </html>
