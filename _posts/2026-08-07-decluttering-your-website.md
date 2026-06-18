@@ -1,7 +1,7 @@
 ---
 title: "The Case for Decluttering Your Website: Less Really Is More in 2026"
 date: 2026-08-07
-description: "More pages, more content, more features — it sounds like more value. It's often the opposite. Here's why the best websites in 2026 are doing less, better."
+description: "More pages, more content, more features. It sounds like more value. It's usually the opposite. Here's why the best sites in 2026 are doing less, and doing it better."
 tags: ["website design", "UX", "website optimization", "content strategy", "small business"]
 image: "/images/blog/decluttering-your-website.jpg"
 draft: false
@@ -9,15 +9,15 @@ draft: false
 
 ## The "More Is More" Trap
 
-When businesses first build a website, the instinct is to put everything on it. Every service. Every accolade. Every paragraph about the company's history. A testimonial for every happy customer. It feels thorough. It feels complete.
+When people first build a website, the instinct is to put everything on it. Every service. Every accolade. Every paragraph about the company history. A testimonial for every happy customer. It feels thorough.
 
-From a user experience perspective, it's often overwhelming.
+To the person actually visiting? It's a wall.
 
 ## What Visitors Actually Do
 
-Research on how people read websites is pretty consistent: they don't. They scan. They look for the answer to one question — "can this business help me with my specific problem?" — and if they can't find a clear answer quickly, they leave.
+Here's what the research on how people read websites keeps saying: they don't. They scan. They're looking for the answer to one question. Can this business help me with my problem? If they can't find that answer fast, they're gone.
 
-A website packed with content doesn't give people more reason to stay. It gives them more to sort through before they give up.
+A site packed with content doesn't give anyone more reason to stay. It just gives them more to dig through before they give up.
 
 ## The Pages That Actually Matter
 
@@ -25,27 +25,27 @@ For most small business sites, you need:
 
 **A homepage** that answers "what do you do and who do you do it for" in the first 5 seconds of loading.
 
-**A services page** (or individual service pages) that describe what you offer in plain terms — benefits, not just features.
+**A services page** (or individual service pages) that say what you offer in plain terms. Benefits, not just features.
 
-**An about page** that builds trust through real information about your background and approach. Not a mission statement. Actual information.
+**An about page** that builds trust with real information about your background and how you work. Not a mission statement. Actual information.
 
 **A contact page** with a form that works, a phone number, and ideally a location.
 
 **A blog** for SEO and credibility.
 
-That's the foundation. Everything else is optional until data tells you it's needed.
+That's the foundation. Everything else stays optional until the data says you need it.
 
 ## What Decluttering Does for Performance
 
-Fewer pages means a cleaner site architecture. A cleaner architecture means search engines can more easily understand what each page is about. That clarity tends to help rankings, especially for smaller sites that aren't going to out-content a major competitor.
+Fewer pages means cleaner site architecture. And clean architecture means search engines can actually understand what each page is about. That clarity helps rankings. It matters most for smaller sites that are never going to out-content a major competitor.
 
-Less also tends to load faster. A page with fewer elements, lighter media, and cleaner code loads in less time. Which brings us back, again, to Core Web Vitals and bounce rates.
+Less also loads faster. Fewer elements, lighter media, cleaner code. That's less time to load. Which lands us right back at Core Web Vitals and bounce rates.
 
 ## Simplicity Is a Design Decision
 
-It takes more discipline to build something simple than something complex. During our migration work, we treat every site rebuild as an opportunity to make deliberate choices about what belongs — and what doesn't.
+Building something simple takes more discipline than building something complex. Every site we rebuild during a migration, we treat as a chance to make a deliberate call about what belongs and what doesn't.
 
-**Thinking about a site refresh or cleanup?** [See our web design services →](https://livewebstudios.com/services/website-design.html)
+**Thinking about a site refresh or a cleanup?** [Let's talk about your web design →](https://livewebstudios.com/services/website-design.html)
 
 ---
 

@@ -9,25 +9,25 @@ draft: false
 
 ## The Monthly Invoice Is the Smallest Part
 
-When business owners think about web hosting costs, they think about the monthly fee. Fair enough — that's the number on the invoice. But the hosting bill is rarely the most expensive part of running on outdated infrastructure.
+When business owners think about hosting costs, they think about the monthly fee. Fair enough. That's the number on the invoice. But the bill is rarely the most expensive part of running on outdated infrastructure.
 
-Let me show you where the real costs show up.
+Let me show you where the real costs hide.
 
 ## Lost Rankings
 
-Search engines care about speed. Google has been explicit about it for years — Core Web Vitals are a ranking factor, and a slow site is a penalty you're paying every day in search visibility. If your site takes more than 2-3 seconds to load on mobile, you are, mathematically, showing up lower in search results than a faster competitor. That lost visibility has a dollar value. Most people just never calculate it.
+Search engines care about speed. Google's been explicit for years. Core Web Vitals are a ranking factor, and a slow site is a penalty you pay every day in search visibility. If your site takes more than 2-3 seconds to load on mobile, you're showing up lower than a faster competitor. That lost visibility has a dollar value. Most people just never calculate it.
 
 ## Visitors Who Leave Before the Page Loads
 
-The industry calls it bounce rate. Every second of load time increases it. A visitor who leaves before your page loads is a visitor who never saw your service, never read your offer, never became a lead. You paid to get them there — through ads, through SEO work, through networking — and the slow site sent them back to Google.
+The industry calls it bounce rate. Every second of load time pushes it up. A visitor who leaves before your page loads never saw your service, never read your offer, never became a lead. You paid to get them there. Ads, SEO work, networking, all of it. Then the slow site sent them right back to Google.
 
 ## Security Vulnerabilities
 
-Outdated hosting environments and unpatched WordPress installs are the primary vectors for small business website hacks. Getting hacked means downtime, potential data exposure, and a Google "this site may be harmful" warning that takes weeks to clear. The cost of a hack makes hosting upgrades look very cheap.
+Outdated hosting and unpatched WordPress installs are the main way small business sites get hacked. Getting hacked means downtime and possible data exposure. Worse, you get a Google "this site may be harmful" warning that takes weeks to clear. The cost of a hack makes a hosting upgrade look very cheap.
 
 ## Maintenance Time
 
-If you or someone on your team is touching your site regularly to run updates, check backups, and troubleshoot plugin conflicts — that time has a cost. Multiply it by 12 months.
+If you or someone on your team is touching the site every week to run updates, check backups, and chase down plugin conflicts, that time has a cost. Multiply it by 12 months.
 
 **The good news?** All of this is solvable. [Let's talk about what a modern setup looks like for your site.](https://livewebstudios.com/contact)
 

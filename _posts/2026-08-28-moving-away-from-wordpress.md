@@ -1,7 +1,7 @@
 ---
 title: "Why We're Moving Away From WordPress (And What We're Moving To)"
 date: 2026-08-28
-description: "After 20 years of building WordPress sites, Live Web Studios is transitioning to a modern AI-built stack. Here's the honest explanation of why — and what it means for existing clients."
+description: "After 20 years of building WordPress sites, Live Web Studios is moving to a modern AI-built stack. Here's the honest reason why. And what it means if you're already a client."
 tags: ["WordPress", "web design transition", "AI websites", "LWS news", "hosting"]
 image: "/images/blog/moving-away-from-wordpress.jpg"
 draft: false
@@ -9,35 +9,35 @@ draft: false
 
 ## A Little History
 
-I built my first WordPress site in the early 2000s, not long after the platform launched. For the next two decades, WordPress was the right answer for almost every small business website I built. It was flexible, it had a massive ecosystem of plugins and themes, and it was something clients could learn to manage themselves.
+I built my first WordPress site in the early 2000s, right after the platform launched. For the next two decades, WordPress was the right answer for almost every small business site I built. It was flexible. The plugin and theme ecosystem was massive, and clients could learn to manage it themselves.
 
-I don't regret a minute of that history. WordPress served our clients well.
+I don't regret a minute of that. WordPress served our clients well.
 
 ## Why the Calculus Changed
 
-The web changed. The tools changed. And a new category of tooling emerged — AI-assisted site builds on lean, modern stacks — that simply performs better for the majority of small business sites than WordPress does.
+The web changed. The tools changed. And something new showed up. AI-assisted site builds on lean, modern stacks that just perform better for most small business sites than WordPress does.
 
-Here's the honest breakdown:
+Here's the honest breakdown.
 
-**WordPress is database-driven.** Every page load involves a database query, server processing, and page assembly. For a site with dozens of concurrent users, that's fine. For a 5-page small business site? It's carrying weight it doesn't need.
+**WordPress is database-driven.** Every page load means a database query, server processing, and page assembly. For a site with dozens of concurrent users, fine. For a 5-page small business site? It's carrying weight it doesn't need.
 
-**WordPress has a maintenance tax.** Core updates, theme updates, plugin updates — these are a permanent, ongoing cost of operating a WordPress site. They're not optional. Ignore them and you're vulnerable. We've been managing this for clients for years, and it's real overhead.
+**WordPress has a maintenance tax.** Core updates. Theme updates. Plugin updates. These are a permanent, ongoing cost of running a WordPress site, and they're not optional. Ignore them and you're exposed. We've been managing this for clients for years. It's real overhead.
 
-**The plugin ecosystem is a security surface.** Every plugin is a potential vector. The most common small business site hacks exploit outdated plugins.
+**The plugin ecosystem is a security surface.** Every plugin is a potential way in. The most common small business hacks exploit outdated plugins.
 
 ## What We're Moving To
 
-A clean, modern static stack: HTML/CSS/JS built with AI tools, deployed through Netlify, forms through Formspree, content management through Decap CMS for clients who need to self-edit, source code versioned in GitHub.
+A clean, modern static stack. HTML, CSS, and JS built with AI tools, deployed through Netlify. Forms run through Formspree. Clients who need to self-edit get Decap CMS, and the source code is versioned in GitHub.
 
-No database. No plugin dependency. Dramatically faster. Cheaper to host.
+No database. No plugin dependency. Way faster, and cheaper to host.
 
 ## What Doesn't Change
 
-If you have WooCommerce, complex backend needs, or a site that genuinely requires WordPress — you're staying on WordPress. This isn't ideology, it's pragmatism.
+If you have WooCommerce, complex backend needs, or a site that genuinely requires WordPress, you're staying on WordPress. This isn't ideology. It's pragmatism.
 
 **Everything else?** We're on a migration timeline through the rest of 2026.
 
-**Questions about what this means for your specific site?** [Talk to us about your site →](https://livewebstudios.com/services/website-design.html)
+**Wondering what this means for your specific site?** [Let's talk about your site →](https://livewebstudios.com/services/website-design.html)
 
 ---
 

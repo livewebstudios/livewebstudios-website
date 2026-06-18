@@ -1,7 +1,7 @@
 ---
 title: "5 Website Mistakes Small Businesses Make That Kill Their Google Rankings"
 date: 2026-07-17
-description: "After 20 years of building and maintaining small business websites, these are the mistakes I see most often — and they're almost always fixable."
+description: "After 20 years of building small business websites, these are the mistakes I see most. The good news. They're almost always fixable."
 tags: ["SEO mistakes", "small business website", "Google rankings", "website tips", "on-page SEO"]
 image: "/images/blog/5-website-mistakes.jpg"
 draft: false
@@ -9,31 +9,31 @@ draft: false
 
 ## These Aren't Exotic Problems
 
-The SEO horror stories you read about online tend to involve black-hat tactics, Google penalties, or technical catastrophes. But the SEO issues most small businesses actually deal with are far more mundane — and far more fixable.
+The SEO horror stories online are all black-hat tactics and Google penalties. Scary stuff. But the SEO problems I actually see at small businesses are boring. And boring is good, because boring is fixable.
 
-Here are the five I see most often.
+Here are the five I run into most.
 
 ## 1. No Clear Page Purpose
 
-Every page of your website should be about one specific thing. A page that tries to cover your entire business history, all your services, and your contact info in one scroll is a page that ranks for nothing. Google needs to know what each page is *about* before it can decide who to show it to.
+Every page should be about one thing. One. A page that crams your whole history and every service you offer into one long scroll ranks for nothing. Google has to know what a page is *about* before it decides who to show it to.
 
 ## 2. Titles and Meta Descriptions Left as Defaults
 
-Most WordPress themes populate your page titles and meta descriptions automatically — often with your site name and the page template name. If you've never looked at these and intentionally written them, there's a very good chance Google is showing generic, unconvincing text in search results. This is a quick win that many sites have never taken.
+Most WordPress themes fill in your page titles and meta descriptions for you. Usually with your site name and the template name. If you've never gone in and written them yourself, Google is probably showing generic text in the search results where your pitch should be. This one's a quick win. Most sites have never taken it.
 
 ## 3. Missing or Thin Blog Content
 
-A website without a blog is a website that only ranks for its own name. A blog is the vehicle for ranking for the questions your customers are actually searching. Without it, your SEO ceiling is very low.
+A website without a blog only ranks for its own name. That's it. A blog is how you rank for the questions your customers are actually typing into Google. Without one, your SEO ceiling is low.
 
 ## 4. Slow Mobile Experience
 
-We've covered this in other posts, but it bears repeating here: mobile load time is a ranking factor. A site that loads slowly on a phone is losing rankings *and* visitors simultaneously.
+I've said this in other posts. I'll say it again. Mobile load time is a ranking factor. A site that crawls on a phone loses rankings and visitors at the same time.
 
 ## 5. No Location Signals for Local Businesses
 
-If you serve a specific geographic area and your website doesn't clearly say so — in your content, your page titles, your footer — Google has limited reason to show you in local searches. Adding location context to your pages is often one of the fastest local SEO improvements available.
+If you serve a specific area and your site never says so, Google has no real reason to show you in local searches. Say it. Put it in your content, your titles, your footer. Adding location to your pages is one of the fastest local SEO wins there is.
 
-**Want us to audit your site for these issues?** [See our SEO audit services →](https://livewebstudios.com/services/seo.html)
+**Want me to check your site for these?** Let's talk. [See our SEO audit services →](https://livewebstudios.com/services/seo.html)
 
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "AI Consulting for Small Business: What It Is and Whether You Need It"
 date: 2026-09-04
-description: "Everyone's talking about AI. Most small business owners don't know where to start — and the advice out there ranges from useful to genuinely confusing. Here's a ground-level view."
+description: "Everyone's talking about AI. Most small business owners have no idea where to start. The advice out there ranges from useful to genuinely confusing. Here's a ground-level view."
 tags: ["AI consulting", "small business AI", "AI tools", "business technology", "LWS consulting"]
 image: "/images/blog/ai-consulting-small-business.jpg"
 draft: false
@@ -9,33 +9,33 @@ draft: false
 
 ## The Honest Problem With AI Advice Right Now
 
-If you search for "AI for small business," you get a lot of articles that are either breathlessly optimistic ("AI will 10x your productivity overnight!") or vague to the point of uselessness ("leverage AI across your workflows for competitive advantage"). Neither one helps you actually decide what to do on Monday morning.
+Search "AI for small business" and you get two kinds of articles. Breathlessly optimistic ("AI will 10x your productivity overnight!") or vague to the point of useless ("use AI across your workflows for competitive advantage"). Neither one helps you decide what to do on Monday morning.
 
-The small businesses I work with have a different, more practical set of questions: *Is there something specific AI could do for my business right now? How much would it cost? Is it worth the time to set it up? And who do I call when it doesn't work?*
+The small businesses I work with ask better questions. *Is there something specific AI could do for my business right now? How much would it cost? Is it worth the time to set up? And who do I call when it breaks?*
 
-Those are good questions. They deserve straight answers.
+Good questions. They deserve straight answers.
 
 ## What AI Is Actually Doing for Small Businesses
 
-The highest-value AI applications I'm seeing for small businesses right now are mostly in the category of automating repetitive, time-consuming knowledge work:
+The highest-value AI I'm seeing for small businesses right now is mostly about automating repetitive, time-consuming knowledge work.
 
-**Customer communication drafts** — emails, follow-ups, proposals. AI writes a first draft; you edit and send. Time savings are real.
+**Customer communication drafts.** Emails, follow-ups, proposals. AI writes a first draft, you edit and send. The time savings are real.
 
-**Content creation** — blog posts, social captions, marketing copy. Again, first-draft territory. Human editing is still the last step.
+**Content creation.** Blog posts, social captions, marketing copy. Again, first-draft territory. A human still does the last edit.
 
-**Report generation** — pulling data from multiple sources, summarizing it in plain language. This is what our monthly client reports are built on.
+**Report generation.** Pulling data from a few sources and summarizing it in plain language. This is what our monthly client reports are built on.
 
-**Internal documentation** — process guides, training materials, SOPs. AI drafts them from your notes and descriptions.
+**Internal documentation.** Process guides, training materials, SOPs. AI drafts them from your notes and descriptions.
 
 ## What "AI Consulting" Means in Practice
 
-For small businesses, AI consulting isn't about implementing enterprise software. It's about sitting down, understanding how you actually work, and identifying the two or three places where AI tools could save meaningful time or produce better outputs — then setting those things up and making sure they actually work.
+For small businesses, AI consulting isn't about installing enterprise software. It's sitting down, understanding how you actually work, and finding the two or three spots where AI could save real time or produce a better result. Then setting those up and making sure they actually work.
 
 ## We're Starting to Offer This
 
-Live Web Studios is building an AI consulting practice. It's early days, but if you've looked at AI and thought *I should be doing something with this but I have no idea where to start* — that's exactly the conversation we're having.
+Live Web Studios is building an AI consulting practice. It's early days. But if you've looked at AI and thought *I should be doing something with this and I have no idea where to start*, that's exactly the conversation we're having.
 
-**Interested in getting on the early access list?** [Learn about our AI consulting →](https://livewebstudios.com/services/consulting.html)
+**Want on the early access list?** [Let's talk about AI consulting →](https://livewebstudios.com/services/consulting.html)
 
 ---
 
