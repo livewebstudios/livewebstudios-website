@@ -294,7 +294,7 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
   top: 100%;
   left: 0;
   right: 0;
-  height: 12px; /* spans the 8px gap + a small buffer */
+  height: 20px; /* bridges the nav item down to the viewport-centered fixed mega-menu (top:72px) */
   z-index: 199;
 }
 
@@ -325,6 +325,7 @@ body[data-page="about"] .hero .eyebrow { color: var(--lws-blue-primary); }
 }
 .nav-dropdown-item:hover .nav-ico-wrap { background: var(--lws-blue-glow); }
 .nav-mega {
+  position: fixed; top: 72px; right: auto;
   left: 50%; transform: translateX(-50%) translateY(8px);
   width: min(900px, 90vw); padding: 1.5rem;
 }
