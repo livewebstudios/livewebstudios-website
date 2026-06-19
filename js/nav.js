@@ -17,6 +17,7 @@
   var depth = 0;
   if (/\/(services|industries|pricing|ecosystem|blog|admin|live-band-studios|live-band-web-studios|namesake|decap)\//.test(path)) depth = 1;
   if (/\/live-band-web-studios\/forms\//.test(path)) depth = 2;   /* forms hub is two levels deep */
+  if (/\/forms\/[^/]+\//.test(path)) depth = 2;                   /* top-level forms/<name>/ is two levels deep */
   var p = depth === 2 ? '../../' : (depth === 1 ? '../' : '');
 
   /* ── Mega-menu helper: icon + label link ── */
