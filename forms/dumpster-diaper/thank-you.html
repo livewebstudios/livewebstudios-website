@@ -1,388 +1,184 @@
-<!--
-=============================================================
-  CLAUDE CODE HANDOFF
-=============================================================
-  FILE:        forms/dumpster-diaper/thank-you.html
-  PLACE AT:    [LWS_ROOT]/forms/dumpster-diaper/thank-you.html
-  LOGO PATH:   Expects logo at /images/lws-logo.png
-               Adjust src in <header> if your logo lives elsewhere.
-  NOINDEX:     Set to noindex,nofollow — this page should
-               never appear in search results.
-  REDIRECT:    Auto-redirects to livewebstudios.com after
-               12 seconds. Update the URL in the meta refresh
-               and JS countdown if the domain differs.
-  DEPENDS ON:  Nothing. Self-contained. No JS libraries.
-=============================================================
--->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <!-- Auto-redirect to LWS homepage after 12s -->
-  <meta http-equiv="refresh" content="12;url=https://livewebstudios.com">
-  <title>Got It — Thank You | Live Web Studios</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<html lang="en"><head>
+<meta charset="UTF-8">
+<link rel="icon" href="../../images/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<!-- Auto-redirect to LWS homepage after 12s -->
+<meta http-equiv="refresh" content="12;url=https://livewebstudios.com">
+<title>Got It — Thank You | Live Web Studios</title>
+<meta name="description" content="Thanks — your e-commerce discovery answers are on their way to Jon Wolf at Live Web Studios.">
+<link rel="canonical" href="https://livewebstudios.com/forms/dumpster-diaper/thank-you.html">
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SW3VF5PBDT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-SW3VF5PBDT");
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css?v=12">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Live Web Studios","url":"https://livewebstudios.com","telephone":"732-801-9611","email":"jonwolf@livewebstudios.com","address":{"@type":"PostalAddress","addressLocality":"Saddle Brook","addressRegion":"NJ","addressCountry":"US"},"areaServed":"US","foundingDate":"2004"}
+</script>
+<style>
+  /* ── Dumpster Diaper thank-you — scoped; inherits the LWS dark palette ── */
+  .ty-wrap{
+    --surface:  var(--lws-bg-surface);
+    --surface2: var(--lws-bg-elevated);
+    --border:   rgba(255,255,255,0.12);
+    --blue:     var(--lws-blue-primary);
+    --text:     var(--lws-text-primary);
+    --muted:    var(--lws-text-secondary);
+    --green:    #2a9d5c;
+    max-width: 620px;
+    margin: 0 auto;
+    text-align: center;
+  }
 
-    :root {
-      --bg:       #0F1117;
-      --surface:  #181c25;
-      --surface2: #1e2330;
-      --border:   #2a3040;
-      --blue:     #5BA4CF;
-      --blue-dim: #3d7aa8;
-      --text:     #e2e8f0;
-      --muted:    #6b7a99;
-      --white:    #ffffff;
-      --green:    #2a9d5c;
-    }
+  /* checkmark */
+  .ty-wrap .check-wrap{width:72px;height:72px;background:rgba(42,157,92,.12);border:2px solid rgba(42,157,92,.35);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 28px;animation:tyPop .4s cubic-bezier(.175,.885,.32,1.275) both;}
+  @keyframes tyPop{from{transform:scale(.5);opacity:0;}to{transform:scale(1);opacity:1;}}
+  .ty-wrap .check-wrap svg{width:36px;height:36px;}
 
-    html, body {
-      height: 100%;
-    }
+  /* what happens next */
+  .ty-wrap .next-steps{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:24px 28px;text-align:left;margin:0 auto 28px;}
+  .ty-wrap .next-steps h2{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin:0 0 16px;}
+  .ty-wrap .next-steps ol{list-style:none;display:flex;flex-direction:column;gap:14px;margin:0;padding:0;}
+  .ty-wrap .next-steps li{display:flex;align-items:flex-start;gap:14px;font-size:14px;color:var(--text);line-height:1.6;}
+  .ty-wrap .step-num{width:24px;height:24px;background:var(--blue);color:#fff;font-size:11px;font-weight:800;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Sora', sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+  /* contact strip */
+  .ty-wrap .contact-strip{border-top:1px solid var(--border);padding-top:24px;font-size:13px;color:var(--muted);line-height:1.7;}
+  .ty-wrap .contact-strip a{color:var(--blue);text-decoration:none;font-weight:600;}
+  .ty-wrap .contact-strip a:hover{text-decoration:underline;}
 
-    /* ── SITE HEADER ───────────────────────────────────── */
-    .site-header {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      padding: 0 40px;
-      height: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .site-header .logo img {
-      height: 36px;
-      width: auto;
-      display: block;
-      filter: brightness(0) invert(1);
-    }
-
-    .site-header nav {
-      display: flex;
-      gap: 28px;
-      align-items: center;
-    }
-
-    .site-header nav a {
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      transition: color 0.15s;
-    }
-
-    .site-header nav a:hover { color: var(--text); }
-
-    .site-header nav a.btn-nav {
-      background: var(--blue);
-      color: var(--white);
-      padding: 7px 16px;
-      border-radius: 4px;
-      font-size: 12px;
-    }
-
-    .site-header nav a.btn-nav:hover { background: var(--blue-dim); }
-
-    /* ── MAIN ──────────────────────────────────────────── */
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 24px;
-    }
-
-    /* ── CARD ──────────────────────────────────────────── */
-    .ty-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      max-width: 580px;
-      width: 100%;
-      padding: 56px 48px;
-      text-align: center;
-    }
-
-    /* ── CHECKMARK ICON ────────────────────────────────── */
-    .check-wrap {
-      width: 72px;
-      height: 72px;
-      background: rgba(42,157,92,0.12);
-      border: 2px solid rgba(42,157,92,0.35);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 28px;
-      animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-    }
-
-    @keyframes popIn {
-      from { transform: scale(0.5); opacity: 0; }
-      to   { transform: scale(1);   opacity: 1; }
-    }
-
-    .check-wrap svg {
-      width: 36px;
-      height: 36px;
-    }
-
-    /* ── HEADING ───────────────────────────────────────── */
-    .ty-card h1 {
-      font-size: clamp(26px, 5vw, 34px);
-      font-weight: 800;
-      color: var(--white);
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .ty-card .subhead {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.75;
-      margin-bottom: 36px;
-    }
-
-    .ty-card .subhead strong {
-      color: var(--text);
-    }
-
-    /* ── WHAT HAPPENS NEXT ─────────────────────────────── */
-    .next-steps {
-      background: var(--surface2);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 24px 28px;
-      text-align: left;
-      margin-bottom: 36px;
-    }
-
-    .next-steps h2 {
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 16px;
-    }
-
-    .next-steps ol {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .next-steps li {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      font-size: 14px;
-      color: var(--text);
-      line-height: 1.6;
-    }
-
-    .step-num {
-      width: 24px;
-      height: 24px;
-      background: var(--blue);
-      color: var(--white);
-      font-size: 11px;
-      font-weight: 800;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    /* ── CONTACT STRIP ─────────────────────────────────── */
-    .contact-strip {
-      border-top: 1px solid var(--border);
-      padding-top: 28px;
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    .contact-strip a {
-      color: var(--blue);
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    .contact-strip a:hover { text-decoration: underline; }
-
-    /* ── REDIRECT NOTICE ───────────────────────────────── */
-    .redirect-notice {
-      margin-top: 24px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .redirect-notice span {
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    /* ── PROGRESS BAR (redirect countdown) ────────────── */
-    .redirect-bar-wrap {
-      height: 3px;
-      background: var(--border);
-      border-radius: 2px;
-      overflow: hidden;
-      margin-top: 12px;
-    }
-
-    .redirect-bar-fill {
-      height: 100%;
-      background: var(--blue);
-      width: 100%;
-      transition: width linear;
-    }
-
-    /* ── FOOTER ────────────────────────────────────────── */
-    .site-footer {
-      background: var(--surface);
-      border-top: 1px solid var(--border);
-      padding: 24px 40px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .site-footer p {
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .site-footer a {
-      color: var(--muted);
-      text-decoration: none;
-    }
-
-    .site-footer a:hover { color: var(--text); }
-
-    /* ── RESPONSIVE ────────────────────────────────────── */
-    @media (max-width: 640px) {
-      .site-header { padding: 0 20px; }
-      .site-header nav { display: none; }
-      .ty-card { padding: 36px 24px; }
-      .site-footer { padding: 20px; flex-direction: column; text-align: center; }
-    }
-  </style>
+  /* redirect countdown */
+  .ty-wrap .redirect-notice{margin-top:24px;font-size:12px;color:var(--muted);}
+  .ty-wrap .redirect-notice span{color:var(--text);font-weight:600;}
+  .ty-wrap .redirect-bar-wrap{height:3px;background:var(--surface2);border-radius:2px;overflow:hidden;margin-top:12px;}
+  .ty-wrap .redirect-bar-fill{height:100%;background:var(--blue);width:100%;}
+</style>
 </head>
-<body>
+<body data-page="forms">
+<a class="skip-link" href="#main">Skip to content</a>
 
-<!-- ══════════════════════════════════════════════════════
-     SITE HEADER
-══════════════════════════════════════════════════════════ -->
-<header class="site-header">
-  <a href="../../index.html" class="logo" aria-label="Live Web Studios home">
-    <img src="../../images/Inverted_Color.png" alt="Live Web Studios">
-  </a>
-  <nav>
-    <a href="../../about.html">ABOUT</a>
-    <a href="../../faq.html">FAQ</a>
-    <a href="../../services.html">SERVICES</a>
-    <a href="../../industries/index.html">INDUSTRIES</a>
-    <a href="../../portfolio.html">PORTFOLIO</a>
-    <a href="../../blog/">BLOG</a>
-    <a href="../../contact.html">CONTACT</a>
-    <a href="../../contact.html" class="btn-nav">GET A PROPOSAL</a>
-  </nav>
-</header>
+<header class="hero hero--compact hero--centered"><div class="hero-inner">
+  <span class="label hero-headline">Discovery Received</span>
+  <h1 class="hero-headline">Got it. We're on it.</h1>
+  <p class="lead hero-subhead">Your answers are on their way to <strong>Jon Wolf</strong> right now. He'll review everything and reach out within 1–2 business days to set up a call.</p>
+</div></header>
 
-<!-- ══════════════════════════════════════════════════════
-     MAIN
-══════════════════════════════════════════════════════════ -->
-<main>
-  <div class="ty-card">
+<main id="main">
+<section class="section">
+<div class="container">
+<div class="ty-wrap">
 
-    <!-- Checkmark -->
-    <div class="check-wrap" aria-hidden="true">
-      <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 18L15 25L28 11" stroke="#2a9d5c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-
-    <h1>Got it. We're on it.</h1>
-
-    <p class="subhead">
-      Your answers are on their way to <strong>Jon Wolf</strong> right now.<br>
-      He'll review everything and reach out within <strong>1–2 business days</strong> to set up a call.
-    </p>
-
-    <!-- What happens next -->
-    <div class="next-steps">
-      <h2>What happens next</h2>
-      <ol>
-        <li>
-          <span class="step-num">1</span>
-          <span>Jon reviews your answers — usually same day.</span>
-        </li>
-        <li>
-          <span class="step-num">2</span>
-          <span>You'll get a call or email within 1–2 business days to go over the details and confirm the direction.</span>
-        </li>
-        <li>
-          <span class="step-num">3</span>
-          <span>We put together a platform recommendation and scope — then we get building.</span>
-        </li>
-      </ol>
-    </div>
-
-    <!-- Contact strip -->
-    <div class="contact-strip">
-      <p>Need to reach Jon before then?</p>
-      <p>
-        Call <a href="tel:7328019611">732.801.9611</a> anytime
-        &nbsp;·&nbsp;
-        <a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a>
-      </p>
-    </div>
-
-    <!-- Redirect countdown -->
-    <div class="redirect-notice">
-      Returning you to livewebstudios.com in <span id="countdown">12</span> seconds.
-      <div class="redirect-bar-wrap">
-        <div class="redirect-bar-fill" id="redirectBar"></div>
-      </div>
-    </div>
-
+  <!-- Checkmark -->
+  <div class="check-wrap" aria-hidden="true">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M8 18L15 25L28 11" stroke="#2a9d5c" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
   </div>
+
+  <!-- What happens next -->
+  <div class="next-steps">
+    <h2>What happens next</h2>
+    <ol>
+      <li>
+        <span class="step-num">1</span>
+        <span>Jon reviews your answers — usually same day.</span>
+      </li>
+      <li>
+        <span class="step-num">2</span>
+        <span>You'll get a call or email within 1–2 business days to go over the details and confirm the direction.</span>
+      </li>
+      <li>
+        <span class="step-num">3</span>
+        <span>We put together a platform recommendation and scope — then we get building.</span>
+      </li>
+    </ol>
+  </div>
+
+  <!-- Contact strip -->
+  <div class="contact-strip">
+    <p>Need to reach Jon before then?</p>
+    <p>
+      Call <a href="tel:7328019611">732.801.9611</a> anytime
+      &nbsp;·&nbsp;
+      <a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a>
+    </p>
+  </div>
+
+  <!-- Redirect countdown -->
+  <div class="redirect-notice">
+    Returning you to livewebstudios.com in <span id="countdown">12</span> seconds.
+    <div class="redirect-bar-wrap">
+      <div class="redirect-bar-fill" id="redirectBar"></div>
+    </div>
+  </div>
+
+</div><!-- /.ty-wrap -->
+</div><!-- /.container -->
+</section>
 </main>
 
-<!-- ══════════════════════════════════════════════════════
-     SITE FOOTER
-══════════════════════════════════════════════════════════ -->
 <footer class="site-footer">
-  <p>© 2026 Live Web Studios · 446 Saddle River Rd., Unit 2, Saddle Brook, NJ 07663</p>
-  <p><a href="tel:7328019611">732.801.9611</a> · <a href="mailto:info@livewebstudios.com">info@livewebstudios.com</a></p>
-</footer>
+  <canvas id="circuitCanvas" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand">
+        <img src="../../images/Inverted_Color.png" alt="Live Web Studios" loading="lazy" width="200" height="42">
+        <p>Built in North Jersey since 2004.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../services.html">Services</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../faq.html">FAQ</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../../services/website-design.html">Web Design</a></li>
+          <li><a href="../../services/hosting.html">Hosting</a></li>
+          <li><a href="../../services/ai-platform.html">AI Platformed Sites</a></li>
+          <li><a href="../../services/seo.html">SEO</a></li>
+          <li><a href="../../services/ai-business-services.html">AI Consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:7328019611">732.801.9611</a></li>
+          <li><a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a></li>
+          <li>446 Saddle River Rd., Unit 2</li>
+          <li>Saddle Brook, NJ 07663</li>
+              <li class="lws-face-li" style="list-style:none;padding-top:0.5rem"><img src="../../images/lwsface.png" alt="Jon Wolf – Live Web Studios" class="lws-face" loading="lazy"></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2026 Live Web Studios &middot; All rights reserved &middot; Built AI Platformed</small>
+      <span><a href="../../privacy.html">Privacy</a> &middot; <a href="../../terms.html">Terms</a></span>
+      <a href="https://livewebstudios.com" class="footer-badge">
+        <img src="../../images/verifiedsecured.png" alt="Verified &amp; Secured by Live Web Studios" loading="lazy" width="150" height="37">
+      </a>
+    </div>
+  </div>
+</footer><script src="../../js/nav.js?v=12"></script><script src="../../js/animations.js"></script><script src="../../js/main.js"></script>
+<script src="../../js/footer-circuit.js" defer></script>
 
 <script>
   // ── COUNTDOWN + SHRINKING BAR ─────────────────────────
@@ -409,5 +205,4 @@
     }
   }, 1000);
 </script>
-</body>
-</html>
+</body></html>
