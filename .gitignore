@@ -17,3 +17,20 @@ $RECYCLE.BIN/
 26_*_handoff.md
 *_handoff.md
 *_handoff_v*.md
+HANDOFF_*.md
+*_notes.md
+
+# Design source files — never part of the live site (live host serves exports only)
+*.psd
+*.psb
+*.ai
+*.eps
+*.sketch
+*.fig
+*.xcf
+
+# Local-only source / scratch / archive — drop PSDs, raw video, screenshots here.
+# Anything in these folders physically cannot be pushed.
+_source/
+_scratch/
+_archive/
