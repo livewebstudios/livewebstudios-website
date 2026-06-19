@@ -9,3 +9,8 @@
   to = "https://livewebstudios.com/:splat"
   status = 301
   force = true
+
+[[headers]]
+  for = "/forms/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
