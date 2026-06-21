@@ -2984,3 +2984,9 @@ main img:not(.clutch-badge):not(.lws-face):not(.card-icon):not([aria-hidden]) {
   .shot-grid--photos { grid-template-columns: repeat(2, 1fr); }
   .style-tab { font-size: 0.72rem; padding: 0.5rem 0.85rem; }
 }
+
+/* ── Compact gallery intro (replaces the old full "How It Works" section) ── */
+.gallery-intro { text-align: center; margin-bottom: 1.6rem; }
+.gallery-intro .label { display: inline-block; margin-bottom: 0.45rem; }
+.gallery-intro__title { font-size: clamp(1.35rem, 3vw, 1.9rem); line-height: 1.15; margin: 0 0 0.6rem; }
+.gallery-intro p { color: var(--lws-text-secondary); font-size: 0.92rem; line-height: 1.55; margin: 0; }
