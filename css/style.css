@@ -2423,3 +2423,495 @@ main img:not(.clutch-badge):not(.lws-face):not(.card-icon):not([aria-hidden]) {
     opacity: 0.30;
   }
 }
+
+/* =========================================================================
+   CUSTOM STYLES & CAROUSEL CARDS — added Jun 2026
+   - Bright CTA button in the Services mega-menu (below the 2-col list)
+   - Custom hero for the styles showcase page
+   - Categorized scroll-snap "carousel card" galleries
+   ========================================================================= */
+
+/* ── Bright CTA inside the Services mega-menu ── */
+.mega-cta-bright {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 0.9rem;
+  padding: 0.85rem 1.1rem;
+  border-radius: var(--radius-card);
+  text-decoration: none;
+  font-family: var(--font-display, var(--font-body));
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+  color: #0F1117;
+  background: linear-gradient(100deg, #5BA4CF 0%, #7BC0E0 35%, #fac777 100%);
+  box-shadow: 0 8px 22px rgba(91,164,207,0.30);
+  overflow: hidden;
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+}
+.mega-cta-bright::before {
+  content: "";
+  position: absolute; top: 0; left: -60%;
+  width: 45%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,0.55), transparent);
+  transform: skewX(-20deg);
+  transition: left .6s ease;
+}
+.mega-cta-bright:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(91,164,207,0.42); filter: saturate(1.05); }
+.mega-cta-bright:hover::before { left: 130%; }
+.mega-cta-bright > * { position: relative; z-index: 1; }
+.mega-cta-bright .mega-cta-sparkle { display: inline-flex; }
+.mega-cta-bright .mega-cta-arrow { font-size: 1.1rem; transition: transform .25s ease; }
+.mega-cta-bright:hover .mega-cta-arrow { transform: translateX(4px); }
+.mega-cta-bright .mega-cta-tag {
+  background: rgba(15,17,23,0.18);
+  color: #0F1117; font-size: 10px; font-weight: 800; letter-spacing: 0.12em;
+  text-transform: uppercase; padding: 3px 7px; border-radius: 5px;
+}
+
+/* ── Custom hero — styles showcase ── */
+.hero--styles {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 480px at 18% 12%, rgba(91,164,207,0.30), transparent 60%),
+    radial-gradient(760px 460px at 88% 18%, rgba(250,199,119,0.26), transparent 62%),
+    radial-gradient(620px 520px at 70% 92%, rgba(214,90,140,0.20), transparent 65%),
+    linear-gradient(160deg, #0F1117 0%, #161C28 55%, #11161F 100%);
+}
+.hero--styles::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.045) 1px, transparent 1px);
+  background-size: 46px 46px;
+  -webkit-mask-image: radial-gradient(circle at 50% 35%, #000 0%, transparent 78%);
+          mask-image: radial-gradient(circle at 50% 35%, #000 0%, transparent 78%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero--styles .hero-inner { position: relative; z-index: 1; }
+.hero-swatches {
+  display: flex; gap: 0.55rem; justify-content: center; flex-wrap: wrap;
+  margin-top: 1.6rem;
+}
+.hero-swatch {
+  font-family: var(--font-display, var(--font-body));
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 0.45rem 0.9rem; border-radius: var(--radius-pill);
+  color: #fff; border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.05); backdrop-filter: blur(4px);
+}
+.hero-swatch--archie       { box-shadow: inset 0 0 0 1px rgba(245,90,90,0.45);  }
+.hero-swatch--mid          { box-shadow: inset 0 0 0 1px rgba(214,160,80,0.5);  }
+.hero-swatch--pop          { box-shadow: inset 0 0 0 1px rgba(91,164,207,0.55); }
+
+/* ── Categorized carousel galleries ── */
+.style-cat { margin-bottom: clamp(2.75rem, 6vw, 4.5rem); }
+.style-cat__head {
+  display: flex; align-items: flex-end; justify-content: space-between;
+  gap: 1rem; flex-wrap: wrap; margin-bottom: 1.4rem;
+}
+.style-cat__title { margin: 0 0 0.3rem; }
+.style-cat__desc { color: var(--lws-text-secondary); max-width: 56ch; margin: 0; }
+.style-cat__count {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--lws-text-muted); white-space: nowrap;
+}
+
+.carousel { position: relative; }
+.carousel__track {
+  display: flex; gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+  padding: 0.4rem 0.2rem 1.1rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--lws-blue-deep) transparent;
+}
+.carousel__track::-webkit-scrollbar { height: 8px; }
+.carousel__track::-webkit-scrollbar-thumb { background: var(--lws-blue-deep); border-radius: 100px; }
+.carousel__track::-webkit-scrollbar-track { background: rgba(255,255,255,0.04); border-radius: 100px; }
+
+.style-card {
+  flex: 0 0 auto;
+  width: clamp(266px, 31vw, 322px);
+  scroll-snap-align: start;
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--lws-bg-surface);
+  border: 1px solid var(--lws-border);
+  transition: transform .3s ease, box-shadow .3s ease;
+  display: flex; flex-direction: column;
+  margin: 0;
+}
+.style-card:hover { transform: translateY(-4px); box-shadow: 0 16px 38px rgba(0,0,0,0.5); }
+
+/* Clickable image (lightbox trigger) */
+.card-media {
+  display: block; width: 100%; padding: 0; border: 0; margin: 0;
+  position: relative; aspect-ratio: 4 / 5; overflow: hidden;
+  background: var(--lws-bg-elevated); cursor: zoom-in;
+}
+.card-media img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  aspect-ratio: auto; transition: transform .45s ease;
+}
+.style-card:hover .card-media img { transform: scale(1.05); }
+.card-media__zoom {
+  position: absolute; bottom: 10px; right: 10px; z-index: 2;
+  width: 30px; height: 30px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.6); color: #fff; font-size: 15px; line-height: 1;
+  opacity: 0; transition: opacity .25s ease;
+}
+.card-media:hover .card-media__zoom,
+.card-media:focus-visible .card-media__zoom { opacity: 1; }
+.card-media:focus-visible { outline: 3px solid var(--lws-blue-primary); outline-offset: -3px; }
+
+/* Card body (themed per style) */
+.card-body { padding: 1rem 1.05rem 1.15rem; flex: 1; display: flex; flex-direction: column; gap: 0.45rem; }
+.card-kicker { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.card-title { margin: 0; font-size: 1.15rem; line-height: 1.12; }
+.card-text { margin: 0; font-size: 0.85rem; line-height: 1.5; color: var(--lws-text-secondary); }
+
+.carousel__nav {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  width: 42px; height: 42px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(15,17,23,0.82); color: #fff;
+  border: 1px solid var(--lws-border-hover);
+  cursor: pointer; z-index: 3;
+  transition: background .2s ease, transform .2s ease, opacity .2s ease;
+  backdrop-filter: blur(6px);
+}
+.carousel__nav:hover { background: var(--lws-blue-deep); }
+.carousel__nav:focus-visible { outline: 2px solid var(--lws-blue-primary); outline-offset: 2px; }
+.carousel__nav--prev { left: -8px; }
+.carousel__nav--next { right: -8px; }
+.carousel__nav[disabled] { opacity: 0; pointer-events: none; }
+.carousel__hint {
+  display: none; font-size: 0.78rem; color: var(--lws-text-muted);
+  text-align: center; margin-top: 0.2rem;
+}
+
+@media (hover: none) {
+  .carousel__nav { display: none; }
+  .carousel__hint { display: block; }
+}
+@media (max-width: 767px) {
+  .style-card { width: 78vw; }
+  .style-card--wide { width: 86vw; }
+  .carousel__nav { display: none; }
+  .carousel__hint { display: block; }
+}
+
+/* ── Feature card with image thumbnail (Brand & commerce → Styles) ── */
+.feature-card--showcase { padding-top: 0; overflow: hidden; }
+.feature-card__thumb {
+  display: block; width: calc(100% + 4rem);
+  margin: -2rem -2rem 1.1rem;
+  aspect-ratio: 16 / 9; object-fit: cover; background: var(--lws-bg-elevated);
+}
+.hero-cta--spaced { margin-top: 1.75rem; }
+
+/* =========================================================================
+   STYLE-THEMED CARDS (British Invasion Years sample content) + LIGHTBOX
+   ========================================================================= */
+
+/* ── ARCHIE — neo-noir graphic novel: cream paper, ink black, red spot, gold caption ── */
+.style-card--archie {
+  background: #F0E8D0; border: 2px solid #1A1A1A;
+  box-shadow: 0 6px 0 #1A1A1A, 0 16px 30px rgba(0,0,0,0.45);
+}
+.style-card--archie:hover { box-shadow: 0 6px 0 #1A1A1A, 0 22px 42px rgba(0,0,0,0.6); }
+.style-card--archie .card-media { border-bottom: 3px solid #1A1A1A; }
+.style-card--archie .card-body {
+  background-color: #F0E8D0;
+  background-image: radial-gradient(rgba(26,26,26,0.07) 1px, transparent 1.4px);
+  background-size: 7px 7px;
+}
+.style-card--archie .card-kicker {
+  color: #CC1B1B; font-family: 'Bangers', cursive; font-weight: 400;
+  letter-spacing: 0.05em; font-size: 0.95rem;
+}
+.style-card--archie .card-title {
+  font-family: 'Bangers', cursive; font-weight: 400; text-transform: uppercase;
+  letter-spacing: 0.02em; font-size: 1.55rem; line-height: 1; color: #1A1A1A;
+  background: #F5C518; align-self: flex-start;
+  padding: 0.12rem 0.5rem; border: 2px solid #1A1A1A; box-shadow: 2px 2px 0 #1A1A1A;
+}
+.style-card--archie .card-text { color: #2A2620; font-weight: 500; }
+
+/* ── MID-CENTURY AMERICAN v2 — vintage cameo advertisement:
+   arched portrait in a mat, script nameplate, centered, atomic sunburst ground ── */
+.style-card--maci {
+  background:
+    repeating-conic-gradient(from 0deg at 50% 35%, rgba(212,168,64,0.13) 0deg 5deg, transparent 5deg 11deg),
+    linear-gradient(#FBF7EE, #EFE6D3);
+  border: 3px solid #C2553F;
+  border-radius: 14px;
+  padding: 11px 11px 0;
+  box-shadow: 0 12px 28px rgba(74,46,26,0.26);
+  text-align: center;
+  overflow: hidden;
+}
+.style-card--maci .card-media {
+  aspect-ratio: 4 / 5;
+  border: 3px solid #344E78;
+  border-radius: 150px 150px 8px 8px / 96px 96px 8px 8px;     /* arched top */
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(52,46,40,0.28);
+}
+.style-card--maci .card-media img { filter: saturate(1.03); }
+.style-card--maci .card-body { align-items: center; text-align: center; gap: 0.3rem; padding: 0.6rem 0.5rem 1rem; }
+.style-card--maci .card-kicker {
+  font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600;
+  color: #344E78; letter-spacing: 0.03em; text-transform: none; font-size: 0.82rem;
+  display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.style-card--maci .card-kicker::before,
+.style-card--maci .card-kicker::after { content: ""; width: 16px; height: 1px; background: #C2553F; }
+.style-card--maci .card-title {
+  font-family: 'Yellowtail', cursive; font-weight: 400; color: #A83040;
+  font-size: 2rem; line-height: 0.95; letter-spacing: 0.01em; margin-top: -0.25rem;
+  text-shadow: 0 1px 0 #FBF7EE, 1px 1px 0 #E8C8B0;
+}
+.style-card--maci .card-text {
+  font-family: Georgia, 'Times New Roman', serif; color: #5A4A38;
+  font-size: 0.86rem; line-height: 1.5;
+}
+
+/* ── POP-ART — Lichtenstein halftone, hard outlines, vivid rotating BGs ── */
+.style-card--pop {
+  background: #FAFAF5; border: 3px solid #000; border-radius: 8px;
+  box-shadow: 6px 6px 0 #000;
+}
+.style-card--pop:hover { transform: translateY(-4px); box-shadow: 9px 9px 0 #000; }
+.style-card--pop .card-media { border-bottom: 3px solid #000; }
+.style-card--pop .card-body {
+  color: #0D0D0D;
+  background-color: var(--pop-bg, #F5E642);
+  background-image: radial-gradient(circle, rgba(0,0,0,0.30) 30%, transparent 33%);
+  background-size: 11px 11px;
+  gap: 0.55rem;
+}
+.style-card--pop.pop-yellow  { --pop-bg: #F5E642; }
+.style-card--pop.pop-red     { --pop-bg: #D92B2B; }
+.style-card--pop.pop-cyan    { --pop-bg: #00B4C8; }
+.style-card--pop.pop-magenta { --pop-bg: #E03C8A; }
+.style-card--pop.pop-purple  { --pop-bg: #7B3FA0; }
+.style-card--pop.pop-orange  { --pop-bg: #E8642A; }
+.style-card--pop .card-kicker {
+  font-family: 'Oswald', sans-serif; font-weight: 600; color: #0D0D0D;
+  background: #FAFAF5; align-self: flex-start; padding: 1px 8px;
+  border: 2px solid #000; letter-spacing: 0.08em;
+}
+.style-card--pop .card-title {
+  font-family: 'Bangers', cursive; font-weight: 400; font-size: 2.15rem; line-height: 0.92;
+  letter-spacing: 0.02em; color: #FAFAF5; -webkit-text-stroke: 2px #000;
+  paint-order: stroke fill;
+}
+.style-card--pop .card-text {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 600; color: #0D0D0D;
+  font-size: 0.9rem; line-height: 1.35;
+  background: #FAFAF5; border: 2px solid #000; padding: 0.4rem 0.55rem; border-radius: 4px;
+}
+
+/* ── Lightbox ── */
+.lightbox {
+  position: fixed; inset: 0; z-index: 3000;
+  display: none; align-items: center; justify-content: center;
+  background: rgba(8,9,13,0.93); backdrop-filter: blur(8px);
+}
+.lightbox.is-open { display: flex; }
+.lightbox__img {
+  max-width: 92vw; max-height: 84vh; object-fit: contain;
+  border-radius: 6px; box-shadow: 0 24px 70px rgba(0,0,0,0.7);
+  animation: lb-pop .28s ease;
+}
+@keyframes lb-pop { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: scale(1); } }
+.lightbox__btn {
+  position: absolute; display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.10); color: #fff; border: 1px solid rgba(255,255,255,0.25);
+  cursor: pointer; transition: background .2s ease, transform .2s ease;
+  border-radius: 50%; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
+.lightbox__btn:hover { background: var(--lws-blue-deep); }
+.lightbox__btn:focus-visible { outline: 2px solid var(--lws-blue-primary); outline-offset: 3px; }
+.lightbox__nav { top: 50%; transform: translateY(-50%); width: 54px; height: 54px; font-size: 1.8rem; }
+.lightbox__nav:hover { transform: translateY(-50%) scale(1.08); }
+.lightbox__nav--prev { left: max(2vw, 14px); }
+.lightbox__nav--next { right: max(2vw, 14px); }
+.lightbox__close { top: 18px; right: 18px; width: 46px; height: 46px; font-size: 1.5rem; }
+.lightbox__counter {
+  position: absolute; top: 24px; left: 50%; transform: translateX(-50%);
+  color: #fff; font-size: 0.85rem; letter-spacing: 0.08em; font-weight: 600;
+  background: rgba(0,0,0,0.4); padding: 4px 12px; border-radius: 100px;
+}
+.lightbox__caption {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+  max-width: 80vw; text-align: center; color: #E2E8F0; font-size: 0.85rem;
+  background: rgba(0,0,0,0.45); padding: 6px 16px; border-radius: 8px;
+}
+@media (max-width: 600px) {
+  .lightbox__nav { width: 42px; height: 42px; font-size: 1.4rem; }
+  .lightbox__img { max-width: 94vw; max-height: 76vh; }
+}
+
+/* ── Card taglines + CTAs (Mid-Century + Pop-Art) ── */
+.card-tagline { margin: 0.1rem 0 0; line-height: 1.3; }
+.card-cta {
+  align-self: flex-start; margin-top: auto;
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  text-decoration: none; cursor: pointer;
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease, color .2s ease;
+}
+.card-cta .cta-arrow { transition: transform .2s ease; }
+.card-cta:hover .cta-arrow { transform: translateX(3px); }
+.card-cta:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+
+/* MACI v2 — script-era brand line + centered pill "ticket" button */
+.style-card--maci .card-tagline {
+  font-family: 'Fraunces', Georgia, serif; font-style: italic; font-weight: 600;
+  color: #C2553F; font-size: 0.95rem;
+}
+.style-card--maci .card-cta {
+  align-self: center;
+  font-family: 'Fraunces', Georgia, serif; font-weight: 700; font-size: 0.78rem;
+  letter-spacing: 0.05em; text-transform: uppercase; color: #FBF7EE; background: #344E78;
+  padding: 0.45rem 1.15rem; border-radius: 100px; box-shadow: 0 3px 0 #22324f;
+}
+.style-card--maci .card-cta:hover { background: #C2553F; transform: translateY(-1px); box-shadow: 0 4px 0 #8c3a2a; }
+
+/* POP — Oswald brand chip + comic-button GET TICKETS / RSVP */
+.style-card--pop .card-tagline {
+  font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; color: #0D0D0D; font-size: 0.74rem;
+  background: #FAFAF5; border: 2px solid #000; padding: 2px 7px; align-self: flex-start;
+}
+.style-card--pop .card-cta {
+  font-family: 'Bangers', cursive; font-weight: 400; font-size: 1.3rem; letter-spacing: 0.03em;
+  color: #0D0D0D; background: #FAFAF5; border: 2.5px solid #000;
+  padding: 0.25rem 0.85rem; border-radius: 5px; box-shadow: 3px 3px 0 #000;
+}
+.style-card--pop .card-cta:hover { background: #F5E642; transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #000; }
+
+/* ── Hero swatch — Golden Gate ── */
+.hero-swatch--gg { box-shadow: inset 0 0 0 1px rgba(214,58,47,0.6); }
+
+/* =========================================================================
+   GOLDEN GATE — vintage silkscreen gig-poster card
+   Overlaid woodblock headline on the art + ticket-stub blurb (not photo/text stack)
+   ========================================================================= */
+.style-card--gg {
+  background: #E4DCC8;                 /* kraft */
+  border: 2px solid #1B1A17;
+  border-radius: 3px;
+  padding: 8px;
+  box-shadow: 0 10px 26px rgba(27,26,23,0.45);
+  overflow: visible;
+  position: relative;
+}
+.style-card--gg:hover { transform: translateY(-4px) rotate(-0.4deg); box-shadow: 0 18px 38px rgba(27,26,23,0.55); }
+.style-card--gg::before {                /* inner keyline rule */
+  content: ""; position: absolute; inset: 4px; border: 1px solid #1B1A17;
+  border-radius: 2px; pointer-events: none; z-index: 4;
+}
+
+/* Poster art block with overlays */
+.gg-frame { position: relative; border: 2px solid #1B1A17; overflow: hidden; background: #1B1A17; }
+.style-card--gg .card-media { aspect-ratio: 3 / 4; cursor: zoom-in; }
+.style-card--gg .card-media img { filter: contrast(1.06) saturate(0.96); }
+.style-card--gg .card-media__zoom { display: none; }
+
+.gg-banner {
+  position: absolute; top: 9px; left: 50%; transform: translateX(-50%) rotate(-1.5deg);
+  z-index: 3; pointer-events: none; white-space: nowrap;
+  font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.12em; font-size: 0.66rem; color: #F2EBD8;
+  background: #D63A2F; padding: 3px 11px; border: 1.5px solid #1B1A17;
+  box-shadow: 2px 2px 0 #1B1A17;
+}
+.gg-star { color: #F2EBD8; font-size: 0.7em; vertical-align: middle; }
+
+.gg-headline {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3; margin: 0;
+  padding: 2rem 0.5rem 0.55rem; pointer-events: none; text-align: center;
+  font-family: 'Anton', 'Oswald', sans-serif; font-weight: 400; text-transform: uppercase;
+  font-size: 2.3rem; line-height: 0.9; letter-spacing: 0.01em; color: #F2EBD8;
+  background: linear-gradient(to top, rgba(27,26,23,0.94) 28%, rgba(27,26,23,0.5) 64%, transparent);
+  text-shadow: 2px 2px 0 #D63A2F, -2px -1px 0 #1B5FA8;   /* plate misregistration */
+}
+
+/* Ticket stub blurb + CTA */
+.gg-stub {
+  position: relative; margin-top: 9px; padding: 0.85rem 0.65rem 0.55rem;
+  background: #EDE7D6; border: 2px solid #1B1A17;
+}
+.gg-stub::before {
+  content: ""; position: absolute; top: -2px; left: 6px; right: 6px;
+  border-top: 2px dashed #1B1A17;
+}
+.style-card--gg .card-text {
+  font-family: 'Roboto Condensed', sans-serif; font-weight: 600; color: #2A2620;
+  font-size: 0.86rem; line-height: 1.4; margin: 0 0 0.7rem;
+}
+.style-card--gg .card-cta {
+  font-family: 'Oswald', sans-serif; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.06em; font-size: 0.85rem; color: #F2EBD8; background: #1B5FA8;
+  border: 2px solid #1B1A17; padding: 0.45rem 0.8rem; border-radius: 2px;
+  box-shadow: 3px 3px 0 #1B1A17; margin-top: 0; align-self: stretch;
+  width: 100%; justify-content: center;
+}
+.style-card--gg .card-cta:hover { background: #D63A2F; transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #1B1A17; }
+
+@media (max-width: 767px) { .gg-headline { font-size: 2rem; } }
+
+/* ── Hero swatch — Owsley ── */
+.hero-swatch--owsley { box-shadow: inset 0 0 0 1px rgba(224,60,138,0.65); }
+
+/* =========================================================================
+   OWSLEY — 1960s psychedelic concert poster
+   Full-bleed acid art with the band name + date/tagline lettered ON the poster
+   (real overlaid type — the underlying art stays wordless per the style spec)
+   ========================================================================= */
+.style-card--owsley {
+  background: #1a0b2e;
+  border: 3px solid #120720;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(40,10,60,0.5);
+  position: relative;
+}
+.style-card--owsley:hover { transform: translateY(-4px) rotate(0.5deg); box-shadow: 0 20px 44px rgba(80,20,110,0.6); }
+.style-card--owsley .card-media { aspect-ratio: 3 / 4; cursor: zoom-in; }
+.style-card--owsley .card-media img { filter: saturate(1.08) contrast(1.04); }
+.style-card--owsley .card-media__zoom { display: none; }
+
+.ow-poster {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  display: flex; flex-direction: column; justify-content: space-between;
+  align-items: center; text-align: center; padding: 8.5% 7% 9%;
+}
+.ow-band {
+  font-family: 'Shrikhand', cursive; font-weight: 400; text-transform: uppercase;
+  font-size: 1.55rem; line-height: 0.9; letter-spacing: 0.005em; color: #F5E642;
+  -webkit-text-stroke: 1.5px #2a0a3a;
+  text-shadow: 2px 2px 0 #E03C8A, -2px 0 0 #00B4C8, 0 0 16px rgba(20,0,30,0.7);
+  transform: rotate(-2deg);
+}
+.ow-line {
+  margin: 0; font-family: 'Shrikhand', cursive; font-weight: 400; text-transform: uppercase;
+  font-size: 1.05rem; line-height: 1; letter-spacing: 0.02em; color: #FAFAF5;
+  -webkit-text-stroke: 1px #2a0a3a;
+  text-shadow: 1.5px 1.5px 0 #7B3FA0, 0 0 12px rgba(20,0,30,0.75);
+  transform: rotate(1.5deg);
+  background: rgba(26,11,46,0.4); padding: 0.18em 0.55em; border-radius: 7px;
+}
+@media (max-width: 767px) { .ow-band { font-size: 1.7rem; } }

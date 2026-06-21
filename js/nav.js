@@ -113,6 +113,15 @@
                   '<a href="' + p + 'namesake/start.html" class="mega-col-link">Start</a>' +
                 '</div>' +
               '</div>' +
+              /* Bright CTA — sits below the two-column list */
+              '<a href="' + p + 'services/custom-styles-and-carousel-cards.html" class="mega-cta-bright" aria-label="Custom Styles and Carousel Cards">' +
+                '<span class="mega-cta-sparkle" aria-hidden="true">' +
+                  '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8"/></svg>' +
+                '</span>' +
+                'Custom Styles &amp; Carousel Cards' +
+                '<span class="mega-cta-tag">New</span>' +
+                '<span class="mega-cta-arrow" aria-hidden="true">&rarr;</span>' +
+              '</a>' +
               '<div class="mega-footer">' +
                 '<a href="' + p + 'services.html" class="mega-view-all">View all services →</a>' +
               '</div>' +
@@ -136,6 +145,21 @@
                 '<span class="lbs-promo-text">' +
                   '<span class="lbs-promo-headline">Musicians, go here</span>' +
                   '<span class="lbs-promo-sub">Custom sites for bands &amp; solo artists at <em>Live Band Web Studios</em></span>' +
+                '</span>' +
+                '<span class="lbs-promo-arrow" aria-hidden="true">&rarr;</span>' +
+              '</a>' +
+              /* Custom Styles & Carousel Cards promo — sits under the "Musicians, go here" strip */
+              '<a href="' + p + 'services/custom-styles-and-carousel-cards.html" class="services-lbs-promo" aria-label="Custom Styles and Carousel Cards — graphic styles for your site">' +
+                '<span class="lbs-promo-pulse" aria-hidden="true"></span>' +
+                '<span class="lbs-promo-badge">NEW</span>' +
+                '<span class="lbs-promo-icon" aria-hidden="true">' +
+                  '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" width="22" height="22">' +
+                    '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/>' +
+                  '</svg>' +
+                '</span>' +
+                '<span class="lbs-promo-text">' +
+                  '<span class="lbs-promo-headline">Custom Styles &amp; Carousel Cards</span>' +
+                  '<span class="lbs-promo-sub">Archie, Mid-Century &amp; Pop-Art graphics for <em>your site</em></span>' +
                 '</span>' +
                 '<span class="lbs-promo-arrow" aria-hidden="true">&rarr;</span>' +
               '</a>' +
