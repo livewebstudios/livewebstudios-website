@@ -189,6 +189,33 @@ strong { color: var(--lws-text-primary); font-weight: 600; }
 .grid-2 { grid-template-columns: repeat(2, 1fr); }
 .grid-3 { grid-template-columns: repeat(3, 1fr); }
 .grid-4 { grid-template-columns: repeat(4, 1fr); }
+/* Portfolio "Our Work" grid: 4 across on monitor/laptop, 2 across on mobile (see media query below).
+   Named .work-grid to avoid colliding with the legacy .portfolio-grid/.portfolio-item rule below. */
+.work-grid { grid-template-columns: repeat(4, 1fr); }
+.work-grid .portfolio-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--lws-bg-surface);
+  border: 1px solid rgba(91, 164, 207, 0.32);            /* brand-blue tinted border */
+  border-radius: var(--radius-card);
+  box-shadow: 0 6px 26px -8px rgba(41, 171, 226, 0.42);  /* brand-blue outer glow */
+  overflow: hidden;
+  transition: transform .35s var(--ease-out, ease), box-shadow .35s var(--ease-out, ease), border-color .35s var(--ease-out, ease);
+}
+.work-grid .portfolio-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(91, 164, 207, 0.6);
+  box-shadow: 0 14px 42px -6px rgba(41, 171, 226, 0.62);
+}
+/* Photo: keep top corners round, square the bottom corners (override the global main-img radius) */
+.work-grid .portfolio-card .card-image { border-radius: var(--radius-card) var(--radius-card) 0 0 !important; }
+/* Breathing room between the photo and the website name */
+.work-grid .portfolio-card .body {
+  padding: 1.9rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
 
 /* =========================================================================
    ACCESSIBILITY
@@ -2085,6 +2112,7 @@ main img:not(.clutch-badge):not(.lws-face):not(.card-icon):not([aria-hidden]) {
   .hero { min-height: 90vh; }
   .hero--split { display: grid; grid-template-columns: 1fr; gap: var(--space-md); padding: clamp(5rem, 10vw, 7rem) var(--container-pad) 2rem; }
   .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: repeat(2, 1fr); gap: clamp(0.75rem, 3vw, 1.25rem); }
   .split-section { grid-template-columns: 1fr; }
   .split-section.reverse { direction: ltr; }
   .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
