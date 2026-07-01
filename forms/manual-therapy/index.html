@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<link rel="icon" href="../../images/favicon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Updating Events — Manual Therapy | Live Web Studios</title>
+<meta name="description" content="A quick reference guide for Manual Therapy Consultants: how to add, update, or remove an event on your website. Prepared by Live Web Studios.">
+<link rel="canonical" href="https://livewebstudios.com/forms/manual-therapy/">
+<!-- Google tag (gtag.js) — GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-SW3VF5PBDT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag("js", new Date());
+  gtag("config", "G-SW3VF5PBDT");
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/style.css?v=19">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"LocalBusiness","name":"Live Web Studios","url":"https://livewebstudios.com","telephone":"732-801-9611","email":"jonwolf@livewebstudios.com","address":{"@type":"PostalAddress","addressLocality":"Saddle Brook","addressRegion":"NJ","addressCountry":"US"},"areaServed":"US","foundingDate":"2004"}
+</script>
+
+<!-- ══════════════════════════════════════════════════════
+     MANUAL THERAPY CONSULTANTS — client reference guide
+     "Adding & Updating Events on Your Website"
+     This page is noindex,nofollow (private client guide) and
+     /forms/* carries X-Robots-Tag noindex via netlify.toml.
+══════════════════════════════════════════════════════════ -->
+<style>
+  /* ── Manual Therapy how-to guide — scoped; inherits the LWS dark palette ── */
+  .guide-wrap{
+    --surface:   var(--lws-bg-surface);
+    --surface2:  var(--lws-bg-elevated);
+    --border:    rgba(255,255,255,0.12);
+    --blue:      var(--lws-blue-primary);
+    --text:      var(--lws-text-primary);
+    --muted:     var(--lws-text-secondary);
+    --white:     #ffffff;
+    max-width: 820px;
+    margin: 0 auto;
+  }
+
+  /* ── Intro ── */
+  .guide-wrap .guide-intro p{font-size:15px;line-height:1.7;color:var(--text);margin:0 0 14px;}
+
+  /* ── Callout ── */
+  .guide-wrap .callout{
+    background:var(--lws-blue-glow);
+    border:1px solid var(--lws-blue-border);
+    border-left:3px solid var(--blue);
+    border-radius:8px;
+    padding:16px 20px;
+    margin:22px 0 40px;
+  }
+  .guide-wrap .callout p{margin:0 0 10px;font-size:14px;color:var(--white);font-weight:600;}
+  .guide-wrap .callout ul{margin:0;padding-left:20px;}
+  .guide-wrap .callout li{font-size:14px;line-height:1.65;color:var(--text);margin-bottom:8px;}
+  .guide-wrap .callout li:last-child{margin-bottom:0;}
+  .guide-wrap .callout li strong{color:var(--white);}
+
+  /* ── Step cards ── */
+  .guide-wrap .step-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    margin-bottom:26px;
+    overflow:hidden;
+  }
+  .guide-wrap .step-card-head{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    padding:16px 22px;
+    border-bottom:1px solid var(--border);
+    background:var(--surface2);
+  }
+  .guide-wrap .step-num{
+    width:30px;height:30px;
+    border-radius:50%;
+    background:var(--blue);
+    color:#fff;
+    font-size:13px;font-weight:800;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .guide-wrap .step-title{font-size:17px;font-weight:700;color:var(--white);margin:0;letter-spacing:-.01em;}
+  .guide-wrap .step-card-body{padding:22px;}
+  .guide-wrap .step-card-body p{margin:0 0 16px;font-size:14.5px;line-height:1.65;color:var(--text);}
+  .guide-wrap .step-card-body p strong{color:var(--white);}
+  .guide-wrap .step-card-body img{
+    width:100%;height:auto;
+    border:1px solid var(--border);
+    border-radius:6px;
+    display:block;
+  }
+
+  /* ── Extra info card ── */
+  .guide-wrap .extra-card{
+    background:var(--surface);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:26px 26px;
+    margin:8px 0 36px;
+  }
+  .guide-wrap .extra-card h2{font-size:18px;font-weight:700;color:var(--white);margin:0 0 14px;letter-spacing:-.01em;}
+  .guide-wrap .extra-card p{font-size:14.5px;line-height:1.65;color:var(--text);margin:0 0 12px;}
+  .guide-wrap .extra-card p:last-child{margin-bottom:0;}
+  .guide-wrap .extra-card strong{color:var(--white);}
+
+  /* ── Sign-off ── */
+  .guide-wrap .signoff{
+    padding-top:26px;
+    border-top:2px solid var(--blue);
+  }
+  .guide-wrap .signoff p{margin:0 0 6px;font-size:14.5px;line-height:1.65;color:var(--text);}
+  .guide-wrap .signoff .sign{font-weight:700;font-size:18px;color:var(--white);margin-top:12px;}
+  .guide-wrap .signoff .contact{color:var(--muted);font-size:12.5px;}
+  .guide-wrap .signoff .contact a{color:var(--blue);text-decoration:none;font-weight:600;}
+</style>
+</head>
+<body data-page="forms">
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="hero hero--compact hero--centered"><div class="hero-inner">
+  <span class="label hero-headline">Quick Reference Guide · Prepared by Live Web Studios</span>
+  <h1 class="hero-headline">Adding &amp; Updating Events on Your Website</h1>
+  <p class="lead hero-subhead">A short walkthrough for Manual Therapy Consultants — how to add a new event, edit an existing one, or take one down. About five minutes once you've done it a couple of times.</p>
+</div></header>
+
+<main id="main">
+<section class="section">
+<div class="container">
+<div class="guide-wrap">
+
+  <div class="guide-intro">
+    <p>Hi Alex,</p>
+    <p>Here's the walkthrough we talked about. It's the same method I use when I add a new seminar to your site: duplicate an existing event, then swap in the new details.</p>
+  </div>
+
+  <div class="callout">
+    <p>Two things to keep in mind before you start:</p>
+    <ul>
+      <li>Always duplicate an item marked <strong>"In stock."</strong> Never a Draft.</li>
+      <li>You're working on a copy, so the original event stays untouched. If anything looks off partway through, just delete the new draft and start over.</li>
+    </ul>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="step-card">
+    <div class="step-card-head">
+      <div class="step-num">1</div>
+      <h2 class="step-title">Start with a copy</h2>
+    </div>
+    <div class="step-card-body">
+      <p>Go to <strong>Products &rarr; All Products</strong>. Find an event similar to the one you're adding. Hover over it, then click <strong>Duplicate</strong>. Make sure the item you copy says <strong>"In stock,"</strong> not "Draft."</p>
+      <img src="images/step-1.png" alt="Products list showing In stock status and the Duplicate link" width="1158" height="812" loading="lazy">
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step-card">
+    <div class="step-card-head">
+      <div class="step-num">2</div>
+      <h2 class="step-title">Rename it</h2>
+    </div>
+    <div class="step-card-body">
+      <p>Your new copy opens in the editor with "(Copy)" added to the name. Click into the title field and rename it for the new event.</p>
+      <img src="images/step-2.png" alt="Editing the product title field for the new event" width="1188" height="846" loading="lazy">
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step-card">
+    <div class="step-card-head">
+      <div class="step-num">3</div>
+      <h2 class="step-title">Update the date and location</h2>
+    </div>
+    <div class="step-card-body">
+      <p>Scroll down to <strong>Product short description</strong> and <strong>Product long description</strong>. Click <strong>"Code"</strong> instead of "Visual" for both boxes. I know it looks like code &mdash; it's actually the safer, easier way to change just the date and location without messing up the formatting. Update the text in both boxes to match the new event.</p>
+      <img src="images/step-3.png" alt="Product description code editor showing the date and location" width="1213" height="852" loading="lazy">
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step-card">
+    <div class="step-card-head">
+      <div class="step-num">4</div>
+      <h2 class="step-title">Set the sort order</h2>
+    </div>
+    <div class="step-card-body">
+      <p>Click <strong>Advanced</strong> on the left side of the Product data box. In <strong>Menu order</strong>, type the event date as <strong>YYMMDD</strong>. September 26, 2026 becomes <strong>260926</strong>. This is what keeps your events sorted by date automatically.</p>
+      <img src="images/step-4.png" alt="The Advanced tab and Menu order field in the Product data box" width="1186" height="837" loading="lazy">
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step-card">
+    <div class="step-card-head">
+      <div class="step-num">5</div>
+      <h2 class="step-title">Open the product image</h2>
+    </div>
+    <div class="step-card-body">
+      <p>On the right side of the screen, find <strong>Product image</strong> and click the picture.</p>
+      <img src="images/step-5.png" alt="The Product image box in the sidebar" width="1482" height="836" loading="lazy">
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step-card">
+    <div class="step-card-head">
+      <div class="step-num">6</div>
+      <h2 class="step-title">Choose a new photo</h2>
+    </div>
+    <div class="step-card-body">
+      <p>A media library window opens. Look for an image with a name that matches the event's city or theme. Click it, then click <strong>"Set product image"</strong> in the bottom right.</p>
+      <img src="images/step-6.png" alt="Media library with an image selected and the Set product image button" width="1460" height="817" loading="lazy">
+    </div>
+  </div>
+
+  <!-- STEP 7 -->
+  <div class="step-card">
+    <div class="step-card-head">
+      <div class="step-num">7</div>
+      <h2 class="step-title">Publish</h2>
+    </div>
+    <div class="step-card-body">
+      <p>Once everything looks right, click <strong>Publish</strong> in the top right. That's it &mdash; the event is live.</p>
+      <img src="images/step-7.png" alt="The Publish button in the sidebar" width="1475" height="842" loading="lazy">
+    </div>
+  </div>
+
+  <div class="extra-card">
+    <h2>Editing or removing an event</h2>
+    <p><strong>Fixing something on an event that's already posted?</strong> Skip the duplicate step. From the Products page, click <strong>Edit</strong> next to that event, make your changes, and click <strong>Update</strong>.</p>
+    <p><strong>Taking an old event down?</strong> From the same Products page, click <strong>Trash</strong> next to it. It comes off the site right away &mdash; and it's not gone for good, you can restore it from the Trash tab if you ever need it back.</p>
+  </div>
+
+  <div class="signoff">
+    <p>Call or text anytime if you get stuck partway through. Happy to walk through it live.</p>
+    <p class="sign">Jon</p>
+    <p class="contact">Jon Wolf &nbsp;|&nbsp; Live Web Studios &nbsp;|&nbsp; <a href="tel:7328019611">732.801.9611</a> &nbsp;|&nbsp; <a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a></p>
+  </div>
+
+</div><!-- /.guide-wrap -->
+</div><!-- /.container -->
+</section>
+</main>
+
+<footer class="site-footer">
+  <canvas id="circuitCanvas" aria-hidden="true"></canvas>
+  <div class="container">
+    <div class="footer-grid">
+
+      <div class="footer-col footer-brand">
+        <img src="../../images/Inverted_Color.png" alt="Live Web Studios" loading="lazy" width="200" height="42">
+        <p>Built in North Jersey since 2004.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="../../services.html">Services</a></li>
+          <li><a href="../../about.html">About</a></li>
+          <li><a href="../../faq.html">FAQ</a></li>
+          <li><a href="../../contact.html">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../../services/website-design.html">Web Design</a></li>
+          <li><a href="../../services/hosting.html">Hosting</a></li>
+          <li><a href="../../services/ai-platform.html">AI Platformed Sites</a></li>
+          <li><a href="../../services/seo.html">SEO</a></li>
+          <li><a href="../../services/ai-business-services.html">AI Consulting</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:7328019611">732.801.9611</a></li>
+          <li><a href="mailto:jonwolf@livewebstudios.com">jonwolf@livewebstudios.com</a></li>
+          <li>446 Saddle River Rd., Unit 2</li>
+          <li>Saddle Brook, NJ 07663</li>
+              <li class="lws-face-li" style="list-style:none;padding-top:0.5rem"><img src="../../images/lwsface.png" alt="Jon Wolf – Live Web Studios" class="lws-face" loading="lazy" width="300" height="304"></li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+      <small>&copy; 2026 Live Web Studios &middot; All rights reserved &middot; Built AI Platformed</small>
+      <span><a href="../../privacy.html">Privacy</a> &middot; <a href="../../terms.html">Terms</a></span>
+      <a href="https://livewebstudios.com" class="footer-badge">
+        <img src="../../images/verifiedsecured.png" alt="Verified &amp; Secured by Live Web Studios" loading="lazy" width="150" height="37">
+      </a>
+    </div>
+  </div>
+</footer><script src="../../js/nav.js?v=12"></script><script src="../../js/animations.js"></script><script src="../../js/main.js"></script>
+<script src="../../js/footer-circuit.js" defer></script>
+
+</body></html>
